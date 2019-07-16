@@ -2,6 +2,7 @@ package executor;/**
  * Created by lvaolin on 17/10/18.
  */
 
+import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
@@ -14,27 +15,52 @@ import java.util.concurrent.TimeUnit;
  */
 public class CachedThreadPoolTest {
 
+   static ExecutorService executorService = Executors.newFixedThreadPool(10);
 
-    public static void main(String[] args) {
-        ExecutorService executorService = Executors.newCachedThreadPool();
 
-        for (int i = 0; i <10 ; i++) {
-            executorService.execute(new Runnable() {
-                @Override
-                public void run() {
-                   // while (true){
-                        System.out.println(Thread.currentThread().getName()+"北京时间："+System.currentTimeMillis());
-                        /*try {
-                            TimeUnit.SECONDS.sleep(1);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }*/
-                    //}
+    public static void main(String[] args) throws InterruptedException {
+         CountDownLatch countDownLatch = new CountDownLatch(5);
+        executorService.execute(new Runnable() {
+            @Override
+            public void run() {
+                // 初始化基础档案数据
+                System.out.println("1");
+                countDownLatch.countDown();
+            }
+        });
+        executorService.execute(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("2");
+                countDownLatch.countDown();
+            }
+        });
 
-                }
-            });
-        }
+        executorService.submit(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("3");
+                countDownLatch.countDown();
+            }
+        });
+        executorService.execute(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("4");
+                countDownLatch.countDown();
+            }
+        });
+        executorService.execute(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("5");
+                countDownLatch.countDown();
+            }
+        });
 
+
+        countDownLatch.await();
+        System.out.println("执行完毕");
         executorService.shutdown();
     }
 
