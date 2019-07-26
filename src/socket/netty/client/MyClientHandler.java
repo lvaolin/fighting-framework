@@ -4,6 +4,7 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 
 import java.time.LocalDateTime;
+import java.util.concurrent.TimeUnit;
 
 
 /**
@@ -14,6 +15,7 @@ public class MyClientHandler extends SimpleChannelInboundHandler<String>{
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, String msg) throws Exception {
+        TimeUnit.SECONDS.sleep(1);
         //服务端的远程地址
         System.out.println(ctx.channel().remoteAddress());
         System.out.println("client output: "+msg);
