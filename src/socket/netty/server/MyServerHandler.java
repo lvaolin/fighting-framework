@@ -4,6 +4,7 @@ package socket.netty.server;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 
+import java.time.LocalDateTime;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
@@ -15,10 +16,10 @@ public class MyServerHandler extends SimpleChannelInboundHandler<String>{
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, String msg) throws Exception {
+        System.out.println(LocalDateTime.now()+"收到了客户端的报文："+msg+Thread.currentThread().getName());
         TimeUnit.SECONDS.sleep(1);
-        //打印出客户端地址
-        System.out.println(ctx.channel().remoteAddress()+", "+msg);
-        ctx.channel().writeAndFlush("form server: "+ UUID.randomUUID());
+        System.out.println(LocalDateTime.now()+"处理完毕，响应客户端"+Thread.currentThread().getName());
+        ctx.channel().writeAndFlush(LocalDateTime.now()+"发票号码："+ UUID.randomUUID()+Thread.currentThread().getName());
     }
 
     @Override
