@@ -23,8 +23,6 @@ public class BlockQueueTest {
                 System.out.println (new StringBuilder ().append ("Character-->>").append ("字节数：").append (Character.BYTES).append (";位数：").
                         append (Character.SIZE).append ("; 最小值-->最大值:").append ((int)Character.MIN_VALUE).append ("-->").append ((int)Character.MAX_VALUE));
 
-
-
             BlockingQueue<Integer> queue = new SynchronousQueue<>();
             System.out.println(queue.offer(1,5, TimeUnit.SECONDS)+" ");
             System. out .print(queue.offer(1) + " ");

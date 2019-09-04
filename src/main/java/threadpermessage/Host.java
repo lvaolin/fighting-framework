@@ -16,7 +16,7 @@ public class Host {
         this.executorService = executorService;
     }
 
-    public  void printRequest(CountDownLatch countDownLatch,String message){
+    public  void printRequest(final CountDownLatch countDownLatch,final String message){
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -27,7 +27,7 @@ public class Host {
     }
 
 
-    public  void printRequestUsePool(CountDownLatch countDownLatch,String message){
+    public  void printRequestUsePool(final CountDownLatch countDownLatch,final String message){
 
             executorService.schedule(new Runnable() {
                 @Override

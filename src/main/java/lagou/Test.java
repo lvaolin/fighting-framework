@@ -56,7 +56,7 @@ public class Test {
 
 
     public static void main(String[] args) {
-        Test test = new Test();
+        final Test test = new Test();
 
         new Thread(new Runnable() {
             @Override

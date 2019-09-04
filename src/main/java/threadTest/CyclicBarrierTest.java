@@ -16,7 +16,7 @@ public class CyclicBarrierTest {
 
     public static void main(String[] args) throws BrokenBarrierException, InterruptedException {
 
-        CyclicBarrier cyclicBarrier = new CyclicBarrier(3);
+        final CyclicBarrier cyclicBarrier = new CyclicBarrier(3);
 
         Thread thread1 = new Thread(new Runnable() {
             @Override

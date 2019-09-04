@@ -23,7 +23,7 @@ public class ReentrantReadWriteLockTest {
 
     public static void main(String[] args) {
 
-        CyclicBarrier cyclicBarrier = new CyclicBarrier(3);
+        final CyclicBarrier cyclicBarrier = new CyclicBarrier(3);
         new Thread(new Runnable() {
             @Override
             public void run() {

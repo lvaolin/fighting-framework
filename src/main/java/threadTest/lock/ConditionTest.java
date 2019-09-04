@@ -13,9 +13,9 @@ import java.util.concurrent.locks.ReentrantLock;
 public class ConditionTest {
 
     public static void main(String[] args) {
-        List<String> list = new ArrayList<String>();
-        Lock lock = new ReentrantLock();
-        Condition condition = lock.newCondition();
+        final List<String> list = new ArrayList<String>();
+        final Lock lock = new ReentrantLock();
+        final Condition condition = lock.newCondition();
 
         for (int i = 0; i <1 ; i++) {
             new Thread(new Runnable() {

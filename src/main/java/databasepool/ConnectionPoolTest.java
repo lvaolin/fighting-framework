@@ -20,8 +20,8 @@ public class ConnectionPoolTest {
 
     public static void main(String[] args) throws InterruptedException {
 
-        ConnectionPool connectionPool = new ConnectionPool(10);
-        CountDownLatch countDownLatch = new CountDownLatch(100);
+        final ConnectionPool connectionPool = new ConnectionPool(10);
+        final CountDownLatch countDownLatch = new CountDownLatch(100);
         int i = 0;
         while (i<100){
             new Thread(new Runnable() {

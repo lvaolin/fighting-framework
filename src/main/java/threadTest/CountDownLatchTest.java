@@ -13,7 +13,7 @@ public class CountDownLatchTest {
 
     public static void main(String[] args) throws InterruptedException {
 
-         java.util.concurrent.CountDownLatch countDownLatch = new java.util.concurrent.CountDownLatch(2);
+       final   java.util.concurrent.CountDownLatch countDownLatch = new java.util.concurrent.CountDownLatch(2);
 
          Thread thread1 = new Thread(new Runnable() {
              @Override

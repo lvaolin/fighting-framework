@@ -19,7 +19,7 @@ public class CachedThreadPoolTest {
 
 
     public static void main(String[] args) throws InterruptedException {
-         CountDownLatch countDownLatch = new CountDownLatch(5);
+        final CountDownLatch countDownLatch = new CountDownLatch(5);
         executorService.execute(new Runnable() {
             @Override
             public void run() {

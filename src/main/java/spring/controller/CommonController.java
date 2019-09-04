@@ -20,7 +20,6 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
-import org.springframework.web.servlet.ModelAndView;
 
 
 /**
@@ -43,7 +42,7 @@ public class CommonController {
      * @throws Exception
      */
     @RequestMapping("/captcha/image")
-    public ModelAndView getCaptchaImage(HttpServletRequest request, HttpServletResponse response) throws Exception {
+    public void getCaptchaImage(HttpServletRequest request, HttpServletResponse response) throws Exception {
        /* HttpSession session = request.getSession();
         //集群模式从 redis获取
         String code = (String)session.getAttribute(Constants.KAPTCHA_SESSION_KEY);
@@ -80,7 +79,7 @@ public class CommonController {
         } finally {
             out.close();
         }*/
-        return null;
+        return ;
     }
 
 

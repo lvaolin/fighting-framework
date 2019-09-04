@@ -15,7 +15,7 @@ public class ShiTi3 {
 
 
     public static void main(String[] args) throws InterruptedException {
-        CountDownLatch countDownLatch = new CountDownLatch(3);
+        final CountDownLatch countDownLatch = new CountDownLatch(3);
 
         System.out.println("我正在做年度计划，需要ABC三名员工提交报表才能继续，等待中");
 
