@@ -2,7 +2,6 @@ package deadlock;/**
  * Created by lvaolin on 17/10/31.
  */
 
-import sun.plugin.net.protocol.jar.CachedJarURLConnection;
 
 /**
  * 死锁案例
