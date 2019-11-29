@@ -1,5 +1,7 @@
 package com.thread;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * 交替输出 字母和数字-----------------------
  */
@@ -12,6 +14,11 @@ public class Demo1 {
             @Override
             public void run() {
                 while (true){
+                    try {
+                        TimeUnit.SECONDS.sleep(1);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     if(flag1){
                         System.out.println("a");
                         flag1 = false;
@@ -26,6 +33,11 @@ public class Demo1 {
             @Override
             public void run() {
                 while (true){
+                    try {
+                        TimeUnit.SECONDS.sleep(1);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     if(flag2){
                         System.out.println("1");
                         flag2 = false;
