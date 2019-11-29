@@ -17,6 +17,7 @@ public class Test {
     static  int MIN_SIZE=0;
     public  synchronized void put(Object o){
 
+
         while (buf.size()>=MAX_SIZE){
             try {
                 System.out.println(Thread.currentThread().getName()+"容量满，生产进入等待"+buf.size());
