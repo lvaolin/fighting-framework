@@ -8,7 +8,7 @@ package com.concurrency;/**
  */
 public class ConcurrencyTest {
 
-private  static final long count=2100000000l;
+private  static final long count=2100000000L;
     public static void main(String[] args) throws InterruptedException {
 
                 concurrency();
