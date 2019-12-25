@@ -4,13 +4,14 @@ import java.util.concurrent.CountDownLatch;
 
 /**
  * 100个线程同时修改共享变量 i  ，每个线程进行 i++ 操作 1万次。
- * 非原子操作测试问题复现
+ * 演示 volatile 关键字解决不了 操作的原子性
+ * 原子操作测试
  * @author lvaolin
  * @create 2019/12/24 7:56 PM
  */
-public class AtomicTest02 {
+public class AtomicTest03 {
 
-    static int i=0;
+    static volatile int i=0;
 
     public static void main(String[] args) throws InterruptedException {
         CountDownLatch cdl = new CountDownLatch(100);
