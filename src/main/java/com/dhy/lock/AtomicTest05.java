@@ -12,10 +12,8 @@ import java.util.concurrent.locks.ReentrantLock;
  * @create 2019/12/24 7:56 PM
  */
 public class AtomicTest05 {
-
-    static Lock lock = new ReentrantLock();
+    static Lock lock = new ReentrantLock();//可以保证多线程之间共享变量的内存可见性
     static  int i=0;
-
     public static void main(String[] args) throws InterruptedException {
         CountDownLatch cdl = new CountDownLatch(100);
         for (int j = 0; j <100 ; j++) {
@@ -35,7 +33,6 @@ public class AtomicTest05 {
                 }
             }).start();
         }
-
         cdl.await();
         System.out.println("result:"+i);
 
