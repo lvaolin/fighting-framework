@@ -10,13 +10,5 @@ public class HelloImpl implements IHello{
         System.out.println("hello......."+name);
     }
 
-    @Override
-    public void sayOk(String name) {
 
-    }
-
-    @Override
-    public void sayMorning(String name) {
-
-    }
 }

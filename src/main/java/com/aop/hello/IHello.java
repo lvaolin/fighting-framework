@@ -8,7 +8,6 @@ package com.aop.hello;
 public interface IHello {
 
     public void sayHello(String name);
-    public void sayOk(String name);
-    public void sayMorning(String name);
+
 
 }

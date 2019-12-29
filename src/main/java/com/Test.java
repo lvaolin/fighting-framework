@@ -1,5 +1,7 @@
 package com;
 
+import sun.misc.Unsafe;
+
 import java.util.HashMap;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -18,6 +20,7 @@ public class Test {
         ConcurrentHashMap<Object, Object> chm = new ConcurrentHashMap<>();
 
         chm.put("","");
+        Unsafe.getUnsafe();
 
     }
 
