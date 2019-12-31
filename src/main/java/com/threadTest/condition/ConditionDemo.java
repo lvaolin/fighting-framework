@@ -1,6 +1,4 @@
-package com.threadTest.condition;/**
- * Created by lvaolin on 17/10/19.
- */
+package com.threadTest.condition;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -14,9 +12,6 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 public class ConditionDemo {
 
-
-
-
     public static void main(String[] args) throws InterruptedException {
         // 获取独占锁
          ReentrantLock lock = new ReentrantLock();
@@ -28,7 +23,9 @@ public class ConditionDemo {
          Condition cd3 = lock.newCondition();
 
         ConditionDemo demo = new ConditionDemo();
-        ExecutorService es = Executors.newCachedThreadPool();//此线程池特点，优先使用空闲线程，空闲线程可以存活60秒,无空闲线程时创建新线程，线程数量无上限，适合任务多而小（处理时间短）场景
+        //此线程池特点，优先使用空闲线程，空闲线程可以存活60秒,
+        // 无空闲线程时创建新线程，线程数量无上限，适合任务多而小（处理时间短）场景
+        ExecutorService es = Executors.newCachedThreadPool();
         Thread1 tr1 = demo.new Thread1(lock,cd1);
         Thread1 tr2 = demo.new Thread1(lock,cd2);
         Thread1 tr3 = demo.new Thread1(lock,cd3);
@@ -68,14 +65,12 @@ public class ConditionDemo {
 
     // 线程任务定义类
     public class Thread1 implements Runnable {
-
         Condition condition;
         Lock lock;
         public Thread1(Lock lock,Condition condition) {
             this.lock = lock;
             this.condition = condition;
         }
-
         @Override
         public void run() {
             try {
