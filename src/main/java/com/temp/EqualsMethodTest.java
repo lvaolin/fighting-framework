@@ -1,6 +1,11 @@
 package com.temp;
 
+import java.lang.management.MemoryPoolMXBean;
 import java.util.HashMap;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * == 比较的是内存引用地址    equals比较的是对象内容
@@ -46,5 +51,17 @@ public class EqualsMethodTest {
         hashMap.hashCode();
         Object o = new Object();
         o.hashCode();
+
+
+        ExecutorService executorService = Executors.newFixedThreadPool(1);
+        Future<?> f = executorService.submit(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("newFixedThreadPool线程池");
+            }
+        });
+        if (f.isDone()) {
+            System.out.println("======");
+        }
     }
 }
