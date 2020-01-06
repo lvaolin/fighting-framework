@@ -1,4 +1,4 @@
-package com.aop.hello;
+package com.aop.demo4jdkproxy;
 
 /**
  * @author lvaolin
@@ -8,6 +8,8 @@ public class AopTest {
     public static void main(String[] args) {
         IHello hello =(IHello) new MyInvocationHandle().bind(new HelloImpl());
         hello.sayHello("马克");
+        IWorld world = (IWorld) new MyInvocationHandle().bind(new World());
+        world.sayWorld();
     }
 
 }

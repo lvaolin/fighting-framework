@@ -1,4 +1,4 @@
-package com.aop.hello;
+package com.aop.demo4jdkproxy;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
@@ -21,14 +21,9 @@ public class MyInvocationHandle implements InvocationHandler{
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         Object result = null;
         try {
-
-            Method[] methods = proxy.getClass().getDeclaredMethods();
-            for (Method m :methods) {
-                System.out.println("当前代理对象中含有的方法："+m.getName());
-            }
-            System.out.println("before  "+args[0]);
+            System.out.println("before  ");
             result = method.invoke(this.delegate,args);
-            System.out.println("after  "+args[0]);
+            System.out.println("after  ");
         }catch (Exception e){
             e.printStackTrace();
         }

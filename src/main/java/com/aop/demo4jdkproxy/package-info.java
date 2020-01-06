@@ -1,4 +1,4 @@
-package com.aop.hello;
+package com.aop.demo4jdkproxy;
 /**
  * aop原理，利用InvocationHandle实现aop测试
  *

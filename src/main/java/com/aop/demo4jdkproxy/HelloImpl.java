@@ -1,4 +1,4 @@
-package com.aop.hello;
+package com.aop.demo4jdkproxy;
 
 /**
  * @author lvaolin
