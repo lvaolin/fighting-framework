@@ -34,7 +34,7 @@ public class ZKSnowflakeIDGenerator extends AbstractSnowflakeIDGenerator {
      * ZK管理器
      */
     @Autowired
-    private ZkManager zkManager;
+    private ZkManager zkManager = new ZkManager();
     /**
      * Zk连接状态监听器
      */

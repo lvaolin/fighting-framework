@@ -12,7 +12,14 @@ import java.util.List;
 public class OidService implements IOidService {
 
 	@Autowired
-	private ZKSnowflakeIDGenerator idGenerator;
+	private ZKSnowflakeIDGenerator idGenerator = new ZKSnowflakeIDGenerator();
+	{
+		try {
+			idGenerator.init();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 	//@Override
 	//public Long generateObjectID() {
