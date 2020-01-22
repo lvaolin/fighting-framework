@@ -1,6 +1,7 @@
 package com.aop.demo4jdkproxy;
 
 /**
+ * JDK动态代理测试
  * @author lvaolin
  * @create 2019/7/15 6:47 PM
  */
