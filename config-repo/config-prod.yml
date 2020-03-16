@@ -1,1 +1,3 @@
 word: prod hello world
+log:
+  level: error

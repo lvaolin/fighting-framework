@@ -1,1 +1,3 @@
 word: dev hello world
+log:
+  level: info

@@ -1,1 +1,3 @@
 word: hello world
+log:
+  level: debug

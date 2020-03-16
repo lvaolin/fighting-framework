@@ -1,1 +1,3 @@
 word: test hello world
+log:
+  level: warn
