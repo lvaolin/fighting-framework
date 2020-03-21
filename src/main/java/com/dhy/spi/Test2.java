@@ -4,12 +4,12 @@ import java.sql.Driver;
 import java.sql.SQLException;
 import java.util.ServiceLoader;
 
-public class Test1 {
+public class Test2 {
 
     public static void main(String[] args) throws SQLException {
 
-        ServiceLoader<Driver> serviceLoader = ServiceLoader.load(Driver.class);
-        for (Driver driverService: serviceLoader){
+        ServiceLoader<MyDriver> serviceLoader = ServiceLoader.load(MyDriver.class);
+        for (MyDriver driverService: serviceLoader){
             System.out.println(driverService.getClass().getName());
         }
 
