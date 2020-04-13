@@ -9,6 +9,7 @@ import com.alibaba.csp.sentinel.slots.block.flow.FlowRuleManager;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * try catch 方式使用sentinel
@@ -17,11 +18,12 @@ import java.util.List;
  */
 public class Demo01 {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         // 配置规则.
         initFlowRules();
 
         while (true) {
+            TimeUnit.MILLISECONDS.sleep(50);
             // 1.5.0 版本开始可以直接利用 try-with-resources 特性，自动 exit entry
             try (Entry entry = SphU.entry("HelloWorld")) {
                 // 被保护的逻辑
