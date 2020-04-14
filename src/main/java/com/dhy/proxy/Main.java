@@ -26,5 +26,8 @@ public class Main {
         IHello hello3 = new Hello();
         hello3.say();
         System.out.println("----------------");
+        //-----------改进生成代理，更简单一些---
+        IPerson person1 = (IPerson)MyProxyBetter.getInstance(new Person());
+        person1.eat();
     }
 }
