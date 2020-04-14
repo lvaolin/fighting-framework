@@ -1,4 +1,4 @@
-package com.dhy.proxy;
+package com.dhy.proxy.jdk;
 
 /**
  * @author lvaolin

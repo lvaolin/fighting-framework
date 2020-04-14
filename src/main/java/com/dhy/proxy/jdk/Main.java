@@ -1,5 +1,6 @@
-package com.dhy.proxy;
+package com.dhy.proxy.jdk;
 
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Proxy;
 
 /**
@@ -7,7 +8,7 @@ import java.lang.reflect.Proxy;
  * @create 2020/4/13 5:56 PM
  */
 public class Main {
-    public static void main(String[] args) throws IllegalAccessException, InstantiationException {
+    public static void main(String[] args) throws IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException {
         //-----Spring 工厂模式生成对象-----
         IPerson person = (IPerson) Factory.getInstance("person");
         person.eat();
