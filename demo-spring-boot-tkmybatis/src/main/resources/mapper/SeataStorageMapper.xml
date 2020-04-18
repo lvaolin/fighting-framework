@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dhy.demo.spring.tkmybatis.service.mapper.SeataStorageMapper">
+    <!--sql就是原生sql，字段名称和po不一致的要进行重命名才能正确给po自动赋值-->
+    <select id="productSelectAllByXml" resultType="com.dhy.demo.spring.tkmybatis.po.SeataStoragePo" >
+        select product.*,last_update_time as lastUpdateTime from product
+    </select>
+</mapper>
