@@ -1,7 +1,7 @@
 package com.dhy.demo.spring.mybatis.controller;
 
-import com.dhy.demo.spring.mybatis.service.ISeataStorageService;
-import com.dhy.demo.spring.mybatis.service.SeataStoragePo;
+import com.dhy.demo.spring.mybatis.itf.ISeataStorageService;
+import com.dhy.demo.spring.mybatis.po.SeataStoragePo;
 import com.dhy.demo.spring.mybatis.utils.BusinessException;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/spring/jdbc")
+@RequestMapping("/spring/mybatis")
 public class IndexController {
 
     @Autowired
@@ -27,9 +27,14 @@ public class IndexController {
     }
 
 
-    @RequestMapping("/product")
+    @RequestMapping("/product/all")
     Object getProduct(){
         return seataStorageService.selectAll();
+    }
+
+    @RequestMapping("/product/all-xml")
+    Object getProductByXml(){
+        return seataStorageService.selectAllByXml();
     }
 
     @RequestMapping("/product/insert")

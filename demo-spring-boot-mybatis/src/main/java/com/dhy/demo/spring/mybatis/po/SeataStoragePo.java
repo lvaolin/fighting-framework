@@ -1,4 +1,4 @@
-package com.dhy.demo.spring.mybatis.service;
+package com.dhy.demo.spring.mybatis.po;
 
 import lombok.Data;
 
