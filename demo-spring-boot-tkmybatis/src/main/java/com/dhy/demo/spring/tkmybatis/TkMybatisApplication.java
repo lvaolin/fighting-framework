@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import tk.mybatis.spring.annotation.MapperScan;
 
 @SpringBootApplication
-@MapperScan("com.dhy.demo.spring.tkmybatis.service.mapper")
+@MapperScan(basePackages ="com.dhy.demo.spring.tkmybatis.service.mapper")
 public class TkMybatisApplication {
 
     public static void main(String[] args) {
