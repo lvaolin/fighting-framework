@@ -9,5 +9,7 @@
 		<module>demo-idcreateservice</module>
 		<module>demo-spring-boot-jdbc-template</module>
 		<module>demo-spring-boot-mybatis</module>
+		<module>demo-spring-boot-springdatajpa</module>
+		<module>demo-spring-boot-tkmybatis</module>
 	</modules>
 </project>
