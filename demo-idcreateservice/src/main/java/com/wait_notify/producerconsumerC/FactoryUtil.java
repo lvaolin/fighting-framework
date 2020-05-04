@@ -1,4 +1,4 @@
-package com.producerconsumerC; /**
+package com.wait_notify.producerconsumerC; /**
  * Created by lvaolin on 17/9/6.
  */
 
@@ -18,10 +18,10 @@ public class FactoryUtil {
     public  void put(Object o) throws InterruptedException {
         synchronized (buf){
             while (buf.size() == MAX_SIZE) {
-                System.out.println("生产者：生产者仓库已饱和，进行等待消费状态。。。。");
+                System.out.println(Thread.currentThread().getName()+"生产者：生产者仓库已饱和，进行等待消费状态。。。。");
                 buf.wait();
             }
-            System.out.println("生产者：生产者仓库未饱和，进行生产作业。。。。。:"+buf.size());
+            System.out.println(Thread.currentThread().getName()+"生产者：生产者仓库未饱和，进行生产作业。。。。。:"+buf.size());
             buf.add(o);
             buf.notify();
         }
@@ -32,11 +32,11 @@ public class FactoryUtil {
     public   Object get() throws InterruptedException {
         synchronized (buf){
             while (buf.size() == MIN_SIZE) {
-                System.out.println("消费者：仓库已没货，进入等待状态。");
+                System.out.println(Thread.currentThread().getName()+"消费者：仓库已没货，进入等待状态。");
                 buf.wait();
             }
 
-            System.out.println("消费者：仓库已补货，进入消费状态....。:"+buf.size());
+            System.out.println(Thread.currentThread().getName()+"消费者：仓库已补货，进入消费状态....。:"+buf.size());
             Object o = buf.remove(0);
             buf.notify();
             return o;

@@ -1,4 +1,4 @@
-package com.producerconsumerB; /**
+package com.wait_notify.producerconsumerC; /**
  * Created by lvaolin on 17/9/6.
  */
 
@@ -7,10 +7,14 @@ package com.producerconsumerB; /**
  * @create 17/9/6 下午2:56
  */
 public class ProducerThread extends Thread{
+    private FactoryUtil factoryUtil;
+
+    public ProducerThread(FactoryUtil factoryUtil){
+        this.factoryUtil = factoryUtil;
+    }
 
     @Override
     public void run(){
-        FactoryUtil factoryUtil = new FactoryUtil();
         while (true) {
             try {
                 factoryUtil.put(new Object());

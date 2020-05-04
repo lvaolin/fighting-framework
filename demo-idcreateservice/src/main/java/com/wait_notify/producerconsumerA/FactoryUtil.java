@@ -1,4 +1,4 @@
-package com.producerconsumerA; /**
+package com.wait_notify.producerconsumerA; /**
  * Created by lvaolin on 17/9/6.
  */
 
