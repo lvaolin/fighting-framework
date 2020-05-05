@@ -1,3 +1,4 @@
+/*
 package com.dhy.attach;
 
 import com.sun.tools.attach.VirtualMachine;
@@ -8,12 +9,14 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 
+*/
 /**
  * attach demo
  *
  * @author lvaolin
  * @create 2020/1/17 10:40 AM
- */
+ *//*
+
 public class Demo01 {
     public static void main(String[] args) throws Exception{
         HotSpotVirtualMachine attach = (HotSpotVirtualMachine)VirtualMachine.attach("49970");
@@ -39,3 +42,4 @@ public class Demo01 {
         in.close();
     }
 }
+*/

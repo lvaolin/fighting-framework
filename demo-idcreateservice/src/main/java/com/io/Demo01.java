@@ -10,13 +10,20 @@ import java.io.*;
  */
 public class Demo01 {
 
+    /**
+     * 基于字节流传输
+     * @param from
+     * @param to
+     */
     public static void transFileWithByteStream(String from,String to){
         try {
             FileInputStream inputStream = new FileInputStream(new File(from));
             FileOutputStream outputStream = new FileOutputStream(new File(to));
             byte[] result = new byte[1024];
-            while (inputStream.read(result)!=-1) {
-                outputStream.write(result);
+            int len =0;
+            while ( (len=inputStream.read(result))!=-1) {
+                outputStream.write(result,0,len); //注意指定len长度，否则最后一次读取可能无法填满数组，导致上一次的旧数据被输出
+
             }
 
             inputStream.close();
@@ -28,16 +35,19 @@ public class Demo01 {
         }
     }
 
+    /**
+     * 基于字符流传输
+     * @param from
+     * @param to
+     */
     public static void transFileWithCharStream(String from,String to){
         try {
             FileReader inputStream = new FileReader(new File(from));
             FileWriter outputStream = new FileWriter(new File(to));
             char[] result = new char[512];
-            while (inputStream.read(result)!=-1) {
-                for (char c : result) {
-                    System.out.print(c);
-                }
-                //outputStream.write(result);
+            int len =0;
+            while ((len = inputStream.read(result))!=-1) {
+                outputStream.write(result,0,len); //注意指定len长度，否则最后一次读取可能无法填满数组，导致上一次的旧数据被输出
             }
             inputStream.close();
             outputStream.close();
@@ -51,10 +61,10 @@ public class Demo01 {
 
 
     public static void main(String[] args) {
-        String inputfile = "/Users/lvaolin/Downloads/inputfile.txt";
-        String outputfile = "/Users/lvaolin/Downloads/outfile.txt";
+        String inputfile = "C:\\Users\\41490\\Desktop\\a.txt";
+        String outputfile = "C:\\Users\\41490\\Desktop\\b.txt";
         transFileWithByteStream(inputfile,outputfile);
-        String outputfilechar = "/Users/lvaolin/Downloads/outfilechar.txt";
+        String outputfilechar = "C:\\Users\\41490\\Desktop\\c.txt";
         transFileWithCharStream(inputfile,outputfilechar);
     }
 }
