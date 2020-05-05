@@ -4,11 +4,11 @@ import java.io.*;
 
 /**
  * 实现从一个文件读取数据写入到另一个文件
- *
+ * txt文件是字符文件，所以使用字节流或者字符流都可以正确传输
  * @author lvaolin
  * @create 2020/1/21 3:39 PM
  */
-public class Demo01 {
+public class Demo01txt {
 
     /**
      * 基于字节流传输

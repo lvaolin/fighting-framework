@@ -17,7 +17,7 @@ import java.util.List;
  * @create 2020/1/17 10:40 AM
  *//*
 
-public class Demo01 {
+public class Demo01txt {
     public static void main(String[] args) throws Exception{
         HotSpotVirtualMachine attach = (HotSpotVirtualMachine)VirtualMachine.attach("49970");
         List<VirtualMachineDescriptor> list = VirtualMachine.list();
