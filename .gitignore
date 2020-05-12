@@ -30,3 +30,7 @@ build/
 ### VS Code ###
 .vscode/
 .DS_Store
+/demo-spring-boot-jdbc-template/src/main/.DS_Store
+/demo-spring-boot-jdbc-template/src/main/java/com/dhy/demo/spring/jdbc/.DS_Store
+/demo-spring-boot-tkmybatis/src/main/.DS_Store
+/demo-spring-boot-jdbc-template/src/main/java/com/.DS_Store
