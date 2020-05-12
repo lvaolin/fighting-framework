@@ -1,8 +1,5 @@
 package com.dhy.cas;
 
-import java.util.List;
-import java.util.concurrent.BrokenBarrierException;
-import java.util.concurrent.CyclicBarrier;
 
 /**
  * 测试 双重检查获取 单例的问题
@@ -19,7 +16,7 @@ public class DoubleCheck {
             }
         }
     }
-    private static DoubleCheck instance;
+    private static volatile DoubleCheck instance;
     private DoubleCheck() {}
     public static DoubleCheck getInstance() {
         if (instance==null) {
