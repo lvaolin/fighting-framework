@@ -2,7 +2,10 @@ package com.dhy.cas;
 
 
 /**
- * 测试 双重检查获取 单例的问题
+ * 测试 双重检查获取
+ * 存指令重排序问题，通过实例变量加 volatile解决
+ * 单例的问题
+ * 最新方法通过  AtomicReference 解决（CAS算法）
  * @author lvaolin
  * @create 2019/12/30 9:29 AM
  */

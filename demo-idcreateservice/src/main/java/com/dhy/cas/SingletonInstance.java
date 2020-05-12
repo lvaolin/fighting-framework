@@ -2,6 +2,9 @@ package com.dhy.cas;
 
 import java.util.concurrent.atomic.AtomicReference;
 
+/**
+ * 不带版本的atomic 有ABA问题，但在单例场景下不需要解决ABA问题
+ */
 public class SingletonInstance {
 
     private SingletonInstance(){
