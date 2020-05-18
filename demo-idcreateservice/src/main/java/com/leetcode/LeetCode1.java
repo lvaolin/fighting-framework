@@ -1,11 +1,9 @@
 package com.leetcode;
 
-import org.apache.commons.collections.map.HashedMap;
-
 import java.util.HashMap;
 import java.util.Map;
 
-class Solution {
+class LeetCode1 {
     public int[] twoSum(int[] nums, int target) throws Exception {
         Map<Integer,Integer> map = new HashMap<>();
         for(int i=0;i<nums.length;i++){
@@ -28,7 +26,7 @@ class Solution {
        // 9
         int[] init = new int[]{1,3,4,2};
         int target =6;
-        Solution solution =  new Solution();
+        LeetCode1 solution =  new LeetCode1();
         int[] result = solution.twoSum(init,target);
         System.out.println(result[0]+","+result[1]);
 
