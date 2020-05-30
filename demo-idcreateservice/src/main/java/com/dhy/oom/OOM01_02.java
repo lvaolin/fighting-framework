@@ -35,6 +35,11 @@ public class OOM01_02 {
             list.add(new byte[1024][1024]);
 
             System.out.println("-----"+i+"-----");
+            try {
+                TimeUnit.SECONDS.sleep(1);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
 
 
