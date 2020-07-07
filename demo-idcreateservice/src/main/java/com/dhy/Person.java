@@ -24,4 +24,10 @@ public class Person {
         return "Person："+nameStatic;
     }
 
+    public static void main(String[] args) {
+        int _1MB=1000;
+        byte[] bytes = new byte[5*_1MB];
+        //System.out.println((5*_1)+"");
+    }
+
 }
