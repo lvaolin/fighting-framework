@@ -61,8 +61,8 @@ public class Demo01txt {
 
 
     public static void main(String[] args) {
-        String inputfile = "C:\\Users\\41490\\Desktop\\a.txt";
-        String outputfile = "C:\\Users\\41490\\Desktop\\b.txt";
+        String inputfile = "C:\\tmp\\fddemo1.txt";
+        String outputfile = "C:\\tmp\\fddemo2.txt";
         transFileWithByteStream(inputfile,outputfile);
         String outputfilechar = "C:\\Users\\41490\\Desktop\\c.txt";
         transFileWithCharStream(inputfile,outputfilechar);
