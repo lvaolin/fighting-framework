@@ -1,8 +1,8 @@
 package com.dhy.mysql;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+
+
+import org.junit.jupiter.api.Test;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -23,7 +23,6 @@ import java.util.concurrent.TimeUnit;
  */
 
 public class PrepareTest {
-     @Before
     public void  setup(){
          System.out.println("before...");
     }
@@ -78,7 +77,6 @@ public class PrepareTest {
             conn2.close();
         }
     }
-    @After
     public void after(){
         System.out.println("after.....");
     }
