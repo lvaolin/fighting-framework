@@ -37,7 +37,7 @@ public class NioTestClient {
                 }else{
                     int len =0;
                     while ( (len = serverIn.read())>0){
-                        System.out.println(serverIn.readNBytes(len).toString());
+                        //System.out.println(serverIn.readNBytes(len).toString());
                     }
                 }
 
