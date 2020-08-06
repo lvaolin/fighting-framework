@@ -9,4 +9,7 @@ interface Father {
        System.out.println("father sleep");
    }
 
+   static void  shopping(){
+       System.out.println("father shopping");
+   }
 }
