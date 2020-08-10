@@ -27,16 +27,29 @@ public class Zuo4 {
         for (int i = 0; i <x.length ; i++) {
             eor^=x[i];
         }
-
+        //eor=a^b
+        //a!=b!=0  -> a,b 一定有一位置或者多个位置是不相等的
+        //eor!=0   eor 最右位置第一个1一定是不相等的那个位置之一，算出来
         int rightOne = eor&(~eor+1);
+
+        //我们以 rightOne位置为标准将数组分成两大类，一类是 那个位置为1的，另一类是为0的
+        //0000 0100
+        //1101 0100
+        //1101 0100
+        //0101 0100
 
         int onlyOne = 0;
 
+//        for (int i = 0; i <x.length ; i++) {
+//            if ((rightOne&x[i])!=0) {//???????
+//                onlyOne ^=x[i];
+//            }
+//        }
+
         for (int i = 0; i <x.length ; i++) {
-            if ((rightOne&x[i])!=0) {//???????
-                onlyOne ^=x[i];
-            }
+            onlyOne = rightOne^x[i];
         }
+
 
         System.out.println(onlyOne+":"+(onlyOne^eor));
     }
