@@ -1,0 +1,7 @@
+2020-08-14 11:08:31  [ main:0 ] - [ INFO ]  using logger: org.apache.dubbo.common.logger.log4j.Log4jLoggerAdapter
+2020-08-14 11:09:08  [ main:0 ] - [ INFO ]  using logger: org.apache.dubbo.common.logger.log4j.Log4jLoggerAdapter
+2020-08-14 11:13:10  [ main:0 ] - [ INFO ]  using logger: org.apache.dubbo.common.logger.log4j.Log4jLoggerAdapter
+2020-08-14 11:16:30  [ main:0 ] - [ INFO ]  using logger: org.apache.dubbo.common.logger.log4j.Log4jLoggerAdapter
+2020-08-14 11:16:47  [ main:0 ] - [ INFO ]  using logger: org.apache.dubbo.common.logger.log4j.Log4jLoggerAdapter
+2020-08-14 11:17:01  [ main:0 ] - [ INFO ]  using logger: org.apache.dubbo.common.logger.log4j.Log4jLoggerAdapter
+2020-08-14 11:24:52  [ main:0 ] - [ INFO ]  using logger: org.apache.dubbo.common.logger.log4j.Log4jLoggerAdapter
