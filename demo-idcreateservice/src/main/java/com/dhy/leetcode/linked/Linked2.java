@@ -1,48 +1,55 @@
 package com.dhy.leetcode.linked;
 
-import java.util.HashSet;
-
 /**
- * 删除有序单链表中的重复节点
- *
- * 1-1-2-3-3-4-》 2-4
+ * 删除单链表中重复的节点（一个也不保留）
  */
 public class Linked2 {
+
     public class ListNode {
         int val;
         ListNode next = null;
+
+        public ListNode(int val) {
+            this.val = val;
+        }
     }
 
+    /**
+     * @param head ListNode类
+     * @return ListNode类
+     */
     public ListNode deleteDuplicates(ListNode head) {
-        if (head==null||head.next==null) {
-            return head;
-        }
-        //遍历节点放入hashmap
-        //每一个节点查询一次map，不存在则增加，存在则删除链表节点
-        ListNode returnHead = head;
-        ListNode nextHead = head;
-        //1、 head 节点重复的情况
-        //2、head 节点不重复的情况
-        boolean repeat = false;
-        while (true){
-            repeat = false;
-            while (head.next!=null&&head.next.val==head.val) {
-                head = head.next;
-                repeat = true;
-            }
-
-            if(head.next==null){
-                return returnHead;
-            }
-            if (repeat) {
-                head = head.next;
-                returnHead = head;
-            }else{
-                break;
-            }
+        // write code here
+        if (null == head) {
+            return null;
         }
 
-        return returnHead;
+        // 新建一个结点，防止头结点被删除 
+        ListNode firstNode = new ListNode(-1);
+        firstNode.next = head;
+        // 记录前驱结点
+        ListNode preHead = firstNode;
+        // 记录当前遍历结点
+        ListNode cur = head;
+
+        while (null != cur && null != cur.next) {
+
+            // 若结点值出现重复
+            if (cur.val == cur.next.val) {
+                int val = cur.val;
+                // 删除重复结点
+                while ((null != cur) && (val == cur.val)) {
+                    cur = cur.next;
+                }
+                // 删除重复结点后，进行链接
+                preHead.next = cur;
+            } else {
+                // 结点不重复，后移
+                preHead = cur;
+                cur = cur.next;
+            }
+        }
+        return firstNode.next;
+
     }
-
 }
