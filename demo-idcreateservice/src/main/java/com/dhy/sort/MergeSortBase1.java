@@ -16,7 +16,10 @@ public class MergeSortBase1 {
         }
 
     }
-
+    //{9,2,8,3,7,5,1,2,3,1,6,8}
+    public int[] mergeSort(int[] array){
+        return null;
+    }
 
     public int[] mergeArray(int[] arr1, int[] arr2) {
         if (arr1 == null || arr1.length == 0) {
