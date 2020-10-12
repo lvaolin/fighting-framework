@@ -6,7 +6,7 @@ package com.dhy.concurrency.threadTest;/**
  * @author lvaolin
  * @create 17/10/13 下午4:41
  */
-public class A {
+public class A1 {
 
     int a1 = 8;
     int a2 = getA2();
@@ -15,7 +15,7 @@ public class A {
         System.out.println("top of A() a1=" + a1 + " a2=" + a2 + "  a3=" + a3);
     }
 
-    public A() {
+    public A1() {
         this(66);
         System.out.print("A 构造函数\n");
     }
@@ -24,7 +24,7 @@ public class A {
         System.out.println("below A()..has start");
     }
 
-    public A(int num) {
+    public A1(int num) {
         System.out.print("A 带参数构造函数: " + num + "\n");
     }
 

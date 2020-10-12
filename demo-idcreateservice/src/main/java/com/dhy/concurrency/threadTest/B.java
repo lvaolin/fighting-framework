@@ -6,7 +6,7 @@ package com.dhy.concurrency.threadTest;/**
  * @author lvaolin
  * @create 17/10/13 下午4:41
  */
-public class B extends A{
+public class B extends A1 {
     int b1 = 0;
     int b2 = getB2();
     {
