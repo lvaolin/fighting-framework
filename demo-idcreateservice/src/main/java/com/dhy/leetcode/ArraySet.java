@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 /**
+ * https://www.nowcoder.com/practice/c333d551eb6243e0b4d92e37a06fbfc9?tpId=117&&tqId=34948&rp=1&ru=/ta/job-code-high&qru=/ta/job-code-high/question-ranking
  * 美团面试题
  * 题目描述
  * 现在有一个没有重复元素的整数集合S，求S的所有子集
@@ -23,28 +24,29 @@ import java.util.Collections;
  * []
  * ]
  */
+//回溯法
 public class ArraySet {
 
     public static void main(String[] args) {
-        int[] a = new int[]{1,2,3,4};
-        ArrayList<ArrayList<Integer>> subsets = subsets(a);
+        int[] a = new int[]{1,2,3};
+
+        ArraySet arraySet = new ArraySet();
+        ArrayList<ArrayList<Integer>> subsets = arraySet.subsets(a);
         System.out.println("");
     }
 
-    public static ArrayList<ArrayList<Integer>> subsets(int[] S) {
-        ArrayList<ArrayList<Integer>> result = new  ArrayList<>();
-        result.add(new ArrayList<Integer>());
-        for(int i=0;i<S.length;i++){
-            ArrayList<Integer> temp= new ArrayList<>();
-            for(int j=i;j<S.length;j++){
-                if(temp.size()>0){
-                    temp = new ArrayList<>(temp);
-                }
-                temp.add(S[j]);
-                Collections.sort(temp);
-                result.add(temp);
-            }
+    private ArrayList<ArrayList<Integer>> res = new ArrayList<>();
+    public ArrayList<ArrayList<Integer>> subsets(int[] S) {
+        if(S==null || S.length == 0) return res;
+        backTrack(S, 0, new ArrayList<Integer>());
+        return res;
+    }
+    private void backTrack(int[] S, int start, ArrayList<Integer> list){
+        res.add(new ArrayList<Integer>(list));
+        for(int i = start; i <S.length; i++){
+            list.add(S[i]);
+            backTrack(S, i + 1, list);
+            list.remove(list.size() - 1);
         }
-        return result;
     }
 }
