@@ -12,7 +12,7 @@ public class StartDemo02 {
         //注解配置启动
         AnnotationConfigApplicationContext ac =
                 new AnnotationConfigApplicationContext();
-        ac.scan("com.dhy.demo01");
+        ac.scan("com.dhy.demo01_mybatis");
         ac.refresh();
         OrderMapper orderMapper = ac.getBean(OrderMapper.class);
         orderMapper.getOrder();

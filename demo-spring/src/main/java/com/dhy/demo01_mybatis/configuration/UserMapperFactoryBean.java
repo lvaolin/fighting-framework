@@ -1,7 +1,9 @@
 package com.dhy.demo01_mybatis.configuration;
 
+import com.dhy.demo01_mybatis.annotation.MySelect;
 import com.dhy.demo01_mybatis.dto.User;
 import com.dhy.demo01_mybatis.mapper.UserMapper;
+import com.sun.org.apache.bcel.internal.generic.Select;
 import org.springframework.beans.factory.FactoryBean;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,8 +24,7 @@ public class UserMapperFactoryBean implements FactoryBean {
         return Proxy.newProxyInstance(this.getClass().getClassLoader(),new Class[] { UserMapper.class } , new InvocationHandler() {
             @Override
             public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-                String[] value = method.getAnnotation(RequestMapping.class).value();
-                String sql = value[0];
+                String sql = method.getAnnotation(MySelect.class).value();
                 //执行sql语句
                 //返回查询结果
                 User user = new User();
