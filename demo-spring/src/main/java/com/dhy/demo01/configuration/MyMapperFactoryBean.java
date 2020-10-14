@@ -1,5 +1,6 @@
 package com.dhy.demo01.configuration;
 
+import com.dhy.demo01.annotation.MySelect;
 import org.springframework.beans.factory.FactoryBean;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -24,8 +25,7 @@ public class MyMapperFactoryBean<T> implements FactoryBean<T> {
         return (T)Proxy.newProxyInstance(this.getClass().getClassLoader(),new Class[] {mapperInterface } , new InvocationHandler() {
             @Override
             public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-                String[] value = method.getAnnotation(RequestMapping.class).value();
-                String sql = value[0];
+                String sql = method.getAnnotation(MySelect.class).value();
                 //执行sql语句
                 System.out.println("执行了sql："+sql);
                 //返回查询结果

@@ -1,8 +1,8 @@
 package com.dhy.demo01.mapper;
 
-import org.springframework.web.bind.annotation.RequestMapping;
+import com.dhy.demo01.annotation.MySelect;
 
 public interface OrderMapper {
-    @RequestMapping("select * from order where id = 1")
+    @MySelect("select * from order where id = 1")
     Object getOrder();
 }

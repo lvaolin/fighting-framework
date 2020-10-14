@@ -1,8 +1,8 @@
 package com.dhy.demo01.mapper;
 
-import org.springframework.web.bind.annotation.RequestMapping;
+import com.dhy.demo01.annotation.MySelect;
 
 public interface AccountMapper {
-    @RequestMapping("select * from account where id = 1")
+    @MySelect("select * from account where id = 1")
     Object getAccount();
 }
