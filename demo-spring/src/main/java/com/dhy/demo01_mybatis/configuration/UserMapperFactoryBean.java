@@ -1,7 +1,7 @@
-package com.dhy.demo01.configuration;
+package com.dhy.demo01_mybatis.configuration;
 
-import com.dhy.demo01.dto.User;
-import com.dhy.demo01.mapper.UserMapper;
+import com.dhy.demo01_mybatis.dto.User;
+import com.dhy.demo01_mybatis.mapper.UserMapper;
 import org.springframework.beans.factory.FactoryBean;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,6 +1,4 @@
-package com.dhy.demo01.annotation;
-
-import org.springframework.core.annotation.AliasFor;
+package com.dhy.demo01_mybatis.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

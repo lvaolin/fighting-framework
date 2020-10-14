@@ -1,7 +1,7 @@
-package com.dhy.demo01;
+package com.dhy.demo01_mybatis;
 
-import com.dhy.demo01.mapper.AccountMapper;
-import com.dhy.demo01.mapper.OrderMapper;
+import com.dhy.demo01_mybatis.mapper.AccountMapper;
+import com.dhy.demo01_mybatis.mapper.OrderMapper;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**

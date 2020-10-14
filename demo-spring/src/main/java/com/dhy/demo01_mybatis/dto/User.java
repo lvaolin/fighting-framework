@@ -1,4 +1,4 @@
-package com.dhy.demo01.dto;
+package com.dhy.demo01_mybatis.dto;
 
 public class User {
     private String name;

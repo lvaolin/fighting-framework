@@ -1,6 +1,6 @@
-package com.dhy.demo01.mapper;
+package com.dhy.demo01_mybatis.mapper;
 
-import com.dhy.demo01.annotation.MySelect;
+import com.dhy.demo01_mybatis.annotation.MySelect;
 
 public interface OrderMapper {
     @MySelect("select * from order where id = 1")

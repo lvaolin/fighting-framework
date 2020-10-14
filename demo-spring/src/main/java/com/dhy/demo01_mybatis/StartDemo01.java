@@ -1,8 +1,7 @@
-package com.dhy.demo01;
+package com.dhy.demo01_mybatis;
 
-import com.dhy.demo01.configuration.UserMapperFactoryBean;
-import com.dhy.demo01.dto.User;
-import com.dhy.demo01.mapper.UserMapper;
+import com.dhy.demo01_mybatis.dto.User;
+import com.dhy.demo01_mybatis.mapper.UserMapper;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class StartDemo01 {

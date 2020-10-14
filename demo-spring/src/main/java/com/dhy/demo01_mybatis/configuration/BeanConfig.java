@@ -1,9 +1,8 @@
-package com.dhy.demo01.configuration;
+package com.dhy.demo01_mybatis.configuration;
 
-import com.dhy.demo01.dto.User;
-import com.dhy.demo01.mapper.AccountMapper;
-import com.dhy.demo01.mapper.OrderMapper;
-import com.dhy.demo01.mapper.UserMapper;
+import com.dhy.demo01_mybatis.dto.User;
+import com.dhy.demo01_mybatis.mapper.AccountMapper;
+import com.dhy.demo01_mybatis.mapper.OrderMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
