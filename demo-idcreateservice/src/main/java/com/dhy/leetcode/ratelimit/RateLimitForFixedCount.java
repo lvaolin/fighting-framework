@@ -1,4 +1,4 @@
-package com.dhy.leetcode;
+package com.dhy.leetcode.ratelimit;
 
 import lombok.SneakyThrows;
 
@@ -13,7 +13,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * 实现一个固定窗口限流算法
  * 同一个url每1秒钟限制调用次数为1000次，剩下的返回false
  */
-public class RateLimit {
+public class RateLimitForFixedCount {
     private static  Map<String, AtomicInteger> map = new ConcurrentHashMap<>();
     static {
         new Thread(new Runnable() {
@@ -51,7 +51,7 @@ public class RateLimit {
     }
 
     public static void main(String[] args) {
-        RateLimit rateLimit = new RateLimit();
+        RateLimitForFixedCount rateLimitForFixedCount = new RateLimitForFixedCount();
         for (int i = 0; i <10 ; i++) {
             new Thread(new Runnable() {
                 @SneakyThrows
@@ -60,7 +60,7 @@ public class RateLimit {
                     String url = "";
                     while (true){
                         url = "/v1/"+new Random().nextInt(10)+"/xxx/a/";
-                        if (rateLimit.rateLimit(url)) {
+                        if (rateLimitForFixedCount.rateLimit(url)) {
                             System.out.println(url+" passed");
                         }else{
                             System.out.println(url+" passed nonono");

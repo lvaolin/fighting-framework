@@ -1,4 +1,4 @@
-package com.dhy.leetcode;
+package com.dhy.leetcode.ratelimit;
 import java.util.*;
 /**
  *给定一个数组和滑动窗口的大小，找出所有滑动窗口里数值的最大值。
@@ -9,7 +9,7 @@ import java.util.*;
  * {2,3,4,2,[6,2,5],1}， {2,3,4,2,6,[2,5,1]}。
  * 窗口大于数组长度的时候，返回空
  */
-public class MoveWindow {
+public class RateLimitForMoveWindow {
 
     public static void main(String[] args) {
         int[] num = {2,3,4,2,6,2,5,1};
