@@ -3,7 +3,6 @@ package com.dhy.demo01_mybatis.configuration;
 import com.dhy.demo01_mybatis.annotation.MySelect;
 import com.dhy.demo01_mybatis.dto.User;
 import com.dhy.demo01_mybatis.mapper.UserMapper;
-import com.sun.org.apache.bcel.internal.generic.Select;
 import org.springframework.beans.factory.FactoryBean;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
