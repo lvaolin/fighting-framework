@@ -50,7 +50,7 @@ public class MyElasticJobConfig {
         // 定义Lite作业根配置
         LiteJobConfiguration rootConfig = LiteJobConfiguration.newBuilder(jobConfig)
                 .overwrite(true)
-                //.monitorExecution(true)
+                .monitorExecution(false)
                 .monitorPort(9888)
                 .build();
         return rootConfig;
