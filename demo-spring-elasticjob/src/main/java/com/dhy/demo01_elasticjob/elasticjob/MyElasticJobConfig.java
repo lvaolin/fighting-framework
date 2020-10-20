@@ -40,9 +40,9 @@ public class MyElasticJobConfig {
     }
     private LiteJobConfiguration fpzhfwptFpxz() {
         JobCoreConfiguration coreConfig = JobCoreConfiguration
-                .newBuilder("发票下载", "0/30 * * * * ?", shardingTotalCount)
+                .newBuilder("发票下载", "0/10 * * * * ?", shardingTotalCount)
                 .misfire(true)
-                //.jobProperties("executor_service_handler","com.ttk.edf.agg.job.base.MyExecutorServiceHandler")
+                .jobProperties("executor_service_handler","com.dhy.demo01_elasticjob.elasticjob.MyExecutorServiceHandler")
                 .build();
         // 定义DATAFLOW类型配置
         DataflowJobConfiguration jobConfig = new DataflowJobConfiguration(coreConfig,
@@ -50,7 +50,7 @@ public class MyElasticJobConfig {
         // 定义Lite作业根配置
         LiteJobConfiguration rootConfig = LiteJobConfiguration.newBuilder(jobConfig)
                 .overwrite(true)
-                .monitorExecution(false)
+                .monitorExecution(true)
                 .monitorPort(9888)
                 .build();
         return rootConfig;

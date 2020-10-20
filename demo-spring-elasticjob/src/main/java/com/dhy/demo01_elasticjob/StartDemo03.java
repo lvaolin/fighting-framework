@@ -1,5 +1,6 @@
 package com.dhy.demo01_elasticjob;
 
+import com.dangdang.ddframe.job.lite.internal.schedule.LiteJob;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**

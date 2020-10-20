@@ -24,7 +24,7 @@ public class Job1 implements DataflowJob {
     public void processData(ShardingContext shardingContext, List data) {
         if(shardingContext.getShardingItem()==0){
             try {
-                TimeUnit.SECONDS.sleep(10000);
+                TimeUnit.SECONDS.sleep(20);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

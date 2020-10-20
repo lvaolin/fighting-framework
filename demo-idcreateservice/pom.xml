@@ -30,6 +30,14 @@
 	</properties>
 
 <dependencies>
+
+	<!-- https://mvnrepository.com/artifact/com.lmax/disruptor -->
+	<dependency>
+		<groupId>com.lmax</groupId>
+		<artifactId>disruptor</artifactId>
+		<version>3.4.2</version>
+	</dependency>
+
 	<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-log4j12 -->
 	<dependency>
 		<groupId>org.slf4j</groupId>
