@@ -14,8 +14,10 @@ import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.support.ManagedList;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.core.env.Environment;
+import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
 import com.dangdang.ddframe.job.config.JobCoreConfiguration;
@@ -28,18 +30,17 @@ import com.dangdang.ddframe.job.executor.handler.JobProperties.JobPropertiesEnum
 import com.dangdang.ddframe.job.lite.config.LiteJobConfiguration;
 import com.dangdang.ddframe.job.lite.spring.api.SpringJobScheduler;
 import com.dangdang.ddframe.job.reg.zookeeper.ZookeeperRegistryCenter;
+
+import javax.annotation.PostConstruct;
+
 /**
- * Job解析类
- * 
- * <p>从注解中解析任务信息初始化<p>
- * 
- * @author yinjihuan
- *
- * @about http://cxytiandi.com/about
+ * MyElasticJob注解处理器
+ * @author dahuangya
  */
-public class JobConfParser implements ApplicationContextAware {
+@Component
+public class MyElasticJobProcessor  {
 	
-	private Logger logger = LoggerFactory.getLogger(JobConfParser.class);
+	private Logger logger = LoggerFactory.getLogger(MyElasticJobProcessor.class);
 	
 	@Autowired
 	private ZookeeperRegistryCenter zookeeperRegistryCenter;
@@ -50,11 +51,16 @@ public class JobConfParser implements ApplicationContextAware {
 	
 	@Autowired(required=false)
 	private JobService jobService;
-	
+
+	@Autowired
+	private ApplicationContext ctx ;
 	private List<String> jobTypeNameList = Arrays.asList("SimpleJob", "DataflowJob", "ScriptJob");
-	
-	public void setApplicationContext(ApplicationContext ctx) throws BeansException {
+
+
+	@PostConstruct
+	public void init() throws BeansException {
 		environment = ctx.getEnvironment();
+		//通过注解获取所有的job类Bean
 		Map<String, Object> beanMap = ctx.getBeansWithAnnotation(MyElasticJob.class);
 		for (Object confBean : beanMap.values()) {
 			Class<?> clz = confBean.getClass();
@@ -65,7 +71,6 @@ public class JobConfParser implements ApplicationContextAware {
 				clz = clz.getSuperclass();
 			}
 			MyElasticJob conf = AnnotationUtils.findAnnotation(clz, MyElasticJob.class);
-			
 			String jobClass = clz.getName();
 			String jobName = conf.name();
 			String cron = getEnvironmentStringValue(jobName, JobAttributeTag.CRON, conf.cron());
@@ -104,7 +109,6 @@ public class JobConfParser implements ApplicationContextAware {
 					.build();
 			
 			// 不同类型的任务配置处理
-			LiteJobConfiguration jobConfig = null;
 			JobTypeConfiguration typeConfig = null;
 			if (jobTypeName.equals("SimpleJob")) {
 				typeConfig = new SimpleJobConfiguration(coreConfig, jobClass);
@@ -117,8 +121,8 @@ public class JobConfParser implements ApplicationContextAware {
 			if (jobTypeName.equals("ScriptJob")) {
 				typeConfig = new ScriptJobConfiguration(coreConfig, scriptCommandLine);
 			}
-			
-			jobConfig = LiteJobConfiguration.newBuilder(typeConfig)
+
+			LiteJobConfiguration jobConfig  = LiteJobConfiguration.newBuilder(typeConfig)
 					.overwrite(overwrite)
 					.disabled(disabled)
 					.monitorPort(monitorPort)

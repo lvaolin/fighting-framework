@@ -34,7 +34,7 @@ import java.util.Objects;
 @Service
 public class JobService {
 
-    private Logger logger = LoggerFactory.getLogger(JobConfParser.class);
+    private Logger logger = LoggerFactory.getLogger(MyElasticJobProcessor.class);
 
     @Autowired
     private ZookeeperRegistryCenter zookeeperRegistryCenter;

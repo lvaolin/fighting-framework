@@ -1,6 +1,6 @@
 package com.dhy.demo01_elasticjob.configuration;
 
-import com.dhy.demo01_elasticjob.annotation.MySelect;
+import com.dhy.demo01_elasticjob.annotation.MyElasticJob;
 import org.springframework.beans.factory.FactoryBean;
 
 import java.lang.reflect.InvocationHandler;
@@ -24,7 +24,7 @@ public class MyMapperFactoryBean<T> implements FactoryBean<T> {
         return (T)Proxy.newProxyInstance(this.getClass().getClassLoader(),new Class[] {mapperInterface } , new InvocationHandler() {
             @Override
             public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-                String sql = method.getAnnotation(MySelect.class).value();
+                String sql = method.getAnnotation(MyElasticJob.class).cron();
                 //执行sql语句
                 System.out.println("执行了sql："+sql);
                 //返回查询结果

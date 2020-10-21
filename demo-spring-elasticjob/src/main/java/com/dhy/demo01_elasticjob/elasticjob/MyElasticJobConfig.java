@@ -31,7 +31,7 @@ public class MyElasticJobConfig {
     }
 
     @Bean(initMethod = "init")
-    public CoordinatorRegistryCenter regCenter(ZookeeperConfiguration config) {
+    public ZookeeperRegistryCenter regCenter(ZookeeperConfiguration config) {
         return new ZookeeperRegistryCenter(config);
     }
     @Bean(initMethod = "init")
