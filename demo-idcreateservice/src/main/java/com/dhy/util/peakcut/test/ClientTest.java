@@ -1,4 +1,7 @@
-package com.dhy.util.peakcut;
+package com.dhy.util.peakcut.test;
+
+import com.dhy.util.peakcut.TaskFacade;
+import com.dhy.util.peakcut.TaskRequestDto;
 
 public class ClientTest {
     public static void main(String[] args) throws InterruptedException {
@@ -8,9 +11,10 @@ public class ClientTest {
                 System.out.println("call openplatform.request");
                 return "{name:111,order:123}";
         });
-        TaskFacade.createTask(taskRequestDto);
+        TaskFacade taskFacade = new TaskFacade();
+        taskFacade.createTask(taskRequestDto);
         taskRequestDto.setTaskPoolKey("openplatform.request2");
-        TaskFacade.createTask(taskRequestDto);
+        taskFacade.createTask(taskRequestDto);
 
         synchronized (ClientTest.class){
             ClientTest.class.wait();

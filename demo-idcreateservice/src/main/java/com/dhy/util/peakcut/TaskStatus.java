@@ -1,8 +1,9 @@
 package com.dhy.util.peakcut;
 
 public enum TaskStatus {
-    STATUS_WAITING ,    //等待返回
-    STATUS_NO_REQUEST , //没有请求（或已经被清理）
-    STATUS_RESPONSE ,     //已经返回
-    STATUS_EXCEPTION      //返回异常 -- 类内部用，不返回给用户，直接抛出
+    status_queue ,       //排队中
+    status_running ,    //正在执行
+    status_not_exist ,  //不存在或已经被清理掉
+    status_completed ,     //任务已完成
+    status_exception      //有异常发生
 }

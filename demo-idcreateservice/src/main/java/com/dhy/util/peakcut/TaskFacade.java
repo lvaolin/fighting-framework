@@ -1,6 +1,6 @@
 package com.dhy.util.peakcut;
 
-import com.dhy.util.peakcut.impl.DefaultTaskResultHandler;
+import com.dhy.util.peakcut.impl.DefaultTaskResultHandlerForRAM;
 import com.dhy.util.peakcut.internal.TaskThreadPoolManager;
 import com.dhy.util.peakcut.spi.TaskResultHandler;
 import java.util.UUID;
@@ -9,14 +9,21 @@ import java.util.UUID;
  * 调用者入口 API
  */
 public class TaskFacade {
+    private  TaskResultHandler taskResultHandler ;
+    public TaskFacade(){
+        this.taskResultHandler = new DefaultTaskResultHandlerForRAM();
+    }
 
-    private static TaskResultHandler taskResultHandler = new DefaultTaskResultHandler();
+    public TaskFacade(TaskResultHandler taskResultHandler){
+        this.taskResultHandler = taskResultHandler;
+    }
+
     /**
      * 提交任务
      * @param taskRequestDto
      * @return
      */
-    public static String createTask(TaskRequestDto taskRequestDto){
+    public  String createTask(TaskRequestDto taskRequestDto){
         taskRequestDto.setTaskRequestId(UUID.randomUUID().toString());
         //初始化结果为 排队中
         taskResultHandler.initResult(taskRequestDto);
@@ -50,7 +57,16 @@ public class TaskFacade {
      * @param taskRequestId
      * @return
      */
-    public static TaskResponseDto queryTaskResult(String taskRequestId ){
+    public  TaskResponseDto queryTaskResult(String taskRequestId ){
         return  (TaskResponseDto)taskResultHandler.queryResult(taskRequestId);
+    }
+
+
+    public TaskResultHandler getTaskResultHandler() {
+        return taskResultHandler;
+    }
+
+    public void setTaskResultHandler(TaskResultHandler taskResultHandler) {
+        this.taskResultHandler = taskResultHandler;
     }
 }

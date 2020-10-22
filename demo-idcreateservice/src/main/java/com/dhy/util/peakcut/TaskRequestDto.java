@@ -32,7 +32,13 @@ public class TaskRequestDto implements Serializable {
      * 任务请求id，唯一的
      */
     private String taskRequestId ;
-    private Map<String,Object> taskDataMap;
+    /**
+     * 任务线程池定制参数
+     */
+    private Map<TaskParam,Object> taskDataMap;
+    /**
+     * 任务内容
+     */
     private Callable callable;
 
     public Callable getCallable() {
@@ -52,11 +58,11 @@ public class TaskRequestDto implements Serializable {
         this.taskRequestId = taskRequestId;
     }
 
-    public Map<String, Object> getTaskDataMap() {
+    public Map<TaskParam, Object> getTaskDataMap() {
         return taskDataMap;
     }
 
-    public void setTaskDataMap(Map<String, Object> taskDataMap) {
+    public void setTaskDataMap(Map<TaskParam, Object> taskDataMap) {
         this.taskDataMap = taskDataMap;
     }
 

@@ -1,6 +1,7 @@
 package com.dhy.util.peakcut.spi;
 
 import com.dhy.util.peakcut.TaskRequestDto;
+import com.dhy.util.peakcut.TaskResponseDto;
 
 /**
  * 结果管理器
@@ -11,13 +12,13 @@ public interface TaskResultHandler {
      * @param requestDto
      * @return
      */
-    Object initResult(TaskRequestDto requestDto);
+    void initResult(TaskRequestDto requestDto);
     /**
      * 任务进入了线程池（更新结果状态为"处理中"）
      * @param requestDto
      * @return
      */
-    Object beforeResult(TaskRequestDto requestDto);
+    void beforeResult(TaskRequestDto requestDto);
 
     /**
      * 任务完成之后（结果回写，更新状态为"完成"）
@@ -25,7 +26,7 @@ public interface TaskResultHandler {
      * @param result
      * @return
      */
-    Object afterResult(TaskRequestDto requestDto,Object result);
+    void afterResult(TaskRequestDto requestDto,Object result);
 
     /**
      * 任务发生异常后 （异常回写，更新状态为"异常"）
@@ -33,14 +34,14 @@ public interface TaskResultHandler {
      * @param exception
      * @return
      */
-    Object exceptionResult(TaskRequestDto requestDto,Object exception);
+    void exceptionResult(TaskRequestDto requestDto,Object exception);
 
     /**
      * 结果查询
      * @param taskRequestId
      * @return
      */
-    Object queryResult(String taskRequestId);
+    TaskResponseDto queryResult(String taskRequestId);
 
     /**
      * 结果的清理释放
