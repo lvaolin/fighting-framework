@@ -32,10 +32,11 @@ public class TaskRequestDto implements Serializable {
      * 任务请求id，唯一的
      */
     private String taskRequestId ;
+
     /**
      * 任务线程池定制参数
      */
-    private Map<TaskParam,Object> taskDataMap;
+    private ThreadPoolConfig poolConfig = new ThreadPoolConfig();
     /**
      * 任务内容
      */
@@ -49,6 +50,13 @@ public class TaskRequestDto implements Serializable {
         this.callable = callable;
     }
 
+    public ThreadPoolConfig getPoolConfig() {
+        return poolConfig;
+    }
+
+    public void setPoolConfig(ThreadPoolConfig poolConfig) {
+        this.poolConfig = poolConfig;
+    }
 
     public String getTaskRequestId() {
         return taskRequestId;
@@ -56,14 +64,6 @@ public class TaskRequestDto implements Serializable {
 
     public void setTaskRequestId(String taskRequestId) {
         this.taskRequestId = taskRequestId;
-    }
-
-    public Map<TaskParam, Object> getTaskDataMap() {
-        return taskDataMap;
-    }
-
-    public void setTaskDataMap(Map<TaskParam, Object> taskDataMap) {
-        this.taskDataMap = taskDataMap;
     }
 
     public String getTaskPoolKey() {
@@ -74,4 +74,26 @@ public class TaskRequestDto implements Serializable {
         this.taskPoolKey = taskPoolKey;
     }
 
+
+    public static class ThreadPoolConfig{
+        private Integer poolSize;
+        private String executeServiceHandler;
+        public Integer getPoolSize() {
+            return poolSize;
+        }
+
+        public void setPoolSize(Integer poolSize) {
+            this.poolSize = poolSize;
+        }
+
+        public String getExecuteServiceHandler() {
+            return executeServiceHandler;
+        }
+
+        public void setExecuteServiceHandler(String executeServiceHandler) {
+            this.executeServiceHandler = executeServiceHandler;
+        }
+
+
+    }
 }

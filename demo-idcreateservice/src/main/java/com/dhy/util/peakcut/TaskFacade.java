@@ -30,7 +30,7 @@ public class TaskFacade {
         //初始化结果为 排队中
         taskResultHandler.initResult(taskRequestDto);
         TaskThreadPoolManager
-                .getExecutorService(taskRequestDto.getTaskPoolKey())//获取专用线程池
+                .getExecutorService(taskRequestDto)//获取专用线程池
                 .submit(()->{
                     try {
                         taskResultHandler.beforeResult(taskRequestDto);
@@ -73,7 +73,7 @@ public class TaskFacade {
     }
 
     public int getQueueSize(String taskPoolKey){
-        ThreadPoolExecutor executor = (ThreadPoolExecutor)TaskThreadPoolManager.getExecutorService(taskPoolKey);
+        ThreadPoolExecutor executor = (ThreadPoolExecutor)TaskThreadPoolManager.getExecutorServiceFromCache(taskPoolKey);
         return executor.getQueue().size();
     }
 }

@@ -10,12 +10,14 @@ public class ClientTest {
         TaskFacade taskFacade = new TaskFacade();
         TaskRequestDto taskRequestDto = new TaskRequestDto();
         taskRequestDto.setTaskPoolKey("openplatform.request1");
+        taskRequestDto.setCallable(()->{
+            System.out.println("call openplatform.request");
+            TimeUnit.SECONDS.sleep(1);
+            return "{name:111,order:123}";
+        });
+        taskRequestDto.getPoolConfig().setExecuteServiceHandler(MyExecutorServiceHandler.class.getCanonicalName());
+
         while (true){
-            taskRequestDto.setCallable(()->{
-                System.out.println("call openplatform.request");
-                TimeUnit.SECONDS.sleep(1);
-                return "{name:111,order:123}";
-            });
             taskFacade.createTask(taskRequestDto);
             TimeUnit.MILLISECONDS.sleep(100);
             System.out.println("排队数量："+taskFacade.getQueueSize(taskRequestDto.getTaskPoolKey()));
