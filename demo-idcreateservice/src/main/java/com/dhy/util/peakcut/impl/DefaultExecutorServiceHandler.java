@@ -8,7 +8,7 @@ import java.util.concurrent.Executors;
 public class DefaultExecutorServiceHandler implements ExecutorServiceHandler {
     @Override
     public ExecutorService createExecutorService() {
-        ExecutorService executorService = Executors.newFixedThreadPool(100);
+        ExecutorService executorService = Executors.newFixedThreadPool(5);
         return executorService;
     }
 

@@ -68,6 +68,8 @@ public class DefaultTaskResultHandlerForRAM implements TaskResultHandler {
         TaskResponseDto res = localRAMCache.get(taskRequestId);
         if (res==null) {
             res = new TaskResponseDto();
+            res.setTaskStatus(TaskStatus.status_not_exist);
+            res.setTaskErrorMsg("任务不存在或已过期");
         }
         return res;
     }

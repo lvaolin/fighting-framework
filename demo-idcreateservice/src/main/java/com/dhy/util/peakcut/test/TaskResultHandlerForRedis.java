@@ -2,33 +2,35 @@ package com.dhy.util.peakcut.test;
 
 
 import com.dhy.util.peakcut.TaskRequestDto;
+import com.dhy.util.peakcut.TaskResponseDto;
 import com.dhy.util.peakcut.spi.TaskResultHandler;
 import org.springframework.stereotype.Component;
 
 @Component
 public class TaskResultHandlerForRedis implements TaskResultHandler {
+
     @Override
-    public Object initResult(TaskRequestDto requestDto) {
-        return null;
+    public void initResult(TaskRequestDto requestDto) {
+
     }
 
     @Override
-    public Object beforeResult(TaskRequestDto requestDto) {
-        return null;
+    public void beforeResult(TaskRequestDto requestDto) {
+
     }
 
     @Override
-    public Object afterResult(TaskRequestDto requestDto, Object result) {
-        return null;
+    public void afterResult(TaskRequestDto requestDto, Object result) {
+
     }
 
     @Override
-    public Object exceptionResult(TaskRequestDto requestDto, Object exception) {
-        return null;
+    public void exceptionResult(TaskRequestDto requestDto, Object exception) {
+
     }
 
     @Override
-    public Object queryResult(String taskRequestId) {
+    public TaskResponseDto queryResult(String taskRequestId) {
         return null;
     }
 

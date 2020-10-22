@@ -4,6 +4,8 @@ import com.dhy.util.peakcut.impl.DefaultTaskResultHandlerForRAM;
 import com.dhy.util.peakcut.internal.TaskThreadPoolManager;
 import com.dhy.util.peakcut.spi.TaskResultHandler;
 import java.util.UUID;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.ThreadPoolExecutor;
 
 /**
  * 调用者入口 API
@@ -68,5 +70,10 @@ public class TaskFacade {
 
     public void setTaskResultHandler(TaskResultHandler taskResultHandler) {
         this.taskResultHandler = taskResultHandler;
+    }
+
+    public int getQueueSize(String taskPoolKey){
+        ThreadPoolExecutor executor = (ThreadPoolExecutor)TaskThreadPoolManager.getExecutorService(taskPoolKey);
+        return executor.getQueue().size();
     }
 }
