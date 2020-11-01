@@ -26,10 +26,10 @@ public class MyServer {
     static IUserServive userServive = new UserServiceImpl();
 
     public static void main(String[] args) throws IOException {
-        ServerSocket serverSocket = new ServerSocket(8080);
+        ServerSocket serverSocket = new ServerSocket(8088);
         MyZkClient myZkClient = new MyZkClient();
-        myZkClient.createNode("/dhy-reg","127.0.0.1:8080");
-        System.out.println("向zookeeper注册服务提供者地址："+"127.0.0.1:8080");
+        myZkClient.createNode("/dhy-reg","127.0.0.1:8088");
+        System.out.println("向zookeeper注册服务提供者地址："+"127.0.0.1:8088");
         while (true) {
             System.out.println("服务端监听已准备好");
             Socket socket = serverSocket.accept();
