@@ -17,8 +17,6 @@
 		</plugins>
 	</build>
 	<packaging>jar</packaging>
-	<name></name>
-	<description />
 
 	<properties>
 		<!-- spring版本号 -->
