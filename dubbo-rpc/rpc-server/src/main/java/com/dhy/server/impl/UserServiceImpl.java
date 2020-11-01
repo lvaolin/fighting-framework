@@ -1,7 +1,7 @@
 package com.dhy.server.impl;
 
 import com.dhy.server.itf.IUserServive;
-import com.dhy.server.itf.User;
+import com.dhy.server.dto.User;
 
 public class UserServiceImpl implements IUserServive {
     @Override

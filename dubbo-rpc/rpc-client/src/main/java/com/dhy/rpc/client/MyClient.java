@@ -1,11 +1,11 @@
 package com.dhy.rpc.client;
 
 import com.dhy.server.itf.IUserServive;
-import com.dhy.server.itf.User;
+import com.dhy.server.dto.User;
 
 public class MyClient {
     public static void main(String[] args) {
-        for (int i = 0; i <100 ; i++) {
+        for (int i = 0; i <1 ; i++) {
             //通过jdk代理生成一个IUserServive代理对象
             ProxyFactory<IUserServive> proxyFactory = new ProxyFactory<IUserServive>();
             IUserServive userServive= proxyFactory.getProxy(IUserServive.class);

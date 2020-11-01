@@ -1,4 +1,4 @@
-package com.dhy.server.itf;
+package com.dhy.server.dto;
 
 import java.io.Serializable;
 

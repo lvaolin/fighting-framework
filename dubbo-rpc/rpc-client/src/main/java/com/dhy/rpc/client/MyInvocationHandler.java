@@ -1,6 +1,6 @@
 package com.dhy.rpc.client;
 
-import com.dhy.server.itf.RpcRequest;
+import com.dhy.server.dto.RpcRequest;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
