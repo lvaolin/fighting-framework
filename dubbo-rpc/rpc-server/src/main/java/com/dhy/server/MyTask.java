@@ -10,9 +10,9 @@ import java.io.ObjectOutputStream;
 import java.lang.reflect.Method;
 import java.net.Socket;
 
-public class Task implements Runnable {
+public class MyTask implements Runnable {
     Socket socket;
-    public Task(Socket socket){
+    public MyTask(Socket socket){
         this.socket = socket;
     }
 

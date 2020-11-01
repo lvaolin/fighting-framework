@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit;
  * 接受请求数据
  * 响应数据
  */
-public class Main {
+public class MyServer {
 
     static Executor executor = new ThreadPoolExecutor(2, 2,
             0L, TimeUnit.MILLISECONDS,
@@ -29,7 +29,7 @@ public class Main {
         while (true) {
             System.out.println("服务端监听已准备好");
             Socket socket = serverSocket.accept();
-            executor.execute(new Task(socket));
+            executor.execute(new MyTask(socket));
         }
 
 
