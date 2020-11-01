@@ -2,6 +2,7 @@ package com.dhy.rpc.client;
 
 import com.dhy.server.itf.RpcRequest;
 
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.lang.reflect.InvocationHandler;
@@ -20,6 +21,13 @@ public class MyInvocationHandler implements InvocationHandler {
         rpcRequest.setParameterValues(args);
         rpcRequest.setParameterTypes(method.getParameterTypes());
 
+        Object object = rpcInvoke(rpcRequest);
+
+        //得到结果返回给调用者
+        return object;
+    }
+
+    private Object rpcInvoke(RpcRequest rpcRequest) throws IOException, ClassNotFoundException {
         Socket socket = new Socket("localhost",8080);
 
         //向服务端发送数据
@@ -35,8 +43,6 @@ public class MyInvocationHandler implements InvocationHandler {
         outputStream.close();
         inputStream.close();
         socket.close();
-
-        //得到结果返回给调用者
         return object;
     }
 }

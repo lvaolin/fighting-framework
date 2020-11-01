@@ -1,6 +1,8 @@
 package com.dhy.server.itf;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
     private Long id;
 
     public Long getId() {

@@ -1,6 +1,7 @@
 package com.dhy.server.itf;
 
 import java.io.Serializable;
+import java.util.Arrays;
 
 public class RpcRequest implements Serializable {
     /**\
@@ -14,12 +15,30 @@ public class RpcRequest implements Serializable {
     /**
      * 调用的方法参数值
      */
-    private Object parameterValues[];
+    private Object[] parameterValues;
+
+    public Class<?>[] getParameterTypes() {
+        return parameterTypes;
+    }
+
+    public void setParameterTypes(Class<?>[] parameterTypes) {
+        this.parameterTypes = parameterTypes;
+    }
+
     /**
      * 调用的方法参数类型列表
      */
-    private Object parameterTypes[];
+    private Class<?>[] parameterTypes;
 
+    @Override
+    public String toString() {
+        return "RpcRequest{" +
+                "className='" + className + '\'' +
+                ", methodName='" + methodName + '\'' +
+                ", parameterValues=" + Arrays.toString(parameterValues) +
+                ", parameterTypes=" + Arrays.toString(parameterTypes) +
+                '}';
+    }
 
     public String getClassName() {
         return className;
@@ -45,12 +64,6 @@ public class RpcRequest implements Serializable {
         this.parameterValues = parameterValues;
     }
 
-    public Object[] getParameterTypes() {
-        return parameterTypes;
-    }
 
-    public void setParameterTypes(Object[] parameterTypes) {
-        this.parameterTypes = parameterTypes;
-    }
 
 }
