@@ -1,4 +1,4 @@
-package com.dhy.server;
+package com.dhy.server.zkutil;
 
 import org.apache.curator.RetryPolicy;
 import org.apache.curator.framework.CuratorFramework;
@@ -19,11 +19,12 @@ public class MyZkClient {
     //创建连接实例
     private CuratorFramework client = null;
 
-    public static void main(String[] args) throws Exception {
+
+    public MyZkClient() {
         //1 重试策略：初试时间为1s 重试10次
         RetryPolicy retryPolicy = new ExponentialBackoffRetry(1000, 10);
         //2 通过工厂创建连接
-        CuratorFramework client = CuratorFrameworkFactory.builder()
+        client = CuratorFrameworkFactory.builder()
                 .connectString(CONNECT_ADDR).connectionTimeoutMs(CONNECTION_TIMEOUT)
                 .sessionTimeoutMs(SESSION_TIMEOUT)
                 .retryPolicy(retryPolicy)
@@ -31,6 +32,31 @@ public class MyZkClient {
                 .build();
         //3 开启连接
         client.start();
+    }
+
+    public void createNode(String path, String data) {
+        //创建永久节点
+        try {
+            client.create().forPath(path, data.getBytes());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public String queryData(String path) {
+        try {
+            return new String(client.getData().forPath(path));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public void close() {
+        client.close();
+    }
+
+    private void test() throws Exception {
         System.out.println(ZooKeeper.States.CONNECTED);
         System.out.println(client.getState());
 
@@ -83,7 +109,6 @@ public class MyZkClient {
 
         //级联删除子节点
         client.delete().guaranteed().deletingChildrenIfNeeded().forPath("/curator/del_key2");
-
 
 
         client.close();

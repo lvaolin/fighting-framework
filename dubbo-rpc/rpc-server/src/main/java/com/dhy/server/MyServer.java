@@ -2,6 +2,7 @@ package com.dhy.server;
 
 import com.dhy.server.impl.UserServiceImpl;
 import com.dhy.server.itf.IUserServive;
+import com.dhy.server.zkutil.MyZkClient;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -26,6 +27,9 @@ public class MyServer {
 
     public static void main(String[] args) throws IOException {
         ServerSocket serverSocket = new ServerSocket(8080);
+        MyZkClient myZkClient = new MyZkClient();
+        myZkClient.createNode("/dhy-reg","127.0.0.1:8080");
+        System.out.println("向zookeeper注册服务提供者地址："+"127.0.0.1:8080");
         while (true) {
             System.out.println("服务端监听已准备好");
             Socket socket = serverSocket.accept();

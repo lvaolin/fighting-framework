@@ -1,6 +1,7 @@
 package com.dhy.rpc.client;
 
 import com.dhy.server.dto.RpcRequest;
+import com.dhy.server.zkutil.MyZkClient;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -28,7 +29,13 @@ public class MyInvocationHandler implements InvocationHandler {
     }
 
     private Object rpcInvoke(RpcRequest rpcRequest) throws IOException, ClassNotFoundException {
-        Socket socket = new Socket("localhost",8080);
+
+        MyZkClient myZkClient = new MyZkClient();
+        String host = myZkClient.queryData("/dhy-reg");
+        System.out.println("从zookeeper注册中心获取到服务提供者地址："+host);
+        String[] split = host.split(":");
+
+        Socket socket = new Socket(split[0],Integer.parseInt(split[1]));
 
         //向服务端发送数据
         ObjectOutputStream outputStream = new ObjectOutputStream(socket.getOutputStream());
