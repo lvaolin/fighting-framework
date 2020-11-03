@@ -1,8 +1,7 @@
-package com.dhy.server;
+package com.dhy.dubbo.protocol.rmi;
 
-import com.dhy.server.impl.UserServiceImpl;
-import com.dhy.server.itf.IUserServive;
-import com.dhy.server.zkutil.MyZkClient;
+
+import com.dhy.dubbo.register.zookeeper.zkutil.MyZkClient;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -23,7 +22,7 @@ public class MyServer {
             0L, TimeUnit.MILLISECONDS,
             new LinkedBlockingQueue<Runnable>(2));
 
-    static IUserServive userServive = new UserServiceImpl();
+    //static IUserServive userServive = new UserServiceImpl();
 
     public static void main(String[] args) throws IOException {
         ServerSocket serverSocket = new ServerSocket(8088);

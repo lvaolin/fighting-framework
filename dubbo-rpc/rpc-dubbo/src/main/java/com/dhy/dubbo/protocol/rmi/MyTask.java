@@ -1,9 +1,6 @@
-package com.dhy.server;
+package com.dhy.dubbo.protocol.rmi;
 
-import com.dhy.server.impl.MyBeanFactory;
-import com.dhy.server.impl.UserServiceImpl;
-import com.dhy.server.itf.IUserServive;
-import com.dhy.server.dto.RpcRequest;
+import com.dhy.dubbo.dto.RpcRequest;
 
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -48,6 +45,7 @@ public class MyTask implements Runnable {
 
     public Object getService(RpcRequest rpcRequest){
         //获取要执行方法的 业务对象
-        return MyBeanFactory.getInstance().getBean(rpcRequest.getClassName());
+        //return MyBeanFactory.getInstance().getBean(rpcRequest.getClassName());
+        return null;
     }
 }
