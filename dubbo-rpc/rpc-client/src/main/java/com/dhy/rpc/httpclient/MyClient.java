@@ -1,8 +1,8 @@
-package com.dhy.rpc.client;
+package com.dhy.rpc.httpclient;
 
 import com.dhy.dubbo.framework.ProxyFactory;
-import com.dhy.server.itf.IUserServive;
 import com.dhy.server.dto.User;
+import com.dhy.server.itf.IUserServive;
 
 public class MyClient {
     public static void main(String[] args) {

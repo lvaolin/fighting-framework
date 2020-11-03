@@ -1,4 +1,4 @@
-package com.dhy.rpc.client;
+package com.dhy.dubbo.framework;
 
 import java.lang.reflect.Proxy;
 
@@ -8,7 +8,7 @@ import java.lang.reflect.Proxy;
  */
 public class ProxyFactory<T> {
 
-    T getProxy(Class<T> interfaceClass){
+    public  T getProxy(Class<T> interfaceClass){
         return (T)Proxy.newProxyInstance(interfaceClass.getClassLoader(), new Class[]{interfaceClass},new MyInvocationHandler());
     }
 }

@@ -16,15 +16,6 @@ public class RpcRequest implements Serializable {
      * 调用的方法参数值
      */
     private Object[] parameterValues;
-
-    public Class<?>[] getParameterTypes() {
-        return parameterTypes;
-    }
-
-    public void setParameterTypes(Class<?>[] parameterTypes) {
-        this.parameterTypes = parameterTypes;
-    }
-
     /**
      * 调用的方法参数类型列表
      */
@@ -65,5 +56,12 @@ public class RpcRequest implements Serializable {
     }
 
 
+    public Class<?>[] getParameterTypes() {
+        return parameterTypes;
+    }
+
+    public void setParameterTypes(Class<?>[] parameterTypes) {
+        this.parameterTypes = parameterTypes;
+    }
 
 }

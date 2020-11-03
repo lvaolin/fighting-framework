@@ -1,7 +1,8 @@
-package com.dhy.rpc.client;
+package com.dhy.dubbo.framework;
 
-import com.dhy.server.dto.RpcRequest;
-import com.dhy.server.zkutil.MyZkClient;
+
+import com.dhy.dubbo.dto.RpcRequest;
+import com.dhy.dubbo.register.zookeeper.zkutil.MyZkClient;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -10,7 +11,7 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.net.Socket;
 
-public class MyInvocationHandler implements InvocationHandler {
+public class MyInvocationHandlerForRmi implements InvocationHandler {
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         //发起rpc调用

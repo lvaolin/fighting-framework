@@ -1,16 +1,15 @@
-package com.dhy.dubbo.protocol.http;
+package com.dhy.dubbo.protocol.dubbo;
 
+import com.dhy.dubbo.protocol.http.DispatcherServlet;
 import org.apache.catalina.Context;
 import org.apache.catalina.LifecycleException;
 import org.apache.catalina.core.StandardContext;
 import org.apache.catalina.startup.Tomcat;
 
-import java.io.File;
-
-public class HttpServer {
+public class NettyServer {
 
     public static void main(String[] args) {
-        HttpServer httpServer = new HttpServer();
+        NettyServer httpServer = new NettyServer();
         httpServer.start("loalhost", 8080);
     }
 
