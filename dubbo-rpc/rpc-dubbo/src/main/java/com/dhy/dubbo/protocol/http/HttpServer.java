@@ -10,7 +10,7 @@ public class HttpServer {
 
     public static void main(String[] args) {
         HttpServer httpServer = new HttpServer();
-        httpServer.start("loalhost",80);
+        httpServer.start("loalhost",8080);
     }
 
     Tomcat tomcat = new Tomcat();
@@ -20,8 +20,8 @@ public class HttpServer {
         tomcat.setHostname(hostname);
         tomcat.setPort(port);
         tomcat.getConnector();
-        String webappDirLocation = "C:\\code_github\\idcreateservice\\idcreateservice\\dubbo-rpc\\webapps\\v1";
-        tomcat.addWebapp("", new File(webappDirLocation).getAbsolutePath());
+        tomcat.setBaseDir("./tomcat");
+        tomcat.addWebapp("/v1", new File("./tomcat/webapps/v1").getAbsolutePath());
 
         try {
             tomcat.start();
