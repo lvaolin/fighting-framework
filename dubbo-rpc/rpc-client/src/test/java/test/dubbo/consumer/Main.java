@@ -15,8 +15,10 @@ public class Main {
     @Test
     @DisplayName("hello")
     public void sayHello() {
-        for (int i = 0; i < 100; i++) {
-            System.out.println(TestUtil.getService(IHelloService.class).sayHello("lval"));
+        for (int i = 0; i < 1; i++) {
+            IHelloService service = TestUtil.getService(IHelloService.class);
+            String lval = service.sayHello("lval");
+            System.out.println(lval);
         }
 //        synchronized (Main.class) {
 //            try {

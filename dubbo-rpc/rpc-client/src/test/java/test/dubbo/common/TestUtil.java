@@ -34,7 +34,10 @@ public class TestUtil {
 
     public static <T> T getService(Class<T> clazz) {
         ReferenceConfig<T> referenceConfig = getReferenceConfig(zkAddress, null, null, clazz);
-        return referenceConfig.get();
+        referenceConfig.setTimeout(600000);
+        referenceConfig.setRetries(0);
+        T t = referenceConfig.get();
+        return t;
     }
 
     /**
@@ -57,8 +60,10 @@ public class TestUtil {
         // 服务提供者暴露服务配置
         // 此实例很重，封装了与注册中心的连接，请自行缓存，否则可能造成内存和连接泄漏
         ServiceConfig service = new ServiceConfig();
-        service.setApplication(getApplicationConfig(interfaceClass.getName()));
-        service.setRegistry(getRegistryConfig(zkAddress)); // 多个注册中心可以用setRegistries()
+//        service.setApplication(getApplicationConfig(interfaceClass.getName()));
+//        service.setRegistry(getRegistryConfig(zkAddress)); // 多个注册中心可以用setRegistries()
+        service.setApplication(application);
+        service.setRegistry(registry);
         service.setProtocol(protocol); // 多个协议可以用setProtocols()
         service.setInterface(interfaceClass);
         service.setRef(object);
