@@ -8,14 +8,6 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 
 @Component
-public class OrderServiceImpl implements IOrderService, BeanNameAware, ApplicationContextAware {
-    @Override
-    public void setBeanName(String name) {
-        System.out.println("setBeanName:"+name);
-    }
+public class OrderServiceImpl implements IOrderService{
 
-    @Override
-    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        System.out.println("setApplicationContext"+applicationContext);
-    }
 }
