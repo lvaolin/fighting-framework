@@ -34,5 +34,6 @@ public class MyImportBeanDefinitionRegistrar implements ImportBeanDefinitionRegi
         orderMapperBuilder.addPropertyValue("mapperInterface", OrderMapper.class);
         registry.registerBeanDefinition("orderMapper", orderMapperBuilder.getBeanDefinition());
 
+        System.out.println("注册了所有的mapper的实现类信息 MyMapperFactoryBean");
     }
 }

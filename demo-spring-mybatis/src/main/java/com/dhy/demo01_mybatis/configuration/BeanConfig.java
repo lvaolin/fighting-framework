@@ -4,6 +4,8 @@ import com.dhy.demo01_mybatis.annotation.MyMapperScan;
 import com.dhy.demo01_mybatis.dto.User;
 import com.dhy.demo01_mybatis.mapper.AccountMapper;
 import com.dhy.demo01_mybatis.mapper.OrderMapper;
+import org.apache.dubbo.config.spring.context.annotation.DubboComponentScan;
+import org.apache.dubbo.config.spring.context.annotation.EnableDubbo;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
