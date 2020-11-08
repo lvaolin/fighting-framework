@@ -3,6 +3,7 @@ package test.dubbo.common;
 import org.apache.dubbo.config.*;
 import org.junit.jupiter.api.DisplayName;
 
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -52,10 +53,10 @@ public class TestUtil {
         // 连接注册中心配置
         RegistryConfig registry = new RegistryConfig();
         registry.setAddress(zkAddress);
-        // 服务提供者协议配置
-        ProtocolConfig protocol = new ProtocolConfig();
-        protocol.setName("dubbo");
-        protocol.setPort(12345);
+        // 服务提供者协议配置,支持多个协议配置
+        ArrayList<ProtocolConfig> protocolConfigs = new ArrayList<>();
+        protocolConfigs.add(new ProtocolConfig("dubbo",12345));
+        protocolConfigs.add(new ProtocolConfig("rmi",8081));
         // 注意：ServiceConfig为重对象，内部封装了与注册中心的连接，以及开启服务端口
         // 服务提供者暴露服务配置
         // 此实例很重，封装了与注册中心的连接，请自行缓存，否则可能造成内存和连接泄漏
@@ -64,7 +65,8 @@ public class TestUtil {
 //        service.setRegistry(getRegistryConfig(zkAddress)); // 多个注册中心可以用setRegistries()
         service.setApplication(application);
         service.setRegistry(registry);
-        service.setProtocol(protocol); // 多个协议可以用setProtocols()
+        //service.setProtocol(protocol); // 多个协议可以用setProtocols()
+        service.setProtocols(protocolConfigs);
         service.setInterface(interfaceClass);
         service.setRef(object);
         // 暴露及注册服务

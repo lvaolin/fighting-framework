@@ -1,6 +1,9 @@
 package test.dubbo.provider;
 
 
+import org.apache.dubbo.config.spring.ServiceBean;
+import org.apache.dubbo.rpc.proxy.InvokerInvocationHandler;
+import test.dubbo.common.IHelloService;
 import test.dubbo.common.TestUtil;
 
 public class Main {

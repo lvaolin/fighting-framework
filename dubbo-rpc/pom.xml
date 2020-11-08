@@ -7,7 +7,7 @@
 	<packaging>pom</packaging>
 	<modules>
 		<module>rpc-server</module>
-		<module>rpc-server-itf</module>
+		<module>rpc-itf</module>
 		<module>rpc-client</module>
 		<module>rpc-dubbo</module>
 	</modules>

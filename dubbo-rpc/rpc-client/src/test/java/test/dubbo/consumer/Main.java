@@ -1,9 +1,10 @@
 package test.dubbo.consumer;
 
+import org.apache.dubbo.config.spring.ReferenceBean;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import test.dubbo.common.TestUtil;
-import test.dubbo.provider.IHelloService;
+import test.dubbo.common.IHelloService;
 
 /**
  * @author lvaolin
@@ -20,6 +21,8 @@ public class Main {
             String lval = service.sayHello("lval");
             System.out.println(lval);
         }
+
+
 //        synchronized (Main.class) {
 //            try {
 //                Main.class.wait();
