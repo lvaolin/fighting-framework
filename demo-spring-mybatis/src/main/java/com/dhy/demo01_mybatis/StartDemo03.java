@@ -1,6 +1,8 @@
 package com.dhy.demo01_mybatis;
 
+import com.dhy.demo01_mybatis.dto.User;
 import com.dhy.demo01_mybatis.itf.IAccountService;
+import com.dhy.demo01_mybatis.itf.IUserService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**
@@ -15,5 +17,9 @@ public class StartDemo03 {
         IAccountService service = ac.getBean(IAccountService.class);
         Object object = service.getAccount(1L);
         System.out.println(object);
+
+        IUserService userService = ac.getBean(IUserService.class);
+        Object user = userService.getUser(1L);
+        System.out.println(user);
     }
 }

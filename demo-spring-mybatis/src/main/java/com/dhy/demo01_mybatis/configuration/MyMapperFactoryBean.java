@@ -11,6 +11,8 @@ import java.lang.reflect.Proxy;
  * 针对 所有 Mapper接口的工厂类
  */
 public class MyMapperFactoryBean<T> implements FactoryBean<T> {
+
+
     private Class<T> mapperInterface;
     public MyMapperFactoryBean() {
     }
@@ -41,5 +43,13 @@ public class MyMapperFactoryBean<T> implements FactoryBean<T> {
     @Override
     public boolean isSingleton() {
         return true;
+    }
+
+    public Class<T> getMapperInterface() {
+        return mapperInterface;
+    }
+
+    public void setMapperInterface(Class<T> mapperInterface) {
+        this.mapperInterface = mapperInterface;
     }
 }

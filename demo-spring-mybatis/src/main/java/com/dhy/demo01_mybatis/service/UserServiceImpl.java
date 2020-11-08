@@ -11,7 +11,7 @@ public class UserServiceImpl implements IUserService {
     @Autowired
     private UserMapper userMapper;
     @Override
-    public User getUser(Long id) {
+    public Object getUser(Long id) {
         return userMapper.getUser();
     }
 }

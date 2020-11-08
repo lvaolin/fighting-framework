@@ -17,8 +17,8 @@ public class StartDemo01 {
         Object myFactoryBean2 = ac.getBean("userMapperFactoryBean");
         System.out.println("myFactoryBean1==myFactoryBean2:"+(myFactoryBean1==myFactoryBean2));
         UserMapper userMapper = ac.getBean("userMapperFactoryBean", UserMapper.class);
-        User user = userMapper.getUser();
-        System.out.println(user.getName()+user.getAddress());
+       // User user = userMapper.getUser();
+       // System.out.println(user.getName()+user.getAddress());
         System.out.println("okl12");
 
 
