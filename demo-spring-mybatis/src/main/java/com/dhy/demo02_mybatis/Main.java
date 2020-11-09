@@ -17,14 +17,25 @@ public class Main {
         String xml = "mybatis-config.xml";
         InputStream resourceAsStream = Resources.getResourceAsStream(xml);
         SqlSessionFactory sessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
-        SqlSession sqlSession = sessionFactory.openSession();
-        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
-        BossUser user = mapper.getUser(1L);
-        System.out.println(user.toString());
+
+        for (int i = 0; i <100 ; i++) {
+            SqlSession sqlSession = sessionFactory.openSession();
+            UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+            BossUser user = mapper.getUser(1L);
+            System.out.println(user.toString());
+            sqlSession.commit();
+            sqlSession.clearCache();
+            sqlSession.close();
+        }
+
+        synchronized (Main.class){
+            try {
+                Main.class.wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
 
 
-        sqlSession.commit();
-        sqlSession.clearCache();
-        sqlSession.close();
     }
 }
