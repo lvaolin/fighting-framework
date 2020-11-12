@@ -2,12 +2,22 @@ package com.dhy.zookeeper;
 
 import org.apache.zookeeper.ZooKeeper;
 
+import java.io.IOException;
 import java.util.List;
 
 public class OutPutAll {
+    static ZooKeeper zk;
+
+    static {
+        try {
+            zk = new ZooKeeper("localhost:2181",5000,null);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public static void main(String[] args) throws Exception {
-        lsr("/");
+        //lsr("/");
     }
 
     /**
@@ -15,7 +25,7 @@ public class OutPutAll {
      */
     public static void lsr(String path) throws Exception {
         System.out.println(path);
-        ZooKeeper zk = new ZooKeeper("localhost:2181",5000,null);
+
         List<String> list = zk.getChildren(path,null);
         //判断是否有子节点
         if(list.isEmpty() || list == null){
