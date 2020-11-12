@@ -6,6 +6,9 @@ import org.apache.curator.RetryPolicy;
 import org.apache.curator.RetrySleeper;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;
+import org.apache.curator.framework.recipes.cache.PathChildrenCache;
+import org.apache.curator.framework.recipes.cache.PathChildrenCacheEvent;
+import org.apache.curator.framework.recipes.cache.PathChildrenCacheListener;
 import org.apache.zookeeper.CreateMode;
 import org.apache.zookeeper.WatchedEvent;
 import org.apache.zookeeper.Watcher;
@@ -23,16 +26,20 @@ public class CuratorTest {
         });
         curatorFramework.start();
         String path = "/dhy";
+        curatorFramework.delete().deletingChildrenIfNeeded().forPath(path);
         Stat stat = curatorFramework.checkExists().forPath(path);
         if (stat==null) {
             curatorFramework.create().forPath(path);
         }
-        curatorFramework.watchers().add().usingWatcher(new Watcher() {
+
+        PathChildrenCache pathChildrenCache = new PathChildrenCache(curatorFramework,path,true);
+        pathChildrenCache.start();
+        pathChildrenCache.getListenable().addListener(new PathChildrenCacheListener() {
             @Override
-            public void process(WatchedEvent watchedEvent) {
-                System.out.println("watch /dhy:"+watchedEvent.toString());
+            public void childEvent(CuratorFramework curatorFramework, PathChildrenCacheEvent pathChildrenCacheEvent) throws Exception {
+                System.out.println("变化:"+pathChildrenCacheEvent.toString());
             }
-        }).forPath(path);
+        });
 
         curatorFramework.create().forPath(path+"/a");
         curatorFramework.create().forPath(path+"/b");
