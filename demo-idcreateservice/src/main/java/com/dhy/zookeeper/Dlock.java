@@ -1,5 +1,6 @@
 package com.dhy.zookeeper;
 
+import org.I0Itec.zkclient.IZkDataListener;
 import org.I0Itec.zkclient.ZkClient;
 import org.apache.zookeeper.CreateMode;
 
@@ -16,6 +17,7 @@ import java.util.concurrent.TimeUnit;
  * 没抢到的一直等待释放后继续抢锁
  */
 public class Dlock {
+
 
     public static void main(String[] args) {
 
@@ -34,6 +36,7 @@ public class Dlock {
             new Thread(new Runnable() {
                 @Override
                 public void run() {
+                    Object lock = new Object();
                     try {
                         System.out.println(Thread.currentThread().getName()+"is ready");
                         cyclicBarrier.await();
@@ -47,31 +50,44 @@ public class Dlock {
                     System.out.println(Thread.currentThread().getName()+"注册了临时节点："+myEphemeralSequential);
                     System.out.println("myLockName:"+myLockName);
                     System.out.println(Thread.currentThread().getName()+"获取所有竞争者");
-                    List<String> children = zkClient.getChildren(basePath);
-                    for (String child : children) {
-                        System.out.println(child);
-                    }
-                    System.out.println(Thread.currentThread().getName()+"所有竞争者客户端本地排序");
-                    getQueueList(children,lockName);
-                    String first= basePath + "/"+children.get(0);
-                    if (first.equals(myEphemeralSequential)) {
-                        System.out.println(Thread.currentThread().getName()+"恭喜你获得了锁");
-                        try {
-                            TimeUnit.SECONDS.sleep(3);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
+                    boolean hasTheLock = false;
+                    while (!hasTheLock){
+                        List<String> children = zkClient.getChildren(basePath);
+                        for (String child : children) {
+                            System.out.println(child);
                         }
-                        if (zkClient.delete(myEphemeralSequential)) {
-                            System.out.println(Thread.currentThread().getName()+"释放锁成功");
-                        }
-                    }else{
-                        int myIndex = children.indexOf(myLockName);
-                        int myPreIndex = myIndex -1;
-                        System.out.println(Thread.currentThread().getName()+"没有竞争到锁，你前面的竞争者为："+children.get(myPreIndex));
+                        System.out.println(Thread.currentThread().getName()+"所有竞争者客户端本地排序");
+                        getQueueList(children,lockName);
+                        String first= basePath + "/"+children.get(0);
+                        if (first.equals(myEphemeralSequential)) {
+                            hasTheLock = true;
+                            System.out.println(Thread.currentThread().getName()+"恭喜你获得了锁");
+                            try {
+                                TimeUnit.SECONDS.sleep(3);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+                            if (zkClient.delete(myEphemeralSequential)) {
+                                System.out.println(Thread.currentThread().getName()+"释放锁成功");
+                            }
+                        }else{
+                            int myIndex = children.indexOf(myLockName);
+                            int myPreIndex = myIndex -1;
+                            System.out.println(Thread.currentThread().getName()+"没有竞争到锁，你前面的竞争者为："+children.get(myPreIndex));
 
-                        String watchPath  = basePath+"/"+children.get(myPreIndex);
-                        zkClient.subscribeDataChanges(watchPath,new ZkClientTest.MyZkDataListener());
+                            String watchPath  = basePath+"/"+children.get(myPreIndex);
+                            zkClient.subscribeDataChanges(watchPath,new MyZkDataListener(lock));
+                            synchronized (lock){
+                                try {
+                                    lock.wait();
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+
+                        }
                     }
+
                 }
             }).start();
         }
@@ -87,6 +103,30 @@ public class Dlock {
 
 
     }
+
+    static class MyZkDataListener implements IZkDataListener {
+        private Object lock;
+        public MyZkDataListener(Object lock){
+            this.lock = lock;
+        }
+
+        @Override
+        public void handleDataChange(String dataPath, Object data) throws Exception {
+            System.out.println(dataPath+"数据已经变更");
+        }
+
+        @Override
+        public void handleDataDeleted(String dataPath) throws Exception {
+            System.out.println(dataPath+"已经删除");
+            synchronized (lock){
+                lock.notify();
+            }
+
+        }
+    }
+
+
+
 
     public static void getQueueList(List<String> list,String lockName){
         Collections.sort(list, new Comparator<String>() {
