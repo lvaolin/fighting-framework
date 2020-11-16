@@ -1,8 +1,11 @@
 package com.dhy.zookeeper;
 
 import org.I0Itec.zkclient.IZkChildListener;
+import org.I0Itec.zkclient.IZkDataListener;
+import org.I0Itec.zkclient.IZkStateListener;
 import org.I0Itec.zkclient.ZkClient;
 import org.apache.zookeeper.CreateMode;
+import org.apache.zookeeper.Watcher;
 
 import java.sql.Time;
 import java.util.List;
@@ -66,6 +69,37 @@ public class ZkClientTest {
             for (String currentChild : currentChilds) {
                 System.out.println(currentChild);
             }
+        }
+    }
+    static class MyZkDataListener implements IZkDataListener{
+
+        @Override
+        public void handleDataChange(String dataPath, Object data) throws Exception {
+            System.out.println(dataPath+"数据已经变更");
+        }
+
+        @Override
+        public void handleDataDeleted(String dataPath) throws Exception {
+            System.out.println(dataPath+"已经删除");
+        }
+    }
+
+
+    static class MyZkStateListener implements IZkStateListener{
+
+        @Override
+        public void handleStateChanged(Watcher.Event.KeeperState state) throws Exception {
+
+        }
+
+        @Override
+        public void handleNewSession() throws Exception {
+
+        }
+
+        @Override
+        public void handleSessionEstablishmentError(Throwable error) throws Exception {
+
         }
     }
 }

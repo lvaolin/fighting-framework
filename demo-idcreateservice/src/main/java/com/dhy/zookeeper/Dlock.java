@@ -69,12 +69,21 @@ public class Dlock {
                         int myPreIndex = myIndex -1;
                         System.out.println(Thread.currentThread().getName()+"没有竞争到锁，你前面的竞争者为："+children.get(myPreIndex));
 
+                        String watchPath  = basePath+"/"+children.get(myPreIndex);
+                        zkClient.subscribeDataChanges(watchPath,new ZkClientTest.MyZkDataListener());
                     }
                 }
             }).start();
         }
 
 
+        synchronized (Dlock.class){
+            try {
+                Dlock.class.wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
 
 
     }
