@@ -3,7 +3,6 @@ package com.dhy.provider.service;
 import com.dhy.common.itf.ISeataStorageService;
 import com.dhy.common.itf.SeataStoragePo;
 import org.apache.dubbo.config.annotation.DubboService;
-import org.apache.dubbo.config.annotation.Service;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
