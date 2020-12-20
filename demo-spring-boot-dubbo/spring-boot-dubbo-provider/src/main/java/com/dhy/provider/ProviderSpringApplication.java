@@ -1,11 +1,8 @@
 package com.dhy.provider;
 
-import com.dhy.common.EnableMyConfig;
+import com.dhy.common.*;
 import com.dhy.demo2.MyComponent;
 import com.dhy.demo.MyConfigDemo;
-import com.dhy.common.MyBean;
-import com.dhy.common.MyImportBean;
-import com.dhy.common.MyImportBean2;
 import org.apache.dubbo.spring.boot.context.DubboApplicationContextInitializer;
 import org.apache.dubbo.spring.boot.context.event.WelcomeLogoApplicationListener;
 import org.springframework.boot.SpringApplication;
@@ -17,7 +14,7 @@ import org.springframework.core.io.support.SpringFactoriesLoader;
         scanBasePackageClasses = MyConfigDemo.class,
         scanBasePackages = {"com.dhy.demo2"}
         )
-@EnableMyConfig
+//@EnableMyConfig
 public class ProviderSpringApplication {
 
     public static void main(String[] args) {
@@ -32,6 +29,8 @@ public class ProviderSpringApplication {
         System.out.println(run.getBean(MyConfigDemo.User.class));
 
         System.out.println(run.getBean(MyComponent.class));
+
+        System.out.println(run.getBean(MyDto.class));
     }
 
 }

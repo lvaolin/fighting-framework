@@ -15,6 +15,11 @@
 		<module>demo-spring-elasticjob</module>
 		<module>demo-spring-ratelimit</module>
 		<module>demo-spring-mybatis</module>
+		<module>demo-spring-boot-dubbo</module>
+		<module>demo-spring-boot-hasor-dataway</module>
+		<module>dhy-springboot-resilience4j</module>
+		<module>dubbo-rpc</module>
+		<module>spring-webflux</module>
 	</modules>
 
 </project>

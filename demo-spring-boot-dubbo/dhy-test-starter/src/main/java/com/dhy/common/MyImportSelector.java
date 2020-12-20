@@ -18,7 +18,7 @@ public class MyImportSelector implements ImportSelector, BeanFactoryAware {
         System.out.println("-----MyImportSelector ----selectImports------");
         importingClassMetadata.getAnnotationTypes().forEach(System.out::println);
         System.out.println(beanFactory);
-        return new String[]{MyConfig.class.getName(),MyConfig2.class.getName()};
+        return new String[]{MyConfig.class.getName(),MyConfig2.class.getName(),MyDto.class.getName()};
     }
 
     @Override
