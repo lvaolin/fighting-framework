@@ -4,6 +4,7 @@ package com.dhy.io;/**
 
 import java.io.IOException;
 import java.io.StringReader;
+import java.util.LinkedHashMap;
 
 /**
  * 从内存读取
@@ -20,6 +21,8 @@ public class MemoryInput {
         while ((c=stringReader.read())!=-1){
             System.out.println((char) c);
         }
+
+        LinkedHashMap<Object, Object> objectObjectLinkedHashMap = new LinkedHashMap<>();
 
     }
 
