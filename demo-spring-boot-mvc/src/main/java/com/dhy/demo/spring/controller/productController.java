@@ -7,11 +7,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
+
+
 @RestController
 @RequestMapping("/product")
 public class productController {
 
-    @Autowired
+   // @Autowired
+    //@Qualifier("seataStorageService3")
+    @Resource(name="seataStorageService2")
     private ISeataStorageService seataStorageService;
 
     @RequestMapping("/selectAll")

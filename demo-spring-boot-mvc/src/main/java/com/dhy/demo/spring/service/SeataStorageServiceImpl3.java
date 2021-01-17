@@ -1,14 +1,13 @@
 package com.dhy.demo.spring.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-//@Primary
-@Service("seataStorageService1")
-public class SeataStorageServiceImpl implements ISeataStorageService {
+
+
+@Service("seataStorageService3")
+public class SeataStorageServiceImpl3 implements ISeataStorageService {
 
     @Autowired
     private SeataStorageDao seataStorageDao;
