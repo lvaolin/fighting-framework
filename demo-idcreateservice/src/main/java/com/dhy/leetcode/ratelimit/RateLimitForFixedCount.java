@@ -14,7 +14,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * 同一个url每1秒钟限制调用次数为1000次，剩下的返回false
  */
 public class RateLimitForFixedCount {
-    private static  Map<String, AtomicInteger> map = new ConcurrentHashMap<>();
+    private static  ConcurrentHashMap<String, AtomicInteger> map = new ConcurrentHashMap<>();
     static {
         new Thread(new Runnable() {
             @Override
@@ -35,14 +35,15 @@ public class RateLimitForFixedCount {
         }).start();
     }
     public boolean rateLimit(String url){
-        if (map.get(url)==null) {
-            synchronized (this){
-                if(map.get(url)==null){
-                    map.put(url,new AtomicInteger(1));
-                    return true;
-                }
-            }
-        }
+//        if (map.get(url)==null) {
+//            synchronized (this){
+//                if(map.get(url)==null){
+//                    map.put(url,new AtomicInteger(1));
+//                    return true;
+//                }
+//            }
+//        }
+        map.putIfAbsent(url,new AtomicInteger(1));
         int i = map.get(url).incrementAndGet();
         if (i>10) {
             return  false;
