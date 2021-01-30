@@ -1,5 +1,8 @@
 package com.dhy.ratelimit.resilience4j;
 
+import io.github.resilience4j.bulkhead.Bulkhead;
+import io.github.resilience4j.bulkhead.BulkheadConfig;
+import io.github.resilience4j.bulkhead.BulkheadRegistry;
 import io.github.resilience4j.circuitbreaker.CircuitBreaker;
 import io.github.resilience4j.circuitbreaker.CircuitBreakerConfig;
 import io.github.resilience4j.ratelimiter.RateLimiter;
@@ -131,6 +134,21 @@ class Resilience4jApplicationTests {
                     .recover(throwable -> true).get();
             System.out.println(result);
         }
+
+    }
+
+
+    @Test
+    public  void testBulkhead(){
+        BulkheadConfig bulkheadConfig = BulkheadConfig.custom()
+                .maxConcurrentCalls(10)
+                .maxWaitDuration(Duration.ofMillis(100))
+                .writableStackTraceEnabled(true)
+                .fairCallHandlingStrategyEnabled(true)
+                .build();
+
+        BulkheadRegistry bulkheadRegistry = BulkheadRegistry.of(bulkheadConfig);
+        Bulkhead order = bulkheadRegistry.bulkhead("order");
 
     }
 
