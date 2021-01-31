@@ -18,6 +18,7 @@ import sun.rmi.runtime.Log;
 
 import java.time.Duration;
 import java.util.concurrent.*;
+import java.util.function.Function;
 import java.util.function.Supplier;
 import java.util.stream.IntStream;
 
@@ -34,33 +35,33 @@ class Resilience4jApplicationTests {
     @Test
     void testRateLimiter() {
         LoginService loginService = new LoginService();
-        // 配置信息
+        // 限速配置信息
         RateLimiterConfig config = RateLimiterConfig.custom()
                 .timeoutDuration(Duration.ofMillis(100))
                 .limitRefreshPeriod(Duration.ofSeconds(1))
                 .limitForPeriod(1)
                 .build();
-        // 限流器
+        // 生成一个限速器
         RateLimiter rateLimiter = RateLimiter.of("backendName", config);
 
 
-        while (true) {
-            //指定限流方法
+       // while (true) {
+            //将限速器和目标方法关联起来
             Supplier<Boolean> restrictedSupplier = RateLimiter
                     .decorateSupplier(rateLimiter, loginService::login);
 
-            IntStream.rangeClosed(1, 5)
+            long start = System.currentTimeMillis();
+            IntStream.rangeClosed(1, 500)
                     .parallel()
                     .forEach(i -> {
                         Try<Boolean> aTry = Try.ofSupplier(restrictedSupplier);
                         System.out.println(aTry.isSuccess());
                     });
-            try {
-                TimeUnit.MILLISECONDS.sleep(100);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
+
+            long stop = System.currentTimeMillis();
+            System.out.println((stop - start)+"毫秒");
+
+        // }
 
     }
 
@@ -140,15 +141,28 @@ class Resilience4jApplicationTests {
 
     @Test
     public  void testBulkhead(){
+        LoginService loginService = new LoginService();
+
+        //bulkhead 配置信息
         BulkheadConfig bulkheadConfig = BulkheadConfig.custom()
-                .maxConcurrentCalls(10)
-                .maxWaitDuration(Duration.ofMillis(100))
-                .writableStackTraceEnabled(true)
-                .fairCallHandlingStrategyEnabled(true)
+                .maxConcurrentCalls(1)
+               //.maxWaitDuration(Duration.ofMillis(100))
+               // .writableStackTraceEnabled(true)
+                //.fairCallHandlingStrategyEnabled(true)
                 .build();
 
-        BulkheadRegistry bulkheadRegistry = BulkheadRegistry.of(bulkheadConfig);
-        Bulkhead order = bulkheadRegistry.bulkhead("order");
+        //实例化一个叫 order 的限流器
+        Bulkhead bulkhead = Bulkhead.of("order", bulkheadConfig);
+
+        Function<String, String> stringStringFunction = Bulkhead.decorateFunction(bulkhead, loginService::hello);
+
+        IntStream.range(1,1000)
+                .parallel()
+                .forEach((i)->{
+                    String lval = stringStringFunction.apply("lval");
+                    System.out.println(lval);
+                });
+
 
     }
 

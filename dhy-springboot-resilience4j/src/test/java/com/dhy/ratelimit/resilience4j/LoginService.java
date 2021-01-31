@@ -12,12 +12,16 @@ import java.util.concurrent.TimeUnit;
 public class LoginService implements ILoginService{
 
     public boolean login(){
-        try {
-            TimeUnit.SECONDS.sleep(1);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            TimeUnit.SECONDS.sleep(1);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
         System.out.println( " login pass");
         return true;
+    }
+
+    public String hello(String name){
+        return "hello "+ name;
     }
 }
