@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-//@Primary
+@Primary
 @Service("seataStorageService1")
 public class SeataStorageServiceImpl implements ISeataStorageService {
 
