@@ -20,6 +20,15 @@ public class CallableAndFuture {
             }
         });
 
+        Future<String> submit = executorService.submit(new Callable<String>() {
+            @Override
+            public String call() throws Exception {
+                return "okl";
+            }
+        });
+
+        String s = submit.get();
+        System.out.println(s);
 
         System.out.println("任务的执行结果："+future.get());
 
