@@ -19,6 +19,14 @@ public class Main {
         Comparator<String> cmp = (s1, s2) -> {
             return Integer.compare(s1.length(), s2.length());
         };
+
+
+        MyFunInterface myFunInterface = (msg)->{
+            System.out.println(msg);
+            return "hello function inteface "+msg;
+        };
+
+        myFunInterface.print("dahuangya");
     }
 
     void test(MyFunInterface myFunInterface){
