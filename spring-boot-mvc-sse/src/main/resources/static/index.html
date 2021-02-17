@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SSE机制测试</title>
+    <script >
+        var timeSource = new EventSource("/sse/getTime");
+        //自定义的time事件
+        timeSource.addEventListener('time', function (event) {
+            document.getElementById("time").innerText = event.data;
+        }, false);
+
+        var msgSource = new EventSource("/sse/getMessage");
+        // 默认的message 事件
+        msgSource.onmessage = function (event){
+            document.getElementById("message").innerText = event.data;
+        };
+
+    </script>
+</head>
+<body>
+<h1>当前服务器时间：</h1>
+<h2 id="time"></h2>
+<h1>message：</h1>
+<h2 id="message"></h2>
+
+<h2><a href="login.html">登录</a></h2>
+<h2 onclick="timeSource.close();msgSource.close();alert('已终止SSE');">关闭SSE</h2>
+</body>
+</html>

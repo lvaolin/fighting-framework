@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>聊天</title>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+
+    <script  type="text/javascript">
+        var currentUser="";
+        var chat ;
+        $(document).ready(function(){
+            $("#loginButton").click(function(){
+
+                if(currentUser!=""){
+                    //先把当前用户下线
+                    $.get("/sse/stop?clientId="+currentUser,function(data,status){
+
+                    });
+                    //chat.close();//关闭数据通道
+                }
+
+                var clientId = document.getElementById("userId").value;
+                chat = new EventSource("/sse/start?clientId="+clientId);
+                chat.onmessage = function (event){
+                    if(event.data.startsWith("onlineUsers:")){
+                        document.getElementById("onlineUsers").innerText = event.data;
+                    }else{
+                        document.getElementById("replyMsg").innerText = event.data;
+                    }
+                };
+
+                document.getElementById("onlineTag").innerText="已登录";
+                document.getElementById("onlineTag").innerText.fontcolor("green");
+                currentUser = clientId;
+            });
+
+            $("#sendButton").click(function(){
+                var fromUserId = document.getElementById("userId").value;
+                var clientId = document.getElementById("clientId").value;
+                var sendMsg =  document.getElementById("sendMsg").value;
+                $.get("/sse/send?fromUserId="+fromUserId+"&clientId="+clientId+"&content="+sendMsg,function(data,status){
+                    //alert("发射成功");
+                });
+            });
+
+            $("#groupSendButton").click(function(){
+                var fromUserId = document.getElementById("userId").value;
+                var sendMsg =  document.getElementById("sendMsg").value;
+                $.get("/sse/sendAll?fromUserId="+fromUserId+"&content="+sendMsg,function(data,status){
+                    //alert("发射成功");
+                });
+            });
+
+        });
+
+    </script>
+</head>
+<body>
+
+<label>我是谁：</label>
+<input type="text" id="userId"  />
+<button id = "loginButton" name = "loginButton" type="button">登录</button><label id="onlineTag"></label>
+<h2>收到消息：</h2>
+<h2 id="replyMsg"></h2>
+<br />
+<br/>
+<label>发给谁：</label>
+<input type="text" id="clientId" />
+<br/>
+<label>内容：</label>
+<input type="text" id = "sendMsg" />
+<br/>
+<button id = "sendButton" name = "sendButton" type="button" >发射</button>
+<button id = "groupSendButton" name = "groupSendButton" type="button" >群发</button>
+
+<h2>谁在线：</h2>
+<textarea id="onlineUsers" disabled = true style="height: 200px;width:200px"></textarea>
+
+</body>
+
+
+</html>
