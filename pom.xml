@@ -6,7 +6,7 @@
 	<version>1.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<modules>
-		<module>demo-idcreateservice</module>
+		<module>fighting-core</module>
 		<module>demo-spring-boot-jdbc-template</module>
 		<module>demo-spring-boot-mybatis</module>
 		<module>demo-spring-boot-springdatajpa</module>
