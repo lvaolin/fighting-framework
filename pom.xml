@@ -7,7 +7,7 @@
 	<packaging>pom</packaging>
 	<modules>
 		<module>fighting-core</module>
-		<module>demo-spring-boot-jdbc-template</module>
+		<module>spring-boot-jdbc-template</module>
 		<module>demo-spring-boot-mybatis</module>
 		<module>demo-spring-boot-springdatajpa</module>
 		<module>demo-spring-boot-tkmybatis</module>
@@ -15,9 +15,9 @@
 		<module>demo-spring-elasticjob</module>
 		<module>demo-spring-ratelimit</module>
 		<module>demo-spring-mybatis</module>
-		<module>demo-spring-boot-dubbo</module>
+		<module>spring-boot-dubbo</module>
 		<module>demo-spring-boot-hasor-dataway</module>
-		<module>dhy-springboot-resilience4j</module>
+		<module>spring-boot-resilience4j</module>
 		<module>dubbo-rpc</module>
 		<module>spring-webflux</module>
 	</modules>
