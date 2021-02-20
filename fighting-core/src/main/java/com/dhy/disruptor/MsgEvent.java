@@ -6,12 +6,12 @@ package com.dhy.disruptor;
  * @Author lvaolin
  * @Date 2021/2/20 10:27 上午
  */
-public class LongEvent {
-    private long value;
-    public void set(long value) {
+public class MsgEvent<T> {
+    private T value;
+    public void set(T value) {
         this.value = value;
     }
-    public long get() {
+    public T get() {
         return value;
     }
 }

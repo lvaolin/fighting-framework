@@ -8,9 +8,9 @@ import com.lmax.disruptor.EventFactory;
  * @Author lvaolin
  * @Date 2021/2/20 10:28 上午
  */
-public class LongEventFactory implements EventFactory<LongEvent> {
+public class MsgEventFactory implements EventFactory<MsgEvent> {
     @Override
-    public LongEvent newInstance() {
-        return new LongEvent();
+    public MsgEvent newInstance() {
+        return new MsgEvent();
     }
 }
