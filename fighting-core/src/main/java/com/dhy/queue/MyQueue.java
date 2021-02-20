@@ -12,7 +12,8 @@ import java.util.concurrent.*;
  * @Date 2021/2/20 3:56 下午
  */
 public class MyQueue {
-    public static BlockingQueue<String> queue = new LinkedBlockingQueue<>();
+    public static BlockingQueue<String> blockingQueue = new LinkedBlockingQueue<>();
+    public static Queue<String> queue = new ConcurrentLinkedQueue<>();
     public static int nThreads = 10;
     public static ExecutorService fixedExecutorService = new ThreadPoolExecutor(nThreads, nThreads,
             0L, TimeUnit.MILLISECONDS,

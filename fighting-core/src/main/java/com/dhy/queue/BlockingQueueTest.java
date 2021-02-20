@@ -13,7 +13,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @Author lvaolin
  * @Date 2021/2/20 3:55 下午
  */
-public class QueueTest {
+public class BlockingQueueTest {
 
 
     public static void main(String[] args) {
@@ -25,10 +25,10 @@ public class QueueTest {
                     ExecutorService executorService = MyQueue.cachedExecutorService;
                     final AtomicInteger count = new AtomicInteger(0);
                     while (true){
-                        String take = MyQueue.queue.take();
+                        String take = MyQueue.blockingQueue.take();
 
-                        while (count.intValue()>100){
-                            System.out.println("并发大于100时暂停");
+                        while (count.intValue()>500){
+                            System.out.println("并发大于500时暂停");
                             TimeUnit.MILLISECONDS.sleep(500);
                         }
                         System.out.println("继续消费");
@@ -57,7 +57,7 @@ public class QueueTest {
 
         for (int i = 0; i <1000 ; i++) {
             try {
-                MyQueue.queue.put(UUID.randomUUID().toString());
+                MyQueue.blockingQueue.put(UUID.randomUUID().toString());
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
