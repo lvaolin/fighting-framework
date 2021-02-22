@@ -1,8 +1,9 @@
 package com.dhy.jmx;
 
+import com.sun.management.OperatingSystemMXBean;
+
 import java.io.IOException;
 import java.lang.management.ManagementFactory;
-import java.lang.management.OperatingSystemMXBean;
 import java.sql.Time;
 import java.util.concurrent.TimeUnit;
 
@@ -15,14 +16,26 @@ import java.util.concurrent.TimeUnit;
 public class PrintCpu {
 
     public static void main(String[] args) throws IOException, InterruptedException {
-        OperatingSystemMXBean opMXbean = ManagementFactory.getOperatingSystemMXBean();
+        OperatingSystemMXBean opMXbean = (OperatingSystemMXBean)ManagementFactory.getOperatingSystemMXBean();
+        long lastTime = opMXbean.getProcessCpuTime();
+        long startTime = System.nanoTime();
         for (int i = 0; i <10000 ; i++) {
             double systemLoadAverage = opMXbean.getSystemLoadAverage();
             int availableProcessors = opMXbean.getAvailableProcessors();
-            double x = systemLoadAverage/availableProcessors;
+            long thisTime = opMXbean.getProcessCpuTime();
+            long stopTime = System.nanoTime();
+            double x = systemLoadAverage*100/availableProcessors;
+            //过去这段时间内jvm占用的cpu时间（纳秒）
+            long l1 = thisTime - lastTime;
+            //过去的这段时间内 cpu拥有的时间总和（4核心之和）纳秒
+            long l2 = (stopTime - startTime) * availableProcessors;
+            long l = l1*100/l2;
+            System.out.println("jvm cpu使用情况："+l+"%");
             System.out.println("cpu核心数量："+availableProcessors);
-            System.out.println("系统负载："+systemLoadAverage);
-            System.out.println("cpu使用率："+x);
+            System.out.println("OS系统负载："+systemLoadAverage);
+            System.out.println("cpu整体使用率（用户+系统）："+x+"%");
+            System.out.println(opMXbean.getProcessCpuLoad());
+            System.out.println("-------------------------------");
             TimeUnit.SECONDS.sleep(5);
         }
 
