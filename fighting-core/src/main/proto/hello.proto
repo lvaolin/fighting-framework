@@ -5,9 +5,6 @@ option java_multiple_files = true;
 option java_package = "com.dhy.grpc.temp";
 option java_outer_classname = "GreeterEntity";
 
-
-package helloworld;
-
 // The greeting service definition.
 service Greeter {
   rpc SayHello (HelloRequest) returns (HelloReply) {}
