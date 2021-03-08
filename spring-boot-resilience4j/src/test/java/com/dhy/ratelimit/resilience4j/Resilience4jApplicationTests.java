@@ -10,11 +10,9 @@ import io.github.resilience4j.ratelimiter.RateLimiterConfig;
 import io.github.resilience4j.retry.Retry;
 import io.github.resilience4j.timelimiter.TimeLimiter;
 import io.github.resilience4j.timelimiter.TimeLimiterConfig;
-import io.vavr.CheckedFunction1;
 import io.vavr.control.Try;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import sun.rmi.runtime.Log;
 
 import java.time.Duration;
 import java.util.concurrent.*;
@@ -31,7 +29,9 @@ class Resilience4jApplicationTests {
         System.out.println("resilience4j test");
     }
 
-
+    /**
+     * 限速器：每秒钟请求速率限制
+     */
     @Test
     void testRateLimiter() {
         LoginService loginService = new LoginService();
@@ -65,6 +65,9 @@ class Resilience4jApplicationTests {
 
     }
 
+    /**
+     * 熔断器：当出现异常时进行断路处理
+     */
     @Test
     public void testCircuitBreaker() {
         // Create a CircuitBreaker (use default configuration)
@@ -90,7 +93,7 @@ class Resilience4jApplicationTests {
     }
 
     /**
-     * 超时限流器
+     * 当响应时间超过指定时间后进行取消、终止请求处理
      */
     @Test
     public void testTimelimiter() {
@@ -114,6 +117,9 @@ class Resilience4jApplicationTests {
         }
     }
 
+    /**
+     * 重试器，当出现失败时进行重试
+     */
     @Test
     public void testRetry(){
         CircuitBreaker circuitBreaker = CircuitBreaker.ofDefaults("backendName");
@@ -138,7 +144,9 @@ class Resilience4jApplicationTests {
 
     }
 
-
+    /**
+     * 舱壁模式限流：限制同时执行的线程并发数，可以使用信号量实现也可以使用固定线程池实现
+     */
     @Test
     public  void testBulkhead(){
         LoginService loginService = new LoginService();
