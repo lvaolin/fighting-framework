@@ -40,8 +40,7 @@ public class MyInvocationHandler implements InvocationHandler {
 
         //根据用户的配置决定使用的协议 @todo
         Protocol protocol = ProtocolFactory.getProtocol();
-        protocol.start(url);
-        String result = protocol.send(url, rpcRequest);
+        Object result = protocol.send(url, rpcRequest);
         return result;
     }
 }

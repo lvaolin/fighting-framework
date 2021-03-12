@@ -4,7 +4,7 @@ import com.dhy.dubbo.framework.ProxyFactory;
 import com.dhy.server.itf.IUserServive;
 import com.dhy.server.dto.User;
 
-public class MyClient {
+public class MyRmiClient {
     public static void main(String[] args) {
         for (int i = 0; i <1 ; i++) {
             //通过jdk代理生成一个IUserServive代理对象

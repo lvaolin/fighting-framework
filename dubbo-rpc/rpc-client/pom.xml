@@ -23,7 +23,7 @@
 
         <dependency>
             <groupId>com.dhy</groupId>
-            <artifactId>rpc-server-itf</artifactId>
+            <artifactId>rpc-itf</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>

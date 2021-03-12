@@ -1,6 +1,7 @@
 package com.dhy.dubbo.protocol.rmi;
 
 
+import com.dhy.dubbo.framework.URL;
 import com.dhy.dubbo.register.zookeeper.zkutil.MyZkClient;
 
 import java.io.IOException;
@@ -24,11 +25,11 @@ public class MyServer {
 
     //static IUserServive userServive = new UserServiceImpl();
 
-    public static void main(String[] args) throws IOException {
-        ServerSocket serverSocket = new ServerSocket(8088);
+    public static void start(URL url) throws IOException {
+        ServerSocket serverSocket = new ServerSocket(url.getPort());
         MyZkClient myZkClient = new MyZkClient();
-        myZkClient.createNode("/dhy-reg","127.0.0.1:8088");
-        System.out.println("向zookeeper注册服务提供者地址："+"127.0.0.1:8088");
+        myZkClient.createNode("/dhy-reg",url.getHost()+":"+url.getPort());
+        System.out.println("向zookeeper注册服务提供者地址："+url.getHost()+":"+url.getPort());
         while (true) {
             System.out.println("服务端监听已准备好");
             Socket socket = serverSocket.accept();

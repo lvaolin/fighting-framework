@@ -1,6 +1,14 @@
 package com.dhy.dubbo.framework;
 
 public class URL {
+    public URL(String host, Integer port) {
+        this.host = host;
+        this.port = port;
+    }
+
+    public URL() {
+    }
+
     private String host;
     private Integer port;
 

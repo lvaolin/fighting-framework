@@ -4,7 +4,7 @@ import com.dhy.dubbo.dto.RpcRequest;
 
 public interface Protocol {
 
-    String send(URL url, RpcRequest rpcRequest);
+    Object send(URL url, RpcRequest rpcRequest);
     void start(URL url);
 
 }

@@ -5,6 +5,7 @@ import com.dhy.dubbo.dto.RpcRequest;
 public class NettyClient {
 
     public String send(String hostname, Integer port, RpcRequest rpcRequest){
-        return null;
+        System.out.println("发送成功");
+        return "ok";
     }
 }
