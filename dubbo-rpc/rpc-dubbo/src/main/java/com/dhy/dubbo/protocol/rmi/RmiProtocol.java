@@ -15,6 +15,7 @@ public class RmiProtocol implements Protocol {
     @Override
     public void start(URL url) {
         try {
+            //使用RMI协议
             MyServer.start(url);
         } catch (IOException e) {
             e.printStackTrace();

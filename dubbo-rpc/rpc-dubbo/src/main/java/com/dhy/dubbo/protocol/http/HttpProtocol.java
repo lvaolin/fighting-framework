@@ -6,7 +6,7 @@ import com.dhy.dubbo.framework.URL;
 
 public class HttpProtocol implements Protocol {
     @Override
-    public String send(URL url, RpcRequest rpcRequest) {
+    public Object send(URL url, RpcRequest rpcRequest) {
         HttpClient httpClient = new HttpClient();
         String result = httpClient.send(url.getHost(), url.getPort(), rpcRequest);
         return result;

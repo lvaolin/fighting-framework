@@ -1,7 +1,7 @@
 package com.dhy.dubbo.protocol.rmi;
 
 import com.dhy.dubbo.dto.RpcRequest;
-import com.dhy.server.impl.MyBeanFactory;
+import com.dhy.dubbo.framework.LocalBeanFactory;
 
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -40,13 +40,19 @@ public class MyTask implements Runnable {
         System.out.println(rpcRequest.toString());
         Class clazz =Class.forName(rpcRequest.getClassName());
         Method method = clazz.getMethod(rpcRequest.getMethodName(),rpcRequest.getParameterTypes());
-        Object result = method.invoke(getService(rpcRequest),rpcRequest.getParameterValues());
-        return  result;
+        Object service = getService(rpcRequest);
+        if (service == null) {
+            return "service  not exist ";
+        }else{
+            Object result = method.invoke(service,rpcRequest.getParameterValues());
+            return  result;
+        }
+
     }
 
     public Object getService(RpcRequest rpcRequest){
         //获取要执行方法的 业务对象
-        return MyBeanFactory.getInstance().getBean(rpcRequest.getClassName());
+        return LocalBeanFactory.getInstance().getBean(rpcRequest.getClassName());
         //return null;
     }
 }

@@ -2,26 +2,26 @@ package com.dhy.dubbo.protocol.rmi;
 
 import com.dhy.dubbo.dto.RpcRequest;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
 import java.net.Socket;
 
 public class NettyClient {
 
-    public String send(String hostname, Integer port, RpcRequest rpcRequest){
+    public Object send(String hostname, Integer port, RpcRequest rpcRequest){
 
         try {
+
+
             Socket socket = new Socket(hostname,port);
             OutputStream outputStream = socket.getOutputStream();
-            outputStream.write("dahuangya".getBytes());
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
+            objectOutputStream.writeObject(rpcRequest);
             outputStream.flush();
 
             InputStream inputStream = socket.getInputStream();
-            byte[] bytes = new byte[1024];
-            int read = inputStream.read(bytes);
-            System.out.println(new String(bytes));
-        } catch (IOException e) {
+            ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
+            return objectInputStream.readObject();
+        } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
         // socket.
