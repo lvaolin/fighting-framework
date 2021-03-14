@@ -123,7 +123,12 @@ public class MyZkClient {
                             return substring;
                         }).collect(Collectors.toList());
                         //更新本地主机列表缓存
-                        LocalCacheFactory.hostsCache.put(path,collect);
+                        if (collect==null||collect.size()==0) {
+                            LocalCacheFactory.hostsCache.invalidate(path);
+                        }else{
+                            LocalCacheFactory.hostsCache.put(path,collect);
+                        }
+
                     }
                 });
                 //监视器保存一下

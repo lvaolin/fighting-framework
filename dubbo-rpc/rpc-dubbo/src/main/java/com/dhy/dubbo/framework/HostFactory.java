@@ -19,7 +19,7 @@ public class HostFactory {
         if (hostList==null) {
             //获取 地址列表
             hostList = LocalCacheFactory.myZkClient.getChildren("/" + rpcRequest.getApplicationName());
-            if (hostList!=null) {
+            if (hostList!=null&&hostList.size()>0) {
                 LocalCacheFactory.hostsCache.put("/"+rpcRequest.getApplicationName(),hostList);
             }
             System.out.println("主机列表来自注册中心");
