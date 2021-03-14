@@ -10,6 +10,9 @@ import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * 这是对zookeeper 原生客户端低层次 api的测试
+ */
 public class Zk01 {
 
 

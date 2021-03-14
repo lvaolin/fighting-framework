@@ -5,6 +5,10 @@ import org.apache.zookeeper.ZooKeeper;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * 实现对 zk 存储内容的打印
+ * 原生zk api
+ */
 public class OutPutAll {
     static ZooKeeper zk;
 

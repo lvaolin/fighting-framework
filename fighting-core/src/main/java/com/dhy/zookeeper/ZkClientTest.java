@@ -11,6 +11,9 @@ import java.sql.Time;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * 对 zk 的高层次封装客户端 zkclient 的测试
+ */
 public class ZkClientTest {
 
     public static void main(String[] args) {

@@ -10,6 +10,9 @@ import org.apache.zookeeper.data.Stat;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * 这是对 zk 高层次封装客户端 CuratorFramework api的测试
+ */
 public class CuratorTest {
     public static void main(String[] args) throws Exception {
         CuratorFramework curatorFramework = CuratorFrameworkFactory.newClient("127.0.0.1:2181", new RetryPolicy() {

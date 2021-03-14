@@ -12,7 +12,7 @@ import java.util.concurrent.CyclicBarrier;
 import java.util.concurrent.TimeUnit;
 
 /**
- * 使用zookeeper实现分布式锁
+ * 使用zookeeper实现分布式锁（使用了ZkClient 客户端api工具）
  * /dhy 目录是一把分布式锁，多线程并发抢这把锁，抢到的可以开展业务操作，用完 释放。
  * 没抢到的一直等待释放后继续抢锁
  */
