@@ -1,15 +1,10 @@
 package com.dhy.zookeeper;
 
-import org.I0Itec.zkclient.IZkChildListener;
-import org.I0Itec.zkclient.ZkClient;
 import org.apache.curator.RetryPolicy;
 import org.apache.curator.RetrySleeper;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;
 import org.apache.curator.framework.recipes.cache.*;
-import org.apache.zookeeper.CreateMode;
-import org.apache.zookeeper.WatchedEvent;
-import org.apache.zookeeper.Watcher;
 import org.apache.zookeeper.data.Stat;
 
 import java.util.List;
@@ -38,6 +33,9 @@ public class CuratorTest {
         curatorFramework.create().forPath(path+"/c");
         curatorFramework.create().forPath(path+"/d");
 
+        /**
+         * 这个是针对当前节点 的子树的监听
+         */
         TreeCache treeCache = new TreeCache(curatorFramework,"/");
         treeCache.start();
         treeCache.getListenable().addListener(new TreeCacheListener() {
@@ -47,6 +45,9 @@ public class CuratorTest {
             }
         });
 
+        /**
+         * 针对某个节点内容的监听
+         */
         NodeCache nodeCache = new NodeCache(curatorFramework,path,true);
         nodeCache.start();
         nodeCache.getListenable().addListener(new NodeCacheListener() {
@@ -56,6 +57,9 @@ public class CuratorTest {
             }
         });
 
+        /**
+         * 针对 某个path 下级节点变化的监听---dubbo的消费者注册监听应该用这个
+         */
         PathChildrenCache pathChildrenCache = new PathChildrenCache(curatorFramework,path,true);
         pathChildrenCache.start();
         pathChildrenCache.getListenable().addListener(new PathChildrenCacheListener() {

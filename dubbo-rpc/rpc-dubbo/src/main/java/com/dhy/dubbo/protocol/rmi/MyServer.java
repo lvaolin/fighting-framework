@@ -41,7 +41,9 @@ public class MyServer {
             //创建
             myZkClient.createNode(rootName,"");
         }
-        myZkClient.createEphemeralNode(rootName+"/"+url.getHost()+":"+url.getPort(),"");
+        if (!myZkClient.exist(rootName+"/"+url.getHost()+":"+url.getPort())) {
+            myZkClient.createEphemeralNode(rootName+"/"+url.getHost()+":"+url.getPort(),"");
+        }
         //追加本服务节点的地址信息 到下级临时节点
         System.out.println("向zookeeper注册服务提供者地址："+url.getHost()+":"+url.getPort());
         while (true) {

@@ -10,12 +10,20 @@ public class MyRmiClient {
         ProxyFactory<IUserServive> proxyFactory = new ProxyFactory<IUserServive>();
         IUserServive userServive= proxyFactory.getProxy("user-service",IUserServive.class);
         System.out.println("获取代理对象成功：");
-        for (long i = 0; i <10 ; i++) {
+        for (long i = 0; i <1000 ; i++) {
             //调用方法
             System.out.println("调用方法before");
             User user = userServive.getUserById(i);
             System.out.println("调用方法after");
             System.out.println(user);
+        }
+
+        synchronized (MyRmiClient.class){
+            try {
+                MyRmiClient.class.wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
 
     }

@@ -1,12 +1,20 @@
 package com.dhy.dubbo.register.zookeeper.zkutil;
 
+import com.dhy.dubbo.cache.LocalCacheFactory;
 import org.apache.curator.RetryPolicy;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;
+import org.apache.curator.framework.recipes.cache.ChildData;
+import org.apache.curator.framework.recipes.cache.PathChildrenCache;
+import org.apache.curator.framework.recipes.cache.PathChildrenCacheEvent;
+import org.apache.curator.framework.recipes.cache.PathChildrenCacheListener;
 import org.apache.curator.retry.ExponentialBackoffRetry;
 import org.apache.zookeeper.CreateMode;
 import org.apache.zookeeper.ZooKeeper;
 import org.apache.zookeeper.data.Stat;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class MyZkClient {
     //会话超时时间
@@ -74,9 +82,67 @@ public class MyZkClient {
         }
     }
 
+    /**
+     * 获取子节点列表
+     * @param path
+     * @return
+     */
+    public List<String> getChildren(String path) {
+        try {
+            return client.getChildren().forPath(path);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    /**
+     * 获取子节点列表  并订阅
+     * @param path
+     * @return
+     */
+    public void watchChildren(String path) {
+        try {
+            PathChildrenCache pathChildrenCache = LocalCacheFactory.pathChildrenCacheCache.getIfPresent(path);
+            if (pathChildrenCache==null) {
+                pathChildrenCache = new PathChildrenCache(client,path,true);
+                pathChildrenCache.start();
+                PathChildrenCache finalPathChildrenCache = pathChildrenCache;
+                pathChildrenCache.getListenable().addListener(new PathChildrenCacheListener() {
+                    @Override
+                    public void childEvent(CuratorFramework curatorFramework, PathChildrenCacheEvent pathChildrenCacheEvent) throws Exception {
+                        System.out.println("变化:"+pathChildrenCacheEvent.toString());
+                        List<ChildData> currentData = finalPathChildrenCache.getCurrentData();
+                        for (ChildData currentDatum : currentData) {
+                            System.out.println(currentDatum.toString());
+                        }
+                        List<String> collect = currentData.stream().map((data) -> {
+                            int i = data.getPath().lastIndexOf("/");
+                            String substring = data.getPath().substring(i+1);
+                            System.out.println(substring);
+                            return substring;
+                        }).collect(Collectors.toList());
+                        //更新本地主机列表缓存
+                        LocalCacheFactory.hostsCache.put(path,collect);
+                    }
+                });
+                //监视器保存一下
+                LocalCacheFactory.pathChildrenCacheCache.put(path,pathChildrenCache);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 
-    public String queryData(String path) {
+
+    /**
+     * 获取节点上的数据
+     * @param path
+     * @return
+     */
+    public String getData(String path) {
         try {
             return new String(client.getData().forPath(path));
         } catch (Exception e) {

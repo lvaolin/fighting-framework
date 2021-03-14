@@ -29,7 +29,7 @@ public class MyInvocationHandlerForHttp implements InvocationHandler {
     private Object rpcInvoke(RpcRequest rpcRequest) throws IOException, ClassNotFoundException {
 
         MyZkClient myZkClient = new MyZkClient();
-        String host = myZkClient.queryData("/dhy-reg");
+        String host = myZkClient.getData("/dhy-reg");
         System.out.println("从zookeeper注册中心获取到服务提供者地址："+host);
         String[] split = host.split(":");
 
