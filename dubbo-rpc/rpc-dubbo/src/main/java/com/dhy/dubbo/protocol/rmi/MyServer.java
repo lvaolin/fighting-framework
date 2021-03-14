@@ -23,12 +23,26 @@ public class MyServer {
             0L, TimeUnit.MILLISECONDS,
             new LinkedBlockingQueue<Runnable>(2));
 
-    //static IUserServive userServive = new UserServiceImpl();
+    private  String applicationName = "";
+    public MyServer(String applicationName) throws Exception{
+        if (applicationName==null) {
+            throw new Exception("服务名称不能为空");
+        }
+        this.applicationName = applicationName;
+    }
 
-    public static void start(URL url) throws IOException {
+    public  void start(URL url) throws IOException {
+
         ServerSocket serverSocket = new ServerSocket(url.getPort());
         MyZkClient myZkClient = new MyZkClient();
-        myZkClient.createNode("/dhy-reg",url.getHost()+":"+url.getPort());
+        String rootName="/"+applicationName;
+        //服务节点是否存在
+        if (!myZkClient.exist(rootName)) {
+            //创建
+            myZkClient.createNode(rootName,"");
+        }
+        myZkClient.createEphemeralNode(rootName+"/"+url.getHost()+":"+url.getPort(),"");
+        //追加本服务节点的地址信息 到下级临时节点
         System.out.println("向zookeeper注册服务提供者地址："+url.getHost()+":"+url.getPort());
         while (true) {
             System.out.println("服务端监听已准备好");

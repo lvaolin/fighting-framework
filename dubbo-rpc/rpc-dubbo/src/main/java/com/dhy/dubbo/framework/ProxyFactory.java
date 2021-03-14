@@ -8,7 +8,10 @@ import java.lang.reflect.Proxy;
  */
 public class ProxyFactory<T> {
 
-    public  T getProxy(Class<T> interfaceClass){
-        return (T)Proxy.newProxyInstance(interfaceClass.getClassLoader(), new Class[]{interfaceClass},new MyInvocationHandler());
+    public  T getProxy(String applicationName,Class<T> interfaceClass){
+        return (T)Proxy.newProxyInstance(interfaceClass.getClassLoader()
+                , new Class[]{interfaceClass}
+                ,new MyInvocationHandler(applicationName)
+        );
     }
 }

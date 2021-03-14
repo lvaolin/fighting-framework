@@ -16,8 +16,9 @@ public class RmiProtocol implements Protocol {
     public void start(URL url) {
         try {
             //使用RMI协议
-            MyServer.start(url);
-        } catch (IOException e) {
+            MyServer myServer = new MyServer(url.getApplicationName());
+            myServer.start(url);
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

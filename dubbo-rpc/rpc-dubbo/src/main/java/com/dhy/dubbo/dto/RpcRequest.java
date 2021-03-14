@@ -4,6 +4,11 @@ import java.io.Serializable;
 import java.util.Arrays;
 
 public class RpcRequest implements Serializable {
+
+    /**
+     * 提供者服务名称
+     */
+    private String applicationName;
     /**\
      * 反射的类名称
      */
@@ -24,11 +29,20 @@ public class RpcRequest implements Serializable {
     @Override
     public String toString() {
         return "RpcRequest{" +
-                "className='" + className + '\'' +
+                "applicationName='" + applicationName + '\'' +
+                ", className='" + className + '\'' +
                 ", methodName='" + methodName + '\'' +
                 ", parameterValues=" + Arrays.toString(parameterValues) +
                 ", parameterTypes=" + Arrays.toString(parameterTypes) +
                 '}';
+    }
+
+    public String getApplicationName() {
+        return applicationName;
+    }
+
+    public void setApplicationName(String applicationName) {
+        this.applicationName = applicationName;
     }
 
     public String getClassName() {

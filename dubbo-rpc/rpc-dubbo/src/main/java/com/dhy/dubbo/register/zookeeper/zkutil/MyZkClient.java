@@ -34,14 +34,47 @@ public class MyZkClient {
         client.start();
     }
 
+    /**
+     * //创建永久节点
+     * @param path
+     * @param data
+     */
     public void createNode(String path, String data) {
-        //创建永久节点
         try {
             client.create().forPath(path, data.getBytes());
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
+    /**
+     * 创建临时节点
+     * @param path
+     * @param data
+     */
+    public void createEphemeralNode(String path, String data) {
+        try {
+            client.create()
+                    .withMode(CreateMode.EPHEMERAL)
+                    .forPath(path, "data".getBytes());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
+    public boolean exist(String path) {
+        try {
+            Stat stat = client.checkExists().forPath(path);
+            return stat==null?false:true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+
 
     public String queryData(String path) {
         try {

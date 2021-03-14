@@ -6,14 +6,14 @@ import com.dhy.server.dto.User;
 
 public class MyRmiClient {
     public static void main(String[] args) {
-        for (int i = 0; i <1 ; i++) {
-            //通过jdk代理生成一个IUserServive代理对象
-            ProxyFactory<IUserServive> proxyFactory = new ProxyFactory<IUserServive>();
-            IUserServive userServive= proxyFactory.getProxy(IUserServive.class);
-            System.out.println("获取代理对象成功：");
+        //通过jdk代理生成一个IUserServive代理对象
+        ProxyFactory<IUserServive> proxyFactory = new ProxyFactory<IUserServive>();
+        IUserServive userServive= proxyFactory.getProxy("user-service",IUserServive.class);
+        System.out.println("获取代理对象成功：");
+        for (long i = 0; i <10 ; i++) {
             //调用方法
             System.out.println("调用方法before");
-            User user = userServive.getUserById(1L);
+            User user = userServive.getUserById(i);
             System.out.println("调用方法after");
             System.out.println(user);
         }

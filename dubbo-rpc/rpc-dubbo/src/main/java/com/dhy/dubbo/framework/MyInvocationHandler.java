@@ -10,11 +10,16 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 
 public class MyInvocationHandler implements InvocationHandler {
+    private String applicationName;
+    public MyInvocationHandler(String applicationName){
+         this.applicationName = applicationName;
+    }
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         //发起rpc调用
         //准备rpc请求的参数
         RpcRequest rpcRequest = new RpcRequest();
+        rpcRequest.setApplicationName(applicationName);
         //获取类名称
         rpcRequest.setClassName(method.getDeclaringClass().getName());
         rpcRequest.setMethodName(method.getName());
@@ -30,7 +35,7 @@ public class MyInvocationHandler implements InvocationHandler {
     private Object rpcInvoke(RpcRequest rpcRequest) throws IOException, ClassNotFoundException {
 
         MyZkClient myZkClient = new MyZkClient();
-        String host = myZkClient.queryData("/dhy-reg");
+        String host = myZkClient.queryData("/"+rpcRequest.getApplicationName());
         System.out.println("从zookeeper注册中心获取到服务提供者地址："+host);
         String[] split = host.split(":");
 

@@ -9,7 +9,7 @@ public class MyClient {
         for (int i = 0; i <1 ; i++) {
             //通过jdk代理生成一个IUserServive代理对象
             ProxyFactory<IUserServive> proxyFactory = new ProxyFactory<IUserServive>();
-            IUserServive userServive= proxyFactory.getProxy(IUserServive.class);
+            IUserServive userServive= proxyFactory.getProxy("user-service",IUserServive.class);
             System.out.println("获取代理对象成功：");
             //调用方法
             System.out.println("调用方法before");

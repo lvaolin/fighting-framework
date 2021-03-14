@@ -20,7 +20,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         LocalBeanFactory.getInstance().addService(IUserServive.class.getName(),new UserServiceImpl());
-        URL url = new URL("127.0.0.1",8088);
+        URL url = new URL("user-service","127.0.0.1",8088);
         //启动服务端 使用 rmi 协议
         RmiProtocol rmiProtocol = new RmiProtocol();
         rmiProtocol.start(url);
