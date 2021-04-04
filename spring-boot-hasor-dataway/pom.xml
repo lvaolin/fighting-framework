@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.dhy.demo</groupId>
-    <artifactId>demo-spring-boot-hasor-dataway</artifactId>
+    <artifactId>spring-boot-hasor-dataway</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>spring-boot-dataway</name>
     <description>Demo project for Spring Boot</description>
