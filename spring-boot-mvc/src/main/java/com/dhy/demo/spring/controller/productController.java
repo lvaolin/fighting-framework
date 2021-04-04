@@ -13,7 +13,6 @@ import javax.annotation.Resource;
 @RestController
 @RequestMapping("/product")
 public class productController {
-
    // @Autowired
     //@Qualifier("seataStorageService3")
     @Resource(name="seataStorageService2")

@@ -19,29 +19,12 @@ public class IndexController {
     @Autowired
     private ISeataStorageService seataStorageService;
 
-    @Autowired
-    private HttpServletRequest request;
-
-    @RequestMapping("/1")
-    Object index(){
-
-        System.out.println(request);
+    @RequestMapping("/index")
+    Object index(HttpServletRequest request ){
         String name = request.getParameter("name");
         Dhy dhy = new Dhy();
         dhy.setName(name);
         dhy.setDesc("大黄鸭欢迎您");
-
-        return dhy;
-    }
-
-    @RequestMapping("/2")
-    Object index2(HttpServletRequest request){
-        System.out.println(request);
-        String name = request.getParameter("name");
-        Dhy dhy = new Dhy();
-        dhy.setName(name);
-        dhy.setDesc("大黄鸭欢迎您");
-
         return dhy;
     }
 
