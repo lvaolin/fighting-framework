@@ -1,4 +1,4 @@
-package com.dhy.demo.spring.controller;
+package com.dhy.demo.spring.event;
 
 import com.dhy.demo.spring.event.MyPublisher;
 import com.dhy.demo.spring.event.MyPublisher2;

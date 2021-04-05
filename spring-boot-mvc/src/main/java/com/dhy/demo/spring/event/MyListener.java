@@ -1,5 +1,6 @@
 package com.dhy.demo.spring.event;
 
+import com.alibaba.fastjson.JSON;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
 
@@ -13,6 +14,6 @@ import org.springframework.stereotype.Component;
 public class MyListener  implements ApplicationListener<MyEvent> {
     @Override
     public void onApplicationEvent(MyEvent myEvent) {
-        System.out.println("1号监听者监听1号事件发生："+myEvent.getMessage());
+        System.out.println("1号监听者监听1号事件发生："+ JSON.toJSONString(myEvent.getMessage()));
     }
 }
