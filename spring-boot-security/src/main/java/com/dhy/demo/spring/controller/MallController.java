@@ -9,10 +9,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 
-
+/**
+ * 商城 相关api控制器，登录之后就有的权限：下订单，添加浏览购物车，取消订单，支付，搜索订单等
+ */
 @RestController
-@RequestMapping("/product")
-public class productController {
+@RequestMapping("/mall")
+public class MallController {
    // @Autowired
     //@Qualifier("seataStorageService3")
     @Resource(name="seataStorageService2")

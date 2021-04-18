@@ -1,20 +1,19 @@
 package com.dhy.demo.spring.controller;
 
 import com.dhy.demo.spring.service.ISeataStorageService;
-import com.dhy.demo.spring.service.SeataStoragePo;
-import com.dhy.demo.spring.utils.BusinessException;
 import lombok.Data;
-import org.apache.catalina.connector.RequestFacade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ * 批量操作API控制器
+ */
 @Controller
-@RequestMapping("/spring")
-public class IndexController {
+@RequestMapping("/batch")
+public class BatchController {
 
     @Autowired
     private ISeataStorageService seataStorageService;
