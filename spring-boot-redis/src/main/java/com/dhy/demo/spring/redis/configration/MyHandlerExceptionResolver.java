@@ -20,13 +20,13 @@ public class MyHandlerExceptionResolver implements HandlerExceptionResolver {
     @SneakyThrows
     @Override
     public ModelAndView resolveException(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, Exception e) {
-        httpServletResponse.setHeader("Content-Type","application/json");
+        httpServletResponse.setHeader("Content-Type","application/json;charset=utf-8");
         httpServletResponse.setCharacterEncoding("UTF-8");
         httpServletResponse.setStatus(200);
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("errorCode","100");
         jsonObject.put("errorMsg",e.getMessage());
-        httpServletResponse.getWriter().println(jsonObject.toJSONString());
+        httpServletResponse.getWriter().print(jsonObject.toJSONString());
         return null;
     }
 }

@@ -1,5 +1,6 @@
 package com.dhy.demo.spring.redis.configration;
 
+import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
@@ -8,6 +9,7 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 /**
  * @Title 拦截器   认证、鉴权、审计日志、响应数据格式包装
@@ -31,9 +33,14 @@ public class MyInterceptor extends HandlerInterceptorAdapter {
         if (redisTemplate.delete(submitToken)) {
             return true;
         }
-        throw new Exception("请勿重复提交");
+
+        returnErrorInfo(response);
+
+        return false;
 
     }
+
+
 
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
@@ -46,5 +53,15 @@ public class MyInterceptor extends HandlerInterceptorAdapter {
             submitToken = request.getParameter("submitToken");
         }
         return submitToken;
+    }
+
+    private void returnErrorInfo(HttpServletResponse response) throws IOException {
+        response.setHeader("Content-Type","application/json;charset=utf-8");
+        response.setCharacterEncoding("UTF-8");
+        response.setStatus(200);
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("errorCode","100");
+        jsonObject.put("errorMsg","请勿重复提交");
+        response.getWriter().print(jsonObject.toJSONString());
     }
 }
