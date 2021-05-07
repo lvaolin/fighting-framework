@@ -23,12 +23,12 @@ public class MyInterceptor extends HandlerInterceptorAdapter {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
             throws Exception {
-        String resubmitToken = this.getResubmitToken(request);
-        if (resubmitToken==null) {
+        String submitToken = this.getSubmitToken(request);
+        if (submitToken==null) {
             return true;
         }
         //存在resubmit_token参数时则进行重复提交校验（有效期20分钟）
-        if (redisTemplate.delete(resubmitToken)) {
+        if (redisTemplate.delete(submitToken)) {
             return true;
         }
         throw new Exception("请勿重复提交");
@@ -40,11 +40,11 @@ public class MyInterceptor extends HandlerInterceptorAdapter {
 
     }
 
-    private  String getResubmitToken(HttpServletRequest request) {
-        String resubmit_token= request.getHeader("resubmit_token");
-        if(resubmit_token == null){
-            resubmit_token = request.getParameter("resubmit_token");
+    private  String getSubmitToken(HttpServletRequest request) {
+        String submitToken= request.getHeader("submitToken");
+        if(submitToken == null){
+            submitToken = request.getParameter("submitToken");
         }
-        return resubmit_token;
+        return submitToken;
     }
 }

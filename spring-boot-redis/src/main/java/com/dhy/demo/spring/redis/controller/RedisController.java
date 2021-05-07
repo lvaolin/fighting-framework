@@ -1,5 +1,6 @@
 package com.dhy.demo.spring.redis.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
@@ -15,17 +16,20 @@ public class RedisController {
     @Autowired
     private StringRedisTemplate redisTemplate;
     @RequestMapping("/getSubmitToken")
-    String getToken(){
+    Object getToken(){
         String submitToken = UUID.randomUUID().toString();
         ValueOperations<String, String> opsForValue = redisTemplate.opsForValue();
         opsForValue.set(submitToken,submitToken,3600, TimeUnit.SECONDS);
-        return submitToken;
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("submitToken",submitToken);
+        return jsonObject;
     }
 
     @RequestMapping("/submit")
-    String submit(){
-        System.out.println("submit success!!!");
-        return "success";
+    Object submit(){
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("result","success");
+        return jsonObject;
     }
 
 
