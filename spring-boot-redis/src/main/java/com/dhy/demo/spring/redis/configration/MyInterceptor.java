@@ -29,23 +29,15 @@ public class MyInterceptor extends HandlerInterceptorAdapter {
         if (submitToken==null) {
             return true;
         }
-        //存在resubmit_token参数时则进行重复提交校验（有效期20分钟）
+        //存在resubmit_token参数时则进行重复提交校验
         if (redisTemplate.delete(submitToken)) {
+            //存在并删除成功
             return true;
         }
-
         returnErrorInfo(response);
-
         return false;
-
     }
 
-
-
-    @Override
-    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
-
-    }
 
     private  String getSubmitToken(HttpServletRequest request) {
         String submitToken= request.getHeader("submitToken");
