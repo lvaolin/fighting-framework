@@ -19,7 +19,8 @@
 		<module>spring-webflux</module>
 		<module>spring-boot-mvc-sse</module>
 		<module>servlet4</module>
-		<module>spring-boot-redis</module>
+		<module>spring-boot-cache-redis</module>
+		<module>spring-boot-security</module>
 	</modules>
 
 
