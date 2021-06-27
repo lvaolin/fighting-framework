@@ -1,28 +1,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.lval</groupId>
-	<artifactId>parent</artifactId>
+	<groupId>com.dhy</groupId>
 	<version>1.0-SNAPSHOT</version>
+	<artifactId>spring-xml</artifactId>
 	<packaging>pom</packaging>
+
 	<modules>
-		<module>spring-boot-jdbc-template</module>
-		<module>spring-boot-mybatis</module>
-		<module>spring-boot-springdatajpa</module>
-		<module>spring-boot-tkmybatis</module>
-		<module>spring-boot-mvc</module>
-		<module>spring-elasticjob</module>
-		<module>spring-ratelimit</module>
-		<module>spring-mybatis</module>
-		<module>spring-boot-hasor-dataway</module>
-		<module>spring-boot-resilience4j</module>
-		<module>spring-webflux</module>
-		<module>spring-boot-mvc-sse</module>
-		<module>servlet4</module>
-		<module>spring-boot-cache-redis</module>
-		<module>spring-boot-security</module>
-		<module>spring-xml</module>
-	</modules>
+		<module>spring-xml-service</module>
+    </modules>
 
 	<properties>
 		<project.build.sourceEncoding>${file_encoding}</project.build.sourceEncoding>
@@ -45,6 +31,4 @@
 		<maven_enforce_version>3.0.0-M3</maven_enforce_version>
 
 	</properties>
-
-
 </project>

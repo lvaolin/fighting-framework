@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://www.springframework.org/schema/dhy"
+            elementFormDefault="qualified">
+    <xsd:element name="component-scan">
+        <xsd:complexType>
+            <xsd:attribute name="base-package" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation><![CDATA[
+			The comma/semicolon/space/tab/linefeed-separated list of packages to scan for annotated components.
+							]]></xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
