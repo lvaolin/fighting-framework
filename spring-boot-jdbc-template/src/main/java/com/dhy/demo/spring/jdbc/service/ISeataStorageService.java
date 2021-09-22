@@ -10,6 +10,8 @@ public interface ISeataStorageService {
 
      int insert(SeataStoragePo po);
 
+     void batchInsert(List<SeataStoragePo> list);
+
      int delete(SeataStoragePo po);
 
      int update(SeataStoragePo po);
