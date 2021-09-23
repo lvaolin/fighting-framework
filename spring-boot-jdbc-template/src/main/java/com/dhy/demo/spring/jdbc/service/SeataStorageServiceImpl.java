@@ -1,16 +1,18 @@
 package com.dhy.demo.spring.jdbc.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.TransactionStatus;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.support.TransactionCallback;
 import org.springframework.transaction.support.TransactionTemplate;
 
 import java.util.List;
 
 @Service
+@Transactional
 public class SeataStorageServiceImpl implements ISeataStorageService {
 
     @Autowired
@@ -19,6 +21,7 @@ public class SeataStorageServiceImpl implements ISeataStorageService {
     private TransactionTemplate transactionTemplate;
 
     @Override
+    @Transactional(readOnly = true)
     public List<SeataStoragePo> selectAll() {
        return seataStorageDao.productSelectAll();
     }
@@ -32,20 +35,23 @@ public class SeataStorageServiceImpl implements ISeataStorageService {
 
     @Override
     public int insert(SeataStoragePo po){
-        return seataStorageDao.productInsert(po);
+        seataStorageDao.productInsert(po);//依靠Transactional注解回滚
+        return 1/0;
     }
 
     @Override
     public void batchInsert(List<SeataStoragePo> list) {
-        transactionTemplate.execute(new TransactionCallback<Object>() {
+        Boolean result = transactionTemplate.execute(new TransactionCallback<Boolean>() {
             @Override
-            public Object doInTransaction(TransactionStatus transactionStatus) {
+            public Boolean doInTransaction(TransactionStatus transactionStatus) {
                 for (SeataStoragePo seataStoragePo : list) {
                     seataStorageDao.productInsert(seataStoragePo);
+                    seataStorageDao.productInsert(seataStoragePo);//主键重复异常，依靠transactionTemplate回滚
                 }
-                return null;
+                return true;
             }
         });
+
 
     }
 
