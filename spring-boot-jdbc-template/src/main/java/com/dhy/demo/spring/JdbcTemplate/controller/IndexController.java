@@ -1,8 +1,9 @@
-package com.dhy.demo.spring.jdbc.controller;
+package com.dhy.demo.spring.JdbcTemplate.controller;
 
-import com.dhy.demo.spring.jdbc.service.ISeataStorageService;
-import com.dhy.demo.spring.jdbc.service.SeataStoragePo;
-import com.dhy.demo.spring.jdbc.utils.BusinessException;
+import com.dhy.demo.spring.JdbcTemplate.service.IOrderService;
+import com.dhy.demo.spring.JdbcTemplate.utils.BusinessException;
+import com.dhy.demo.spring.JdbcTemplate.service.ISeataStorageService;
+import com.dhy.demo.spring.JdbcTemplate.service.SeataStoragePo;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,6 +18,8 @@ public class IndexController {
 
     @Autowired
     private ISeataStorageService seataStorageService;
+    @Autowired
+    private IOrderService orderService;
 
 
     @RequestMapping("/")
@@ -29,6 +32,10 @@ public class IndexController {
         return dhy;
     }
 
+    @RequestMapping("/order/insert")
+    Object insertOrder(){
+        return orderService.order1();
+    }
 
     @RequestMapping("/product")
     Object getProduct(){

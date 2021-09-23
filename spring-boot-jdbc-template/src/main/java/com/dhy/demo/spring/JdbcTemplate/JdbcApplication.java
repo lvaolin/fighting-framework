@@ -1,4 +1,4 @@
-package com.dhy.demo.spring.jdbc;
+package com.dhy.demo.spring.JdbcTemplate;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

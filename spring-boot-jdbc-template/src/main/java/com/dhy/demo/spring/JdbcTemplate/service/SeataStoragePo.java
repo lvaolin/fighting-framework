@@ -1,4 +1,4 @@
-package com.dhy.demo.spring.jdbc.service;
+package com.dhy.demo.spring.JdbcTemplate.service;
 
 import lombok.Data;
 
