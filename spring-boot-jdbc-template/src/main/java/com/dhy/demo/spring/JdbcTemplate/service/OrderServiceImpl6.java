@@ -10,13 +10,13 @@ import java.sql.Statement;
 import java.util.UUID;
 
 @Service
-public class OrderServiceImpl2 implements IOrderService {
+public class OrderServiceImpl6 implements IOrderService {
     @Autowired
     private DataSource dataSource;
     ThreadLocal<Connection> myThreadLocal = new ThreadLocal<>();
     /**
-     * 模拟spring事务传播特性：PROPAGATION_SUPPORTS：没有就以非事务方式执行；有就使用当前事务。
-     * 说明它与前面的保持一致
+     * 模拟spring事务传播特性：PROPAGATION_NEVER：
+     * 没有就以非事务方式执行；有就抛出异常。
      * @return
      */
     @Override
@@ -24,7 +24,6 @@ public class OrderServiceImpl2 implements IOrderService {
         try {
             //beginTransaction();
             order101();
-            order102();
             int x = 1/0;
             //提交
             commitTransaction();
@@ -52,6 +51,26 @@ public class OrderServiceImpl2 implements IOrderService {
         return true;
     }
 
+
+    private void order101() throws SQLException {
+        //1、保存上下文信息
+        Connection parentConn =myThreadLocal.get();
+        if (!parentConn.getAutoCommit()) {
+            //非自动提交模式则抛出异常
+            throw new SQLException("不支持非自动提交模式");
+        }
+
+        Statement statement = parentConn.createStatement();
+        String sql = "insert into orders (`id`, `user_id`, `product_id`, `product_name`) values ('"+ UUID.randomUUID() +"','"+UUID.randomUUID()+"','"+UUID.randomUUID()+"','order101苹果') ";
+        System.out.println(sql);
+        statement.execute(sql);
+        //可能继续调其它方法，传播事务-------
+
+        //3、恢复上下文信息
+        myThreadLocal.set(parentConn);
+    }
+
+
     //提交事务
     private void commitTransaction() {
         if (myThreadLocal.get()!=null) {
@@ -72,35 +91,6 @@ public class OrderServiceImpl2 implements IOrderService {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-    }
-
-    //PROPAGATION_SUPPORTS
-    private void order101() throws SQLException {
-        Connection connection =myThreadLocal.get();
-        if (connection==null) {
-            connection = dataSource.getConnection();
-            //没有就以非事务方式执行
-            connection.setAutoCommit(true);
-            myThreadLocal.set(connection);
-        }
-        Statement statement = connection.createStatement();
-        String sql = "insert into orders (`id`, `user_id`, `product_id`, `product_name`) values ('"+ UUID.randomUUID() +"','"+UUID.randomUUID()+"','"+UUID.randomUUID()+"','order101苹果') ";
-        System.out.println(sql);
-        statement.execute(sql);
-
-    }
-    //PROPAGATION_SUPPORTS
-    private void order102() throws SQLException{
-        Connection connection =myThreadLocal.get();
-        if (connection==null) {
-            connection = dataSource.getConnection();
-            connection.setAutoCommit(true);
-            myThreadLocal.set(connection);
-        }
-        Statement statement = connection.createStatement();
-        String sql = "insert into orders (`id`, `user_id`, `product_id`, `product_name`) values ('"+ UUID.randomUUID() +"','"+UUID.randomUUID()+"','"+UUID.randomUUID()+"','order102苹果') ";
-        System.out.println(sql);
-        statement.execute(sql);
     }
 
 
