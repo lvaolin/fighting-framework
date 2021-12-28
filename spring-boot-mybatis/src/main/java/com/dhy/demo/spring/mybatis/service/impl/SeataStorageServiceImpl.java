@@ -1,8 +1,8 @@
 package com.dhy.demo.spring.mybatis.service.impl;
 
-import com.dhy.demo.spring.mybatis.service.mapper.SeataStorageMapper;
 import com.dhy.demo.spring.mybatis.po.SeataStoragePo;
 import com.dhy.demo.spring.mybatis.itf.ISeataStorageService;
+import com.dhy.demo.spring.mybatis.service.gateway.IDbGateway;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,37 +12,37 @@ import java.util.List;
 public class SeataStorageServiceImpl implements ISeataStorageService {
 
     @Autowired
-    private SeataStorageMapper seataStorageMapper;
+    private IDbGateway dbGateway;
 
     @Override
     public List<SeataStoragePo> selectAll() {
-       return seataStorageMapper.productSelectAll();
+       return dbGateway.productSelectAll();
     }
 
     @Override
     public List<SeataStoragePo> selectAllByXml() {
-        return seataStorageMapper.productSelectAllByXml();
+        return dbGateway.productSelectAllByXml();
     }
 
 
     @Override
     public int selectCount(){
-        return seataStorageMapper.productCount();
+        return dbGateway.productCount();
     }
 
 
     @Override
     public int insert(SeataStoragePo po){
-        return seataStorageMapper.productInsert(po);
+        return dbGateway.productInsert(po);
     }
 
     @Override
     public int delete(SeataStoragePo po) {
-        return seataStorageMapper.productDelete(po);
+        return dbGateway.productDelete(po);
     }
 
     @Override
     public int update(SeataStoragePo po) {
-        return seataStorageMapper.productUpdate(po);
+        return dbGateway.productUpdate(po);
     }
 }

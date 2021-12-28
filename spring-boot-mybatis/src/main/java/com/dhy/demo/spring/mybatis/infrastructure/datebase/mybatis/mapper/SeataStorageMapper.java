@@ -1,4 +1,4 @@
-package com.dhy.demo.spring.mybatis.service.mapper;
+package com.dhy.demo.spring.mybatis.infrastructure.datebase.mybatis.mapper;
 
 import com.dhy.demo.spring.mybatis.po.SeataStoragePo;
 import org.apache.ibatis.annotations.Delete;
