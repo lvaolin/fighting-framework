@@ -19,7 +19,7 @@ public class SeataStorageServiceImpl implements ISeataStorageService {
     @DsReadonly
     @Override
     public List<SeataStoragePo> selectAll() {
-        System.out.println("selectAll:"+TraceUtil.getReadonly()+TraceUtil.getDbKeyReadonly());
+        System.out.println("方法selectAll, 只读："+TraceUtil.getReadonly()+",只读库："+TraceUtil.getDbKeyReadonly());
         return dbGateway.productSelectAll();
     }
 
@@ -34,14 +34,14 @@ public class SeataStorageServiceImpl implements ISeataStorageService {
     @DsReadonly
     @Override
     public int selectCount(){
-        System.out.println("selectCount:"+TraceUtil.getReadonly()+TraceUtil.getDbKeyReadonly());
+        System.out.println("方法selectCount, 只读："+TraceUtil.getReadonly()+",只读库："+TraceUtil.getDbKeyReadonly());
         return dbGateway.productCount();
     }
 
 
     @Override
     public int insert(SeataStoragePo po){
-        System.out.println("insert:"+TraceUtil.getReadonly());
+        System.out.println("方法insert，只读："+TraceUtil.getReadonly());
         return dbGateway.productInsert(po);
     }
 

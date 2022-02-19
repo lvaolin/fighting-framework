@@ -14,16 +14,13 @@ import javax.sql.DataSource;
 import java.util.HashMap;
 import java.util.Map;
 
+
+/**
+ * 动态数据源与mybatis集成
+ */
 @Configuration
 public class MyBatisConfig {
-    private DruidDataSource getNewDataSourceInstance(){
-        DruidDataSource druidDataSource = new DruidDataSource();
-        druidDataSource.setUrl("jdbc:mysql://localhost:3306/seata_storage?characterEncoding=utf8&serverTimezone=UTC&useUnicode=true");
-        druidDataSource.setUsername("root");
-        druidDataSource.setPassword("root");
-        druidDataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        return druidDataSource;
-    }
+
     @Bean("dynamicDataSource")
     public DataSource dynamicDataSource()  {
         DynamicDataSource dynamicDataSource = new DynamicDataSource();
@@ -78,7 +75,6 @@ public class MyBatisConfig {
         return mapperScannerConfigurer;
     }
 
-
     @Bean
     public PlatformTransactionManager transactionManager() {
         DataSourceTransactionManager dataSourceTransactionManager = new DataSourceTransactionManager(lazyDataSource());
@@ -86,5 +82,13 @@ public class MyBatisConfig {
         return dataSourceTransactionManager;
     }
 
+    private DruidDataSource getNewDataSourceInstance(){
+        DruidDataSource druidDataSource = new DruidDataSource();
+        druidDataSource.setUrl("jdbc:mysql://localhost:3306/seata_storage?characterEncoding=utf8&serverTimezone=UTC&useUnicode=true");
+        druidDataSource.setUsername("root");
+        druidDataSource.setPassword("root");
+        druidDataSource.setDriverClassName("com.mysql.jdbc.Driver");
+        return druidDataSource;
+    }
 
 }

@@ -3,6 +3,9 @@ package com.dhy.demo.spring.mybatis.config;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ *  上下文
+ */
 public class TraceUtil {
     private static Logger log = LoggerFactory.getLogger(TraceUtil.class);
 
