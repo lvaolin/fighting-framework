@@ -1,12 +1,10 @@
 package com.dhy.demo.spring.mybatis.config;
 
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -36,8 +34,15 @@ public class ServiceAop {
         String readonlyStr = dsReadOnlyKeyMapping.get("biz-ds1");
         if (readonlyStr!=null) {
             String[] readonlys = readonlyStr.split(",");
-            TraceUtil.setDbKey(readonlys[ThreadLocalRandom.current().nextInt(readonlys.length)]);
+            TraceUtil.setReadonly(true);
+            TraceUtil.setDbKeyReadonly(readonlys[ThreadLocalRandom.current().nextInt(readonlys.length)]);
         }
 
+    }
+
+    @After("pc()")
+    public void after(){
+        TraceUtil.setReadonly(false);
+        TraceUtil.setDbKeyReadonly(null);
     }
 }

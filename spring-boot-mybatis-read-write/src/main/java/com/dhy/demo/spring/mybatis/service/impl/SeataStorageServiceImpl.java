@@ -19,14 +19,14 @@ public class SeataStorageServiceImpl implements ISeataStorageService {
     @DsReadonly
     @Override
     public List<SeataStoragePo> selectAll() {
-        System.out.println("selectAll:"+TraceUtil.getDbKey());
+        System.out.println("selectAll:"+TraceUtil.getReadonly()+TraceUtil.getDbKeyReadonly());
         return dbGateway.productSelectAll();
     }
 
     @DsReadonly
     @Override
     public List<SeataStoragePo> selectAllByXml() {
-        System.out.println("selectAllByXml:"+TraceUtil.getDbKey());
+        System.out.println("selectAllByXml:"+TraceUtil.getDbKeyReadonly());
         return dbGateway.productSelectAllByXml();
     }
 
@@ -34,26 +34,26 @@ public class SeataStorageServiceImpl implements ISeataStorageService {
     @DsReadonly
     @Override
     public int selectCount(){
-        System.out.println("selectCount:"+TraceUtil.getDbKey());
+        System.out.println("selectCount:"+TraceUtil.getReadonly()+TraceUtil.getDbKeyReadonly());
         return dbGateway.productCount();
     }
 
 
     @Override
     public int insert(SeataStoragePo po){
-        System.out.println("insert:"+TraceUtil.getDbKey());
+        System.out.println("insert:"+TraceUtil.getReadonly());
         return dbGateway.productInsert(po);
     }
 
     @Override
     public int delete(SeataStoragePo po) {
-        System.out.println("delete:"+TraceUtil.getDbKey());
+        System.out.println("delete:"+TraceUtil.getReadonly());
         return dbGateway.productDelete(po);
     }
 
     @Override
     public int update(SeataStoragePo po) {
-        System.out.println("update:"+TraceUtil.getDbKey());
+        System.out.println("update:"+TraceUtil.getReadonly());
         return dbGateway.productUpdate(po);
     }
 }
