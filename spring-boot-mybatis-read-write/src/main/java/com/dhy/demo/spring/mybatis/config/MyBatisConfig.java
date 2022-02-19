@@ -45,6 +45,15 @@ public class MyBatisConfig {
         return dynamicDataSource;
     }
 
+    @Bean("dsReadOnlyKeyMapping")
+    public Map<String, String> dsReadOnlyKeyMapping(){
+        //主库名称与只读库名称的映射
+        HashMap<String, String> map = new HashMap<>();
+        map.put("biz-ds1","biz-ds1-readonly1,biz-ds1-readonly2");
+        map.put("biz-ds2","biz-ds2-readonly1,biz-ds2-readonly2");
+        return map;
+    }
+
     @Bean("lazyDataSource")
     public DataSource lazyDataSource() {
         LazyConnectionDataSourceProxy proxy = new LazyConnectionDataSourceProxy();

@@ -1,5 +1,6 @@
 package com.dhy.demo.spring.mybatis.controller;
 
+import com.dhy.demo.spring.mybatis.config.TraceUtil;
 import com.dhy.demo.spring.mybatis.itf.ISeataStorageService;
 import com.dhy.demo.spring.mybatis.po.SeataStoragePo;
 import com.dhy.demo.spring.mybatis.utils.BusinessException;
@@ -9,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/spring/mybatis")
+@RequestMapping("/spring")
 public class IndexController {
 
     @Autowired
@@ -29,6 +30,7 @@ public class IndexController {
 
     @RequestMapping("/product/all")
     Object getProduct(){
+        TraceUtil.setDbKey("biz-ds1");
         return seataStorageService.selectAll();
     }
 
@@ -42,6 +44,7 @@ public class IndexController {
         if(po==null||po.getStock()==null||po.getPrice()==null){
             throw new BusinessException("","参数不完整");
         }
+        TraceUtil.setDbKey("biz-ds1");
         return seataStorageService.insert(po);
     }
 
@@ -50,6 +53,7 @@ public class IndexController {
         if(po==null||po.getId()==null){
             throw new BusinessException("","参数不完整");
         }
+        TraceUtil.setDbKey("biz-ds1");
         return seataStorageService.delete(po);
     }
 
@@ -59,11 +63,13 @@ public class IndexController {
         if(po==null||po.getId()==null){
             throw new BusinessException("","参数不完整");
         }
+        TraceUtil.setDbKey("biz-ds1");
         return seataStorageService.update(po);
     }
 
     @RequestMapping("/product/count")
     Object countProduct(){
+        TraceUtil.setDbKey("biz-ds1");
         return seataStorageService.selectCount();
     }
 
