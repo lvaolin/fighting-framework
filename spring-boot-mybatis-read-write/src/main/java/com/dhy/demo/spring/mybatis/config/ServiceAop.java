@@ -18,7 +18,6 @@ import java.util.concurrent.ThreadLocalRandom;
  * @Date 2022/2/19 18:30
  **/
 @Component
-//@EnableAspectJAutoProxy(proxyTargetClass = false)
 @Aspect
 public class ServiceAop {
 
