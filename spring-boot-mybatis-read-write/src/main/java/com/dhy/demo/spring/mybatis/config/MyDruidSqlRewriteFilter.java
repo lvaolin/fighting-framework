@@ -86,6 +86,20 @@ public class MyDruidSqlRewriteFilter extends FilterEventAdapter {
             //解析语法树，修改语法树
             return true;
         }
+        @Override
+        public boolean visit(SQLUnionQuery x){
+
+            //解析语法树，修改语法树
+            List<SQLSelectQuery> children = x.getChildren();
+            for (SQLSelectQuery child : children) {
+                if (child instanceof MySqlSelectQueryBlock) {
+                    MySqlSelectQueryBlock sqlSelectQuery = (MySqlSelectQueryBlock) child;
+                    visit(sqlSelectQuery);
+                }
+            }
+            this.rewrite = true;
+            return true;
+        }
 
         @Override
         public boolean visit(MySqlSelectQueryBlock x){

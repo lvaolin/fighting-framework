@@ -23,7 +23,7 @@ public interface SeataStorageMapper  {
             "\n" +
             "on a.id = b.id \n" +
             "\n" +
-            "where a.id = 1 and a.id in (select id from orders)")
+            "where a.id = 1 and a.id in (select id from goods)")
     public List<SeataStoragePo> productSelectAll();
     @Select("select count(*) from product")
     public int productCount();
