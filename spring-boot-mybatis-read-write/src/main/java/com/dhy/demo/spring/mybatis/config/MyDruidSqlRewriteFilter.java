@@ -133,6 +133,16 @@ public class MyDruidSqlRewriteFilter extends FilterEventAdapter {
                 updateTableSource(from);
                 return;
             }
+            if (sqlTableSource instanceof SQLWithSubqueryClause.Entry) {
+                SQLWithSubqueryClause.Entry tableSource = (SQLWithSubqueryClause.Entry)sqlTableSource;
+                SQLSelect select = tableSource.getSubQuery();
+                SQLSelectQueryBlock queryBlock = select.getQueryBlock();
+                SQLTableSource from = queryBlock.getFrom();
+                updateTableSource(from);
+                return;
+            }
+
+
         }
 
 
