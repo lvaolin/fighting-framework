@@ -1,4 +1,5 @@
 package com.dhy.demo.spring.mybatis.config;
+import com.alibaba.druid.filter.Filter;
 import com.alibaba.druid.pool.DruidDataSource;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
@@ -11,8 +12,7 @@ import org.springframework.jdbc.datasource.LazyConnectionDataSourceProxy;
 import org.springframework.transaction.PlatformTransactionManager;
 
 import javax.sql.DataSource;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 
 /**
@@ -84,10 +84,12 @@ public class MyBatisConfig {
 
     private DruidDataSource getNewDataSourceInstance(){
         DruidDataSource druidDataSource = new DruidDataSource();
-        druidDataSource.setUrl("jdbc:mysql://localhost:3306/seata_storage?characterEncoding=utf8&serverTimezone=UTC&useUnicode=true");
+        druidDataSource.setUrl("jdbc:mysql://127.0.0.1:3306/seata_storage?characterEncoding=utf8&serverTimezone=UTC&useUnicode=true");
         druidDataSource.setUsername("root");
         druidDataSource.setPassword("root");
         druidDataSource.setDriverClassName("com.mysql.jdbc.Driver");
+        //分表过滤器
+        druidDataSource.setProxyFilters(Collections.singletonList(new MyDruidSqlRewriteFilter()));
         return druidDataSource;
     }
 

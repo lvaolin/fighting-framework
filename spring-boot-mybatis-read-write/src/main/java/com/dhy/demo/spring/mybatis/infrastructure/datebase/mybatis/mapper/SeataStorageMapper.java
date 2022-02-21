@@ -14,7 +14,16 @@ import java.util.List;
 public interface SeataStorageMapper  {
 
     //简单sql用注解更方便
-    @Select("select * from product")
+    //@Select("select * from product")
+    @Select("select * from product a   \n" +
+            "join product b  \n" +
+            "join product c \n" +
+            "join orders d \n" +
+            "join (select * from orders where id=1) e\n" +
+            "\n" +
+            "on a.id = b.id \n" +
+            "\n" +
+            "where a.id = 1 and a.id in (select id from orders)")
     public List<SeataStoragePo> productSelectAll();
     @Select("select count(*) from product")
     public int productCount();
