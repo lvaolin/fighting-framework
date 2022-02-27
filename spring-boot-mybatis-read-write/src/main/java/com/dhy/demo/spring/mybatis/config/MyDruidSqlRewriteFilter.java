@@ -15,6 +15,7 @@ import com.alibaba.druid.sql.dialect.mysql.ast.statement.*;
 import com.alibaba.druid.sql.dialect.mysql.parser.MySqlSelectIntoParser;
 import com.alibaba.druid.sql.dialect.mysql.parser.MySqlSelectParser;
 import com.alibaba.druid.sql.dialect.mysql.visitor.MySqlASTVisitorAdapter;
+import com.alibaba.druid.sql.dialect.mysql.visitor.MySqlSchemaStatVisitor;
 import com.alibaba.druid.util.JdbcConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,6 +37,10 @@ public class MyDruidSqlRewriteFilter extends FilterEventAdapter {
     @Override
     public PreparedStatementProxy connection_prepareStatement(FilterChain chain, ConnectionProxy connection, String sql) throws SQLException {
         //解决PrepareStatement执行sql问题
+        //1、从上下文获取  orgId  计算分表后缀 数字
+        String shardingTableColumnValue = TraceUtil.getShardingTableColumnValue();
+
+        //2、解析重写sql
         String newSQL = getNewSQL(sql);
         return super.connection_prepareStatement(chain, connection, newSQL);
     }
@@ -77,6 +82,7 @@ public class MyDruidSqlRewriteFilter extends FilterEventAdapter {
         public boolean visit(MySqlUpdateStatement x){
             //解析语法树，修改语法树
             SQLTableSource sqlTableSource = x.getFrom();
+
             //sqlTableSource.setAlias();
             return true;
         }
@@ -107,7 +113,7 @@ public class MyDruidSqlRewriteFilter extends FilterEventAdapter {
             //解析语法树，修改语法树
             SQLTableSource sqlTableSource = x.getFrom();
             updateTableSource(sqlTableSource);
-            this.rewrite = true;
+
             return true;
         }
 
@@ -115,7 +121,12 @@ public class MyDruidSqlRewriteFilter extends FilterEventAdapter {
             if (sqlTableSource instanceof SQLExprTableSource) {
                 SQLExprTableSource tableSource = (SQLExprTableSource)sqlTableSource;
                 SQLExpr expr = tableSource.getExpr();
-                tableSource.setExpr(expr.toString()+"_1");
+                //查询分表配置信息，确认此表是否需要分表
+                if (true) {
+                    tableSource.setExpr(expr.toString()+"_1");
+                    this.rewrite = true;
+                }
+
                 return;
             }
             if (sqlTableSource instanceof SQLJoinTableSource) {
