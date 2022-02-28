@@ -19,7 +19,10 @@ public class TraceUtil {
     public static String getShardingTableColumnValue() {
         return myContext.get().getShardingTableColumnValue();
     }
-
+    public static void setShardingTableColumnValue(String shardingTableColumnValue) {
+        //临时测试用
+        myContext.get().setShardingTableColumnValue(shardingTableColumnValue);
+    }
     public static String getTokenStr() {
         return myContext.get().getToken();
     }
@@ -60,6 +63,7 @@ public class TraceUtil {
             if (shardingTableColumnValue == null) {
                 //第一次用从token解析出 shardingTableColumnValue
                 //shardingTableColumnValue = parse(token);
+                shardingTableColumnValue = "_1";
             }
             return shardingTableColumnValue;
         }

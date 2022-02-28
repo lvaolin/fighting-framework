@@ -23,7 +23,9 @@ import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Project
@@ -41,7 +43,7 @@ public class MyDruidSqlRewriteFilter extends FilterEventAdapter {
         String shardingTableColumnValue = TraceUtil.getShardingTableColumnValue();
 
         //2、解析重写sql
-        String newSQL = getNewSQL(sql);
+        String newSQL = getNewSQL(sql,shardingTableColumnValue);
         return super.connection_prepareStatement(chain, connection, newSQL);
     }
 
@@ -50,11 +52,11 @@ public class MyDruidSqlRewriteFilter extends FilterEventAdapter {
         //解决statement执行sql问题
         //1、从上下文获取  orgId  计算分表后缀 数字
         String shardingTableColumnValue = TraceUtil.getShardingTableColumnValue();
-        String newSQL = getNewSQL(sql);
+        String newSQL = getNewSQL(sql,shardingTableColumnValue);
         return super.statement_execute(chain, statement, newSQL);
     }
 
-    private String getNewSQL(String sql) {
+    private String getNewSQL(String sql,String suffix) {
         boolean rewrite = false;
         String newSQL = sql;
         List<SQLStatement> sqlStatements = SQLUtils.parseStatements(sql, JdbcConstants.MYSQL);
@@ -75,21 +77,38 @@ public class MyDruidSqlRewriteFilter extends FilterEventAdapter {
 
     static class RewriteTableNameVisitor extends MySqlASTVisitorAdapter {
 
+        private static Map<String,Boolean> sharding = new HashMap<>();
+        static {
+            sharding.put("product",true);
+        }
+
         /**
          * sql是否被重写
          */
         private boolean rewrite = false;
+        private boolean insert = false;
+        private boolean delete = false;
+
+        @Override
+        public void endVisit(MySqlInsertStatement x) {
+            this.insert = true;
+        }
+
+        @Override
+        public void endVisit(MySqlDeleteStatement x) {
+            this.delete = true;
+        }
 
         @Override
         public boolean visit(SQLExprTableSource tableSource){
             String tableName = tableSource.getTableName();
             //查询分表配置信息，确认此表是否需要分表
-            if (true) {
+            if (sharding.containsKey(tableName.toLowerCase())) {
                 //查询分表的后缀信息（token中获取）
-                if (tableSource.getAlias()==null) {
+                if (tableSource.getAlias()==null&&insert) {
                     tableSource.setAlias(tableName);
                 }
-                tableSource.setSimpleName(tableName+"_1");
+                tableSource.setSimpleName(tableName+TraceUtil.getShardingTableColumnValue());
                 this.rewrite = true;
             }
             return true;

@@ -29,47 +29,53 @@ public class IndexController {
 
 
     @RequestMapping("/product/all")
-    Object getProduct(){
+    Object getProduct(String sharding){
         TraceUtil.setDbKeyMaster("biz-ds1");
+        TraceUtil.setShardingTableColumnValue(sharding);
         return seataStorageService.selectAll();
     }
 
     @RequestMapping("/product/all-xml")
-    Object getProductByXml(){
+    Object getProductByXml(String sharding){
+        TraceUtil.setShardingTableColumnValue(sharding);
         return seataStorageService.selectAllByXml();
     }
 
     @RequestMapping("/product/insert")
-    Object insertProduct(SeataStoragePo po){
+    Object insertProduct(SeataStoragePo po,String sharding){
         if(po==null||po.getStock()==null||po.getPrice()==null){
             throw new BusinessException("","参数不完整");
         }
         TraceUtil.setDbKeyMaster("biz-ds1");
+        TraceUtil.setShardingTableColumnValue(sharding);
         return seataStorageService.insert(po);
     }
 
     @RequestMapping("/product/delete")
-    Object deleteProduct(SeataStoragePo po){
+    Object deleteProduct(SeataStoragePo po,String sharding){
         if(po==null||po.getId()==null){
             throw new BusinessException("","参数不完整");
         }
         TraceUtil.setDbKeyMaster("biz-ds1");
+        TraceUtil.setShardingTableColumnValue(sharding);
         return seataStorageService.delete(po);
     }
 
 
     @RequestMapping("/product/update")
-    Object updateProduct(SeataStoragePo po){
+    Object updateProduct(SeataStoragePo po,String sharding){
         if(po==null||po.getId()==null){
             throw new BusinessException("","参数不完整");
         }
         TraceUtil.setDbKeyMaster("biz-ds1");
+        TraceUtil.setShardingTableColumnValue(sharding);
         return seataStorageService.update(po);
     }
 
     @RequestMapping("/product/count")
-    Object countProduct(){
+    Object countProduct(String sharding){
         TraceUtil.setDbKeyMaster("biz-ds1");
+        TraceUtil.setShardingTableColumnValue(sharding);
         return seataStorageService.selectCount();
     }
 

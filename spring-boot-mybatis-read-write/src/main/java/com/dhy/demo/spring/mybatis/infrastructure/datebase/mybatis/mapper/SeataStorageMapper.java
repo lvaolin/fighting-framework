@@ -15,19 +15,11 @@ public interface SeataStorageMapper  {
 
     //简单sql用注解更方便
     //@Select("select * from product")
-    @Select("select * from product a   \n" +
-            "join product b  \n" +
-            "join product c \n" +
-            "join orders d \n" +
-            "join (select * from orders where id=1) e\n" +
-            "\n" +
-            "on a.id = b.id \n" +
-            "\n" +
-            "where a.id = 1 and a.id in (select id from goods)")
+    @Select("select * from product")
     public List<SeataStoragePo> productSelectAll();
     @Select("select count(*) from product")
     public int productCount();
-    @Insert("insert into product(price,stock) values ( #{price},#{stock} )")
+    @Insert("insert into product(id,price,stock) values ( #{id},#{price},#{stock} )")
     public int productInsert(SeataStoragePo po);
     @Delete("delete from product where id= #{id}")
     public int productDelete(SeataStoragePo po);
