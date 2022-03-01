@@ -39,10 +39,7 @@ public class MyDruidSqlRewriteFilter extends FilterEventAdapter {
     @Override
     public PreparedStatementProxy connection_prepareStatement(FilterChain chain, ConnectionProxy connection, String sql) throws SQLException {
         //解决PrepareStatement执行sql问题
-        //1、从上下文获取  orgId  计算分表后缀 数字
         String shardingTableColumnValue = TraceUtil.getShardingTableColumnValue();
-
-        //2、解析重写sql
         String newSQL = getNewSQL(sql,shardingTableColumnValue);
         return super.connection_prepareStatement(chain, connection, newSQL);
     }
@@ -50,7 +47,6 @@ public class MyDruidSqlRewriteFilter extends FilterEventAdapter {
     @Override
     public boolean statement_execute(FilterChain chain, StatementProxy statement, String sql) throws SQLException{
         //解决statement执行sql问题
-        //1、从上下文获取  orgId  计算分表后缀 数字
         String shardingTableColumnValue = TraceUtil.getShardingTableColumnValue();
         String newSQL = getNewSQL(sql,shardingTableColumnValue);
         return super.statement_execute(chain, statement, newSQL);
@@ -61,7 +57,7 @@ public class MyDruidSqlRewriteFilter extends FilterEventAdapter {
         String newSQL = sql;
         List<SQLStatement> sqlStatements = SQLUtils.parseStatements(sql, JdbcConstants.MYSQL);
         for (SQLStatement st : sqlStatements) {
-            RewriteTableNameVisitor visitor = new RewriteTableNameVisitor();
+            RewriteTableNameVisitor visitor = new RewriteTableNameVisitor(suffix);
             st.accept(visitor);
             if (visitor.isRewrite()) {
                 rewrite = true;
@@ -77,6 +73,10 @@ public class MyDruidSqlRewriteFilter extends FilterEventAdapter {
 
     static class RewriteTableNameVisitor extends MySqlASTVisitorAdapter {
 
+        //分表后缀
+        private String suffix;
+
+        //模拟下需要进行分表操作的表名单
         private static Map<String,Boolean> sharding = new HashMap<>();
         static {
             sharding.put("product",true);
@@ -86,29 +86,46 @@ public class MyDruidSqlRewriteFilter extends FilterEventAdapter {
          * sql是否被重写
          */
         private boolean rewrite = false;
+        /**
+         * 是否insert语句？
+         */
         private boolean insert = false;
+        /**
+         * 是否delete语句？
+         */
         private boolean delete = false;
+        /**
+         * 是否update语句？
+         */
+        private boolean update = false;
 
+        public RewriteTableNameVisitor(String suffix){
+            this.suffix = suffix;
+        }
         @Override
         public void endVisit(MySqlInsertStatement x) {
             this.insert = true;
         }
-
         @Override
         public void endVisit(MySqlDeleteStatement x) {
             this.delete = true;
         }
-
+        @Override
+        public void endVisit(MySqlUpdateStatement x) {
+            this.update = true;
+        }
         @Override
         public boolean visit(SQLExprTableSource tableSource){
             String tableName = tableSource.getTableName();
-            //查询分表配置信息，确认此表是否需要分表
+            //确认否需要分表
             if (sharding.containsKey(tableName.toLowerCase())) {
-                //查询分表的后缀信息（token中获取）
+                //追加别名
                 if (tableSource.getAlias()==null&&insert) {
                     tableSource.setAlias(tableName);
                 }
-                tableSource.setSimpleName(tableName+TraceUtil.getShardingTableColumnValue());
+                //追加分表后缀
+                tableSource.setSimpleName(tableName+this.suffix);
+                //已经被修改，需要替换SQL
                 this.rewrite = true;
             }
             return true;
