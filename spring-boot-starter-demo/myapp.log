@@ -40,3 +40,197 @@
 2022-05-09 22:08:36.018  INFO 2137 --- [http-nio-8081-exec-3] c.d.m.b.controller.MyController          : 业务参数:AppContext(clientType=null, txnId=null, imei=null, seqNo=null, desKey=null, lon=0.0, lat=0.0, city=null, dataDt=null, time=null, deviceToken=null, endDate=null, endTime=null, userNm=null, requstInfo=null, clientVersion=null, userPlt=null, userId=null, c=null, cityIdCde=null, toClientMsg=null)
 2022-05-09 22:08:36.021  INFO 2137 --- [http-nio-8081-exec-3] c.d.m.common.interceptor.MyInterceptor   : 拦截器后置动作
 2022-05-09 22:08:36.022 ERROR 2137 --- [http-nio-8081-exec-3] c.d.m.common.autoconfigure.ConfigFilter  : /v1/test耗时12ms
+2022-05-09 22:22:12.587  INFO 2137 --- [SpringContextShutdownHook] c.d.m.common.autoconfigure.ConfigFilter  : --- FilterResponseTime destroy ---
+2022-05-09 22:22:12.634  INFO 2137 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService
+2022-05-09 22:22:12.635  INFO 2137 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-05-09 22:22:24.785  INFO 2435 --- [main] c.d.m.billingservice.BillingApplication  : Starting BillingApplication on makeboluo.local with PID 2435 (/Users/lvaolin/code_github.com/study/fighting-framework/spring-boot-starter-demo/dhy-billing-service/target/classes started by lvaolin in /Users/lvaolin/code_github.com/study/fighting-framework/spring-boot-starter-demo)
+2022-05-09 22:22:24.800  INFO 2435 --- [main] c.d.m.billingservice.BillingApplication  : No active profile set, falling back to default profiles: default
+2022-05-09 22:22:26.610  INFO 2435 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2022-05-09 22:22:26.622  INFO 2435 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-05-09 22:22:26.623  INFO 2435 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2022-05-09 22:22:26.703  INFO 2435 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/v1]     : Initializing Spring embedded WebApplicationContext
+2022-05-09 22:22:26.703  INFO 2435 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1748 ms
+2022-05-09 22:22:27.431 ERROR 2435 --- [main] c.d.m.common.autoconfigure.ConfigWebMvc  : org.springframework.http.converter.ByteArrayHttpMessageConverter@111d5c97
+2022-05-09 22:22:27.436 ERROR 2435 --- [main] c.d.m.common.autoconfigure.ConfigWebMvc  : org.springframework.http.converter.StringHttpMessageConverter@2be21396
+2022-05-09 22:22:27.437 ERROR 2435 --- [main] c.d.m.common.autoconfigure.ConfigWebMvc  : org.springframework.http.converter.StringHttpMessageConverter@29c17c3d
+2022-05-09 22:22:27.438 ERROR 2435 --- [main] c.d.m.common.autoconfigure.ConfigWebMvc  : org.springframework.http.converter.ResourceHttpMessageConverter@250a9031
+2022-05-09 22:22:27.438 ERROR 2435 --- [main] c.d.m.common.autoconfigure.ConfigWebMvc  : org.springframework.http.converter.ResourceRegionHttpMessageConverter@1665fa54
+2022-05-09 22:22:27.438 ERROR 2435 --- [main] c.d.m.common.autoconfigure.ConfigWebMvc  : org.springframework.http.converter.xml.SourceHttpMessageConverter@6d67f5eb
+2022-05-09 22:22:27.438 ERROR 2435 --- [main] c.d.m.common.autoconfigure.ConfigWebMvc  : org.springframework.http.converter.support.AllEncompassingFormHttpMessageConverter@4f654cee
+2022-05-09 22:22:27.439 ERROR 2435 --- [main] c.d.m.common.autoconfigure.ConfigWebMvc  : org.springframework.http.converter.json.MappingJackson2HttpMessageConverter@315105f
+2022-05-09 22:22:27.439 ERROR 2435 --- [main] c.d.m.common.autoconfigure.ConfigWebMvc  : org.springframework.http.converter.json.MappingJackson2HttpMessageConverter@3e1fd62b
+2022-05-09 22:22:27.440 ERROR 2435 --- [main] c.d.m.common.autoconfigure.ConfigWebMvc  : org.springframework.http.converter.xml.MappingJackson2XmlHttpMessageConverter@124dac75
+2022-05-09 22:22:27.440 ERROR 2435 --- [main] c.d.m.common.autoconfigure.ConfigWebMvc  : org.springframework.http.converter.xml.MappingJackson2XmlHttpMessageConverter@7112ce6
+2022-05-09 22:22:27.503  INFO 2435 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-05-09 22:22:28.705  INFO 2435 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService
+2022-05-09 22:22:28.834  INFO 2435 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
+2022-05-09 22:22:28.947  INFO 2435 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/v1'
+2022-05-09 22:22:28.973  INFO 2435 --- [main] c.d.m.billingservice.BillingApplication  : Started BillingApplication in 5.149 seconds (JVM running for 6.729)
+2022-05-09 22:22:29.297  WARN 2435 --- [registrationTask1] d.c.b.a.c.r.ApplicationRegistrator       : Failed to register application as Application(name=billing-service, managementUrl=http://127.0.0.1:8081/v1/actuator, healthUrl=http://127.0.0.1:8081/v1/actuator/health, serviceUrl=http://127.0.0.1:8081/v1) at spring-boot-admin ([http://localhost:8769/instances]): I/O error on POST request for "http://localhost:8769/instances": Connection refused (Connection refused); nested exception is java.net.ConnectException: Connection refused (Connection refused). Further attempts are logged on DEBUG level
+2022-05-09 22:22:40.006  INFO 2435 --- [http-nio-8081-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/v1]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-05-09 22:22:40.007  INFO 2435 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-05-09 22:22:40.016  INFO 2435 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 9 ms
+2022-05-09 22:22:40.081  INFO 2435 --- [http-nio-8081-exec-2] c.d.m.common.interceptor.MyInterceptor   : from url:txnId,1001
+2022-05-09 22:22:40.082  INFO 2435 --- [http-nio-8081-exec-2] c.d.m.common.interceptor.MyInterceptor   : from url:imei,1000666
+2022-05-09 22:22:40.083  INFO 2435 --- [http-nio-8081-exec-2] c.d.m.common.interceptor.MyInterceptor   : 拦截器前置动作
+2022-05-09 22:22:40.132  INFO 2435 --- [http-nio-8081-exec-2] c.d.m.b.controller.MyController          : billing-service
+2022-05-09 22:22:40.133  INFO 2435 --- [http-nio-8081-exec-2] c.d.m.b.controller.MyController          : 公共报文：AppContext(clientType=null, txnId=1001, imei=1000666, seqNo=null, desKey=null, lon=0.0, lat=0.0, city=null, dataDt=null, time=null, deviceToken=null, endDate=null, endTime=null, userNm=null, requstInfo=null, clientVersion=null, userPlt=null, userId=null, c=null, cityIdCde=null, toClientMsg=null)
+2022-05-09 22:22:40.133  INFO 2435 --- [http-nio-8081-exec-2] c.d.m.b.controller.MyController          : 业务参数:AppContext(clientType=null, txnId=null, imei=null, seqNo=null, desKey=null, lon=0.0, lat=0.0, city=null, dataDt=null, time=null, deviceToken=null, endDate=null, endTime=null, userNm=null, requstInfo=null, clientVersion=null, userPlt=null, userId=null, c=null, cityIdCde=null, toClientMsg=null)
+2022-05-09 22:22:40.152  INFO 2435 --- [http-nio-8081-exec-2] c.d.m.common.interceptor.MyInterceptor   : 拦截器后置动作
+2022-05-09 22:22:40.155 ERROR 2435 --- [http-nio-8081-exec-2] c.d.m.common.autoconfigure.ConfigFilter  : /v1/test耗时127ms
+2022-05-09 22:22:45.731  INFO 2435 --- [http-nio-8081-exec-3] c.d.m.common.interceptor.MyInterceptor   : from url:txnId,1001
+2022-05-09 22:22:45.732  INFO 2435 --- [http-nio-8081-exec-3] c.d.m.common.interceptor.MyInterceptor   : from url:imei,1000666
+2022-05-09 22:22:45.732  INFO 2435 --- [http-nio-8081-exec-3] c.d.m.common.interceptor.MyInterceptor   : 拦截器前置动作
+2022-05-09 22:22:45.734  INFO 2435 --- [http-nio-8081-exec-3] c.d.m.b.controller.MyController          : billing-service
+2022-05-09 22:22:45.736  INFO 2435 --- [http-nio-8081-exec-3] c.d.m.b.controller.MyController          : 公共报文：AppContext(clientType=null, txnId=1001, imei=1000666, seqNo=null, desKey=null, lon=0.0, lat=0.0, city=null, dataDt=null, time=null, deviceToken=null, endDate=null, endTime=null, userNm=null, requstInfo=null, clientVersion=null, userPlt=null, userId=null, c=null, cityIdCde=null, toClientMsg=null)
+2022-05-09 22:22:45.738  INFO 2435 --- [http-nio-8081-exec-3] c.d.m.b.controller.MyController          : 业务参数:AppContext(clientType=null, txnId=null, imei=null, seqNo=null, desKey=null, lon=0.0, lat=0.0, city=null, dataDt=null, time=null, deviceToken=null, endDate=null, endTime=null, userNm=null, requstInfo=null, clientVersion=null, userPlt=null, userId=null, c=null, cityIdCde=null, toClientMsg=null)
+2022-05-09 22:22:45.771  INFO 2435 --- [http-nio-8081-exec-3] c.d.m.common.interceptor.MyInterceptor   : 拦截器后置动作
+2022-05-09 22:22:45.772 ERROR 2435 --- [http-nio-8081-exec-3] c.d.m.common.autoconfigure.ConfigFilter  : /v1/testxml耗时42ms
+2022-05-09 22:23:14.701  INFO 2435 --- [SpringContextShutdownHook] c.d.m.common.autoconfigure.ConfigFilter  : --- FilterResponseTime destroy ---
+2022-05-09 22:23:14.739  INFO 2435 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService
+2022-05-09 22:23:14.740  INFO 2435 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-05-09 22:23:21.285  INFO 2457 --- [main] c.d.m.billingservice.BillingApplication  : Starting BillingApplication on makeboluo.local with PID 2457 (/Users/lvaolin/code_github.com/study/fighting-framework/spring-boot-starter-demo/dhy-billing-service/target/classes started by lvaolin in /Users/lvaolin/code_github.com/study/fighting-framework/spring-boot-starter-demo)
+2022-05-09 22:23:21.297  INFO 2457 --- [main] c.d.m.billingservice.BillingApplication  : No active profile set, falling back to default profiles: default
+2022-05-09 22:23:22.913  INFO 2457 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2022-05-09 22:23:22.923  INFO 2457 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-05-09 22:23:22.924  INFO 2457 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2022-05-09 22:23:22.999  INFO 2457 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/v1]     : Initializing Spring embedded WebApplicationContext
+2022-05-09 22:23:23.000  INFO 2457 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1563 ms
+2022-05-09 22:23:23.410 ERROR 2457 --- [main] c.d.m.common.autoconfigure.ConfigWebMvc  : org.springframework.http.converter.ByteArrayHttpMessageConverter@250a9031
+2022-05-09 22:23:23.410 ERROR 2457 --- [main] c.d.m.common.autoconfigure.ConfigWebMvc  : org.springframework.http.converter.StringHttpMessageConverter@315105f
+2022-05-09 22:23:23.410 ERROR 2457 --- [main] c.d.m.common.autoconfigure.ConfigWebMvc  : org.springframework.http.converter.StringHttpMessageConverter@1665fa54
+2022-05-09 22:23:23.410 ERROR 2457 --- [main] c.d.m.common.autoconfigure.ConfigWebMvc  : org.springframework.http.converter.ResourceHttpMessageConverter@6d67f5eb
+2022-05-09 22:23:23.411 ERROR 2457 --- [main] c.d.m.common.autoconfigure.ConfigWebMvc  : org.springframework.http.converter.ResourceRegionHttpMessageConverter@4f654cee
+2022-05-09 22:23:23.411 ERROR 2457 --- [main] c.d.m.common.autoconfigure.ConfigWebMvc  : org.springframework.http.converter.xml.SourceHttpMessageConverter@3e1fd62b
+2022-05-09 22:23:23.411 ERROR 2457 --- [main] c.d.m.common.autoconfigure.ConfigWebMvc  : org.springframework.http.converter.support.AllEncompassingFormHttpMessageConverter@7112ce6
+2022-05-09 22:23:23.411 ERROR 2457 --- [main] c.d.m.common.autoconfigure.ConfigWebMvc  : org.springframework.http.converter.json.MappingJackson2HttpMessageConverter@40247d48
+2022-05-09 22:23:23.412 ERROR 2457 --- [main] c.d.m.common.autoconfigure.ConfigWebMvc  : org.springframework.http.converter.json.MappingJackson2HttpMessageConverter@558b4942
+2022-05-09 22:23:23.412 ERROR 2457 --- [main] c.d.m.common.autoconfigure.ConfigWebMvc  : org.springframework.http.converter.xml.MappingJackson2XmlHttpMessageConverter@7b61bf11
+2022-05-09 22:23:23.412 ERROR 2457 --- [main] c.d.m.common.autoconfigure.ConfigWebMvc  : org.springframework.http.converter.xml.MappingJackson2XmlHttpMessageConverter@30ec7d21
+2022-05-09 22:23:23.423  INFO 2457 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-05-09 22:23:23.813  INFO 2457 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService
+2022-05-09 22:23:23.881  INFO 2457 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
+2022-05-09 22:23:23.959  INFO 2457 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/v1'
+2022-05-09 22:23:23.978  INFO 2457 --- [main] c.d.m.billingservice.BillingApplication  : Started BillingApplication in 3.544 seconds (JVM running for 5.02)
+2022-05-09 22:23:24.311  WARN 2457 --- [registrationTask1] d.c.b.a.c.r.ApplicationRegistrator       : Failed to register application as Application(name=billing-service, managementUrl=http://127.0.0.1:8081/v1/actuator, healthUrl=http://127.0.0.1:8081/v1/actuator/health, serviceUrl=http://127.0.0.1:8081/v1) at spring-boot-admin ([http://localhost:8769/instances]): I/O error on POST request for "http://localhost:8769/instances": Connection refused (Connection refused); nested exception is java.net.ConnectException: Connection refused (Connection refused). Further attempts are logged on DEBUG level
+2022-05-09 22:23:30.486  INFO 2457 --- [http-nio-8081-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/v1]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-05-09 22:23:30.487  INFO 2457 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-05-09 22:23:30.495  INFO 2457 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
+2022-05-09 22:23:30.549  INFO 2457 --- [http-nio-8081-exec-2] c.d.m.common.interceptor.MyInterceptor   : from url:txnId,1001
+2022-05-09 22:23:30.550  INFO 2457 --- [http-nio-8081-exec-2] c.d.m.common.interceptor.MyInterceptor   : from url:imei,1000666
+2022-05-09 22:23:30.551  INFO 2457 --- [http-nio-8081-exec-2] c.d.m.common.interceptor.MyInterceptor   : 拦截器前置动作
+2022-05-09 22:23:30.597  INFO 2457 --- [http-nio-8081-exec-2] c.d.m.b.controller.MyController          : billing-service
+2022-05-09 22:23:30.597  INFO 2457 --- [http-nio-8081-exec-2] c.d.m.b.controller.MyController          : 公共报文：AppContext(clientType=null, txnId=1001, imei=1000666, seqNo=null, desKey=null, lon=0.0, lat=0.0, city=null, dataDt=null, time=null, deviceToken=null, endDate=null, endTime=null, userNm=null, requstInfo=null, clientVersion=null, userPlt=null, userId=null, c=null, cityIdCde=null, toClientMsg=null)
+2022-05-09 22:23:30.597  INFO 2457 --- [http-nio-8081-exec-2] c.d.m.b.controller.MyController          : 业务参数:AppContext(clientType=null, txnId=null, imei=null, seqNo=null, desKey=null, lon=0.0, lat=0.0, city=null, dataDt=null, time=null, deviceToken=null, endDate=null, endTime=null, userNm=null, requstInfo=null, clientVersion=null, userPlt=null, userId=null, c=null, cityIdCde=null, toClientMsg=null)
+2022-05-09 22:23:30.632  INFO 2457 --- [http-nio-8081-exec-2] c.d.m.common.interceptor.MyInterceptor   : 拦截器后置动作
+2022-05-09 22:23:30.635 ERROR 2457 --- [http-nio-8081-exec-2] c.d.m.common.autoconfigure.ConfigFilter  : /v1/testxml耗时132ms
+2022-05-09 22:23:32.645  INFO 2457 --- [http-nio-8081-exec-3] c.d.m.common.interceptor.MyInterceptor   : from url:txnId,1001
+2022-05-09 22:23:32.646  INFO 2457 --- [http-nio-8081-exec-3] c.d.m.common.interceptor.MyInterceptor   : from url:imei,1000666
+2022-05-09 22:23:32.647  INFO 2457 --- [http-nio-8081-exec-3] c.d.m.common.interceptor.MyInterceptor   : 拦截器前置动作
+2022-05-09 22:23:32.648  INFO 2457 --- [http-nio-8081-exec-3] c.d.m.b.controller.MyController          : billing-service
+2022-05-09 22:23:32.649  INFO 2457 --- [http-nio-8081-exec-3] c.d.m.b.controller.MyController          : 公共报文：AppContext(clientType=null, txnId=1001, imei=1000666, seqNo=null, desKey=null, lon=0.0, lat=0.0, city=null, dataDt=null, time=null, deviceToken=null, endDate=null, endTime=null, userNm=null, requstInfo=null, clientVersion=null, userPlt=null, userId=null, c=null, cityIdCde=null, toClientMsg=null)
+2022-05-09 22:23:32.649  INFO 2457 --- [http-nio-8081-exec-3] c.d.m.b.controller.MyController          : 业务参数:AppContext(clientType=null, txnId=null, imei=null, seqNo=null, desKey=null, lon=0.0, lat=0.0, city=null, dataDt=null, time=null, deviceToken=null, endDate=null, endTime=null, userNm=null, requstInfo=null, clientVersion=null, userPlt=null, userId=null, c=null, cityIdCde=null, toClientMsg=null)
+2022-05-09 22:23:32.651  INFO 2457 --- [http-nio-8081-exec-3] c.d.m.common.interceptor.MyInterceptor   : 拦截器后置动作
+2022-05-09 22:23:32.651 ERROR 2457 --- [http-nio-8081-exec-3] c.d.m.common.autoconfigure.ConfigFilter  : /v1/testxml耗时7ms
+2022-05-09 22:23:33.565  INFO 2457 --- [http-nio-8081-exec-4] c.d.m.common.interceptor.MyInterceptor   : from url:txnId,1001
+2022-05-09 22:23:33.566  INFO 2457 --- [http-nio-8081-exec-4] c.d.m.common.interceptor.MyInterceptor   : from url:imei,1000666
+2022-05-09 22:23:33.566  INFO 2457 --- [http-nio-8081-exec-4] c.d.m.common.interceptor.MyInterceptor   : 拦截器前置动作
+2022-05-09 22:23:33.567  INFO 2457 --- [http-nio-8081-exec-4] c.d.m.b.controller.MyController          : billing-service
+2022-05-09 22:23:33.568  INFO 2457 --- [http-nio-8081-exec-4] c.d.m.b.controller.MyController          : 公共报文：AppContext(clientType=null, txnId=1001, imei=1000666, seqNo=null, desKey=null, lon=0.0, lat=0.0, city=null, dataDt=null, time=null, deviceToken=null, endDate=null, endTime=null, userNm=null, requstInfo=null, clientVersion=null, userPlt=null, userId=null, c=null, cityIdCde=null, toClientMsg=null)
+2022-05-09 22:23:33.568  INFO 2457 --- [http-nio-8081-exec-4] c.d.m.b.controller.MyController          : 业务参数:AppContext(clientType=null, txnId=null, imei=null, seqNo=null, desKey=null, lon=0.0, lat=0.0, city=null, dataDt=null, time=null, deviceToken=null, endDate=null, endTime=null, userNm=null, requstInfo=null, clientVersion=null, userPlt=null, userId=null, c=null, cityIdCde=null, toClientMsg=null)
+2022-05-09 22:23:33.569  INFO 2457 --- [http-nio-8081-exec-4] c.d.m.common.interceptor.MyInterceptor   : 拦截器后置动作
+2022-05-09 22:23:33.570 ERROR 2457 --- [http-nio-8081-exec-4] c.d.m.common.autoconfigure.ConfigFilter  : /v1/testxml耗时7ms
+2022-05-09 22:24:21.074  INFO 2457 --- [SpringContextShutdownHook] c.d.m.common.autoconfigure.ConfigFilter  : --- FilterResponseTime destroy ---
+2022-05-09 22:24:21.121  INFO 2457 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService
+2022-05-09 22:24:21.122  INFO 2457 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-05-09 22:24:47.305  INFO 2484 --- [main] c.d.m.billingservice.BillingApplication  : Starting BillingApplication on makeboluo.local with PID 2484 (/Users/lvaolin/code_github.com/study/fighting-framework/spring-boot-starter-demo/dhy-billing-service/target/classes started by lvaolin in /Users/lvaolin/code_github.com/study/fighting-framework/spring-boot-starter-demo)
+2022-05-09 22:24:47.336  INFO 2484 --- [main] c.d.m.billingservice.BillingApplication  : No active profile set, falling back to default profiles: default
+2022-05-09 22:24:48.955  INFO 2484 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2022-05-09 22:24:48.967  INFO 2484 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-05-09 22:24:48.967  INFO 2484 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2022-05-09 22:24:49.047  INFO 2484 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/v1]     : Initializing Spring embedded WebApplicationContext
+2022-05-09 22:24:49.047  INFO 2484 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1599 ms
+2022-05-09 22:24:49.470 ERROR 2484 --- [main] c.d.m.common.autoconfigure.ConfigWebMvc  : org.springframework.http.converter.ByteArrayHttpMessageConverter@1943c1f2
+2022-05-09 22:24:49.470 ERROR 2484 --- [main] c.d.m.common.autoconfigure.ConfigWebMvc  : org.springframework.http.converter.StringHttpMessageConverter@58b5a2f3
+2022-05-09 22:24:49.470 ERROR 2484 --- [main] c.d.m.common.autoconfigure.ConfigWebMvc  : org.springframework.http.converter.StringHttpMessageConverter@d70f722
+2022-05-09 22:24:49.471 ERROR 2484 --- [main] c.d.m.common.autoconfigure.ConfigWebMvc  : org.springframework.http.converter.ResourceHttpMessageConverter@1e1eeedd
+2022-05-09 22:24:49.471 ERROR 2484 --- [main] c.d.m.common.autoconfigure.ConfigWebMvc  : org.springframework.http.converter.ResourceRegionHttpMessageConverter@798256c5
+2022-05-09 22:24:49.471 ERROR 2484 --- [main] c.d.m.common.autoconfigure.ConfigWebMvc  : org.springframework.http.converter.xml.SourceHttpMessageConverter@7ec95456
+2022-05-09 22:24:49.471 ERROR 2484 --- [main] c.d.m.common.autoconfigure.ConfigWebMvc  : org.springframework.http.converter.support.AllEncompassingFormHttpMessageConverter@748a654a
+2022-05-09 22:24:49.471 ERROR 2484 --- [main] c.d.m.common.autoconfigure.ConfigWebMvc  : org.springframework.http.converter.json.MappingJackson2HttpMessageConverter@25f15f50
+2022-05-09 22:24:49.471 ERROR 2484 --- [main] c.d.m.common.autoconfigure.ConfigWebMvc  : org.springframework.http.converter.json.MappingJackson2HttpMessageConverter@1d8b0500
+2022-05-09 22:24:49.472 ERROR 2484 --- [main] c.d.m.common.autoconfigure.ConfigWebMvc  : org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter@76544c0a
+2022-05-09 22:24:49.481  INFO 2484 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-05-09 22:24:49.886  INFO 2484 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService
+2022-05-09 22:24:49.967  INFO 2484 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
+2022-05-09 22:24:50.047  INFO 2484 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/v1'
+2022-05-09 22:24:50.065  INFO 2484 --- [main] c.d.m.billingservice.BillingApplication  : Started BillingApplication in 3.63 seconds (JVM running for 5.139)
+2022-05-09 22:24:50.333  WARN 2484 --- [registrationTask1] d.c.b.a.c.r.ApplicationRegistrator       : Failed to register application as Application(name=billing-service, managementUrl=http://127.0.0.1:8081/v1/actuator, healthUrl=http://127.0.0.1:8081/v1/actuator/health, serviceUrl=http://127.0.0.1:8081/v1) at spring-boot-admin ([http://localhost:8769/instances]): I/O error on POST request for "http://localhost:8769/instances": Connection refused (Connection refused); nested exception is java.net.ConnectException: Connection refused (Connection refused). Further attempts are logged on DEBUG level
+2022-05-09 22:24:57.836  INFO 2484 --- [http-nio-8081-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/v1]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-05-09 22:24:57.837  INFO 2484 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-05-09 22:24:57.846  INFO 2484 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 9 ms
+2022-05-09 22:24:57.910  INFO 2484 --- [http-nio-8081-exec-2] c.d.m.common.interceptor.MyInterceptor   : from url:txnId,1001
+2022-05-09 22:24:57.911  INFO 2484 --- [http-nio-8081-exec-2] c.d.m.common.interceptor.MyInterceptor   : from url:imei,1000666
+2022-05-09 22:24:57.913  INFO 2484 --- [http-nio-8081-exec-2] c.d.m.common.interceptor.MyInterceptor   : 拦截器前置动作
+2022-05-09 22:24:57.966  INFO 2484 --- [http-nio-8081-exec-2] c.d.m.b.controller.MyController          : billing-service
+2022-05-09 22:24:57.967  INFO 2484 --- [http-nio-8081-exec-2] c.d.m.b.controller.MyController          : 公共报文：AppContext(clientType=null, txnId=1001, imei=1000666, seqNo=null, desKey=null, lon=0.0, lat=0.0, city=null, dataDt=null, time=null, deviceToken=null, endDate=null, endTime=null, userNm=null, requstInfo=null, clientVersion=null, userPlt=null, userId=null, c=null, cityIdCde=null, toClientMsg=null)
+2022-05-09 22:24:57.968  INFO 2484 --- [http-nio-8081-exec-2] c.d.m.b.controller.MyController          : 业务参数:AppContext(clientType=null, txnId=null, imei=null, seqNo=null, desKey=null, lon=0.0, lat=0.0, city=null, dataDt=null, time=null, deviceToken=null, endDate=null, endTime=null, userNm=null, requstInfo=null, clientVersion=null, userPlt=null, userId=null, c=null, cityIdCde=null, toClientMsg=null)
+2022-05-09 22:24:57.984 ERROR 2484 --- [http-nio-8081-exec-2] c.d.m.c.i.GlobalExceptionHandler         : No converter for [class com.dhy.mlife.billingservice.dto.MyResponseDataXML] with preset Content-Type 'null'
+
+org.springframework.http.converter.HttpMessageNotWritableException: No converter for [class com.dhy.mlife.billingservice.dto.MyResponseDataXML] with preset Content-Type 'null'
+	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.writeWithMessageConverters(AbstractMessageConverterMethodProcessor.java:299) ~[spring-webmvc-5.2.10.RELEASE.jar:5.2.10.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.handleReturnValue(RequestResponseBodyMethodProcessor.java:181) ~[spring-webmvc-5.2.10.RELEASE.jar:5.2.10.RELEASE]
+	at org.springframework.web.method.support.HandlerMethodReturnValueHandlerComposite.handleReturnValue(HandlerMethodReturnValueHandlerComposite.java:82) ~[spring-web-5.2.10.RELEASE.jar:5.2.10.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:123) ~[spring-webmvc-5.2.10.RELEASE.jar:5.2.10.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:878) ~[spring-webmvc-5.2.10.RELEASE.jar:5.2.10.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:792) ~[spring-webmvc-5.2.10.RELEASE.jar:5.2.10.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.2.10.RELEASE.jar:5.2.10.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040) ~[spring-webmvc-5.2.10.RELEASE.jar:5.2.10.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943) ~[spring-webmvc-5.2.10.RELEASE.jar:5.2.10.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) [spring-webmvc-5.2.10.RELEASE.jar:5.2.10.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) [spring-webmvc-5.2.10.RELEASE.jar:5.2.10.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652) [tomcat-embed-core-9.0.39.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) [spring-webmvc-5.2.10.RELEASE.jar:5.2.10.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733) [tomcat-embed-core-9.0.39.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) [tomcat-embed-core-9.0.39.jar:9.0.39]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.39.jar:9.0.39]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) [tomcat-embed-websocket-9.0.39.jar:9.0.39]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.39.jar:9.0.39]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.39.jar:9.0.39]
+	at com.dhy.mlife.common.autoconfigure.ConfigFilter$FilterResponseTime.doFilter(ConfigFilter.java:82) [classes/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.39.jar:9.0.39]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.39.jar:9.0.39]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) [spring-web-5.2.10.RELEASE.jar:5.2.10.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.10.RELEASE.jar:5.2.10.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.39.jar:9.0.39]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.39.jar:9.0.39]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) [spring-web-5.2.10.RELEASE.jar:5.2.10.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.10.RELEASE.jar:5.2.10.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.39.jar:9.0.39]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.39.jar:9.0.39]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:93) [spring-boot-actuator-2.3.5.RELEASE.jar:2.3.5.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.10.RELEASE.jar:5.2.10.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.39.jar:9.0.39]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.39.jar:9.0.39]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) [spring-web-5.2.10.RELEASE.jar:5.2.10.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.10.RELEASE.jar:5.2.10.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.39.jar:9.0.39]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.39.jar:9.0.39]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) [tomcat-embed-core-9.0.39.jar:9.0.39]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.39.jar:9.0.39]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) [tomcat-embed-core-9.0.39.jar:9.0.39]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143) [tomcat-embed-core-9.0.39.jar:9.0.39]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.39.jar:9.0.39]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.39.jar:9.0.39]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.39.jar:9.0.39]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374) [tomcat-embed-core-9.0.39.jar:9.0.39]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.39.jar:9.0.39]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868) [tomcat-embed-core-9.0.39.jar:9.0.39]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590) [tomcat-embed-core-9.0.39.jar:9.0.39]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.39.jar:9.0.39]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_144]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_144]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.39.jar:9.0.39]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_144]
+
+2022-05-09 22:24:58.001 ERROR 2484 --- [http-nio-8081-exec-2] c.d.m.common.autoconfigure.ConfigFilter  : /v1/testxml耗时146ms

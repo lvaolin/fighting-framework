@@ -32,6 +32,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+        <!--引入这个xml组件就可以实现xml格式响应，原理是啥？？？-->
+        <dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-xml</artifactId>
+            <version>2.11.2</version>
+        </dependency>
     </dependencies>
 
     <build>
