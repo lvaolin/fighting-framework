@@ -1,0 +1,42 @@
+2022-05-09 22:03:47.323  INFO 2137 --- [main] c.d.m.billingservice.BillingApplication  : Starting BillingApplication on makeboluo.local with PID 2137 (/Users/lvaolin/code_github.com/study/fighting-framework/spring-boot-starter-demo/dhy-billing-service/target/classes started by lvaolin in /Users/lvaolin/code_github.com/study/fighting-framework/spring-boot-starter-demo)
+2022-05-09 22:03:47.332  INFO 2137 --- [main] c.d.m.billingservice.BillingApplication  : No active profile set, falling back to default profiles: default
+2022-05-09 22:03:49.659  INFO 2137 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2022-05-09 22:03:49.677  INFO 2137 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-05-09 22:03:49.678  INFO 2137 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2022-05-09 22:03:49.797  INFO 2137 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/v1]     : Initializing Spring embedded WebApplicationContext
+2022-05-09 22:03:49.798  INFO 2137 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2387 ms
+2022-05-09 22:03:50.436 ERROR 2137 --- [main] c.d.m.common.autoconfigure.ConfigWebMvc  : org.springframework.http.converter.ByteArrayHttpMessageConverter@1319bc2a
+2022-05-09 22:03:50.437 ERROR 2137 --- [main] c.d.m.common.autoconfigure.ConfigWebMvc  : org.springframework.http.converter.StringHttpMessageConverter@1163a27
+2022-05-09 22:03:50.437 ERROR 2137 --- [main] c.d.m.common.autoconfigure.ConfigWebMvc  : org.springframework.http.converter.StringHttpMessageConverter@e280403
+2022-05-09 22:03:50.437 ERROR 2137 --- [main] c.d.m.common.autoconfigure.ConfigWebMvc  : org.springframework.http.converter.ResourceHttpMessageConverter@42f85fa4
+2022-05-09 22:03:50.438 ERROR 2137 --- [main] c.d.m.common.autoconfigure.ConfigWebMvc  : org.springframework.http.converter.ResourceRegionHttpMessageConverter@798dad3d
+2022-05-09 22:03:50.438 ERROR 2137 --- [main] c.d.m.common.autoconfigure.ConfigWebMvc  : org.springframework.http.converter.xml.SourceHttpMessageConverter@27abb6ca
+2022-05-09 22:03:50.438 ERROR 2137 --- [main] c.d.m.common.autoconfigure.ConfigWebMvc  : org.springframework.http.converter.support.AllEncompassingFormHttpMessageConverter@696db620
+2022-05-09 22:03:50.438 ERROR 2137 --- [main] c.d.m.common.autoconfigure.ConfigWebMvc  : org.springframework.http.converter.json.MappingJackson2HttpMessageConverter@322ba549
+2022-05-09 22:03:50.438 ERROR 2137 --- [main] c.d.m.common.autoconfigure.ConfigWebMvc  : org.springframework.http.converter.json.MappingJackson2HttpMessageConverter@6968c1d6
+2022-05-09 22:03:50.438 ERROR 2137 --- [main] c.d.m.common.autoconfigure.ConfigWebMvc  : org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter@7d986d83
+2022-05-09 22:03:50.451  INFO 2137 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-05-09 22:06:15.736  INFO 2137 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService
+2022-05-09 22:06:15.847  INFO 2137 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
+2022-05-09 22:06:15.940  INFO 2137 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/v1'
+2022-05-09 22:06:15.970  INFO 2137 --- [main] c.d.m.billingservice.BillingApplication  : Started BillingApplication in 150.137 seconds (JVM running for 152.79)
+2022-05-09 22:06:16.573  WARN 2137 --- [registrationTask1] d.c.b.a.c.r.ApplicationRegistrator       : Failed to register application as Application(name=billing-service, managementUrl=http://127.0.0.1:8081/v1/actuator, healthUrl=http://127.0.0.1:8081/v1/actuator/health, serviceUrl=http://127.0.0.1:8081/v1) at spring-boot-admin ([http://localhost:8769/instances]): I/O error on POST request for "http://localhost:8769/instances": Connection refused (Connection refused); nested exception is java.net.ConnectException: Connection refused (Connection refused). Further attempts are logged on DEBUG level
+2022-05-09 22:08:33.159  INFO 2137 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/v1]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-05-09 22:08:33.159  INFO 2137 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-05-09 22:08:33.171  INFO 2137 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 12 ms
+2022-05-09 22:08:33.251  INFO 2137 --- [http-nio-8081-exec-1] c.d.m.common.interceptor.MyInterceptor   : from url:txnId,1001
+2022-05-09 22:08:33.252  INFO 2137 --- [http-nio-8081-exec-1] c.d.m.common.interceptor.MyInterceptor   : from url:imei,1000666
+2022-05-09 22:08:33.253  INFO 2137 --- [http-nio-8081-exec-1] c.d.m.common.interceptor.MyInterceptor   : 拦截器前置动作
+2022-05-09 22:08:33.324  INFO 2137 --- [http-nio-8081-exec-1] c.d.m.b.controller.MyController          : billing-service
+2022-05-09 22:08:33.325  INFO 2137 --- [http-nio-8081-exec-1] c.d.m.b.controller.MyController          : 公共报文：AppContext(clientType=null, txnId=1001, imei=1000666, seqNo=null, desKey=null, lon=0.0, lat=0.0, city=null, dataDt=null, time=null, deviceToken=null, endDate=null, endTime=null, userNm=null, requstInfo=null, clientVersion=null, userPlt=null, userId=null, c=null, cityIdCde=null, toClientMsg=null)
+2022-05-09 22:08:33.325  INFO 2137 --- [http-nio-8081-exec-1] c.d.m.b.controller.MyController          : 业务参数:AppContext(clientType=null, txnId=null, imei=null, seqNo=null, desKey=null, lon=0.0, lat=0.0, city=null, dataDt=null, time=null, deviceToken=null, endDate=null, endTime=null, userNm=null, requstInfo=null, clientVersion=null, userPlt=null, userId=null, c=null, cityIdCde=null, toClientMsg=null)
+2022-05-09 22:08:33.354  INFO 2137 --- [http-nio-8081-exec-1] c.d.m.common.interceptor.MyInterceptor   : 拦截器后置动作
+2022-05-09 22:08:33.357 ERROR 2137 --- [http-nio-8081-exec-1] c.d.m.common.autoconfigure.ConfigFilter  : /v1/test耗时177ms
+2022-05-09 22:08:36.012  INFO 2137 --- [http-nio-8081-exec-3] c.d.m.common.interceptor.MyInterceptor   : from url:txnId,1001
+2022-05-09 22:08:36.013  INFO 2137 --- [http-nio-8081-exec-3] c.d.m.common.interceptor.MyInterceptor   : from url:imei,1000666
+2022-05-09 22:08:36.013  INFO 2137 --- [http-nio-8081-exec-3] c.d.m.common.interceptor.MyInterceptor   : 拦截器前置动作
+2022-05-09 22:08:36.016  INFO 2137 --- [http-nio-8081-exec-3] c.d.m.b.controller.MyController          : billing-service
+2022-05-09 22:08:36.017  INFO 2137 --- [http-nio-8081-exec-3] c.d.m.b.controller.MyController          : 公共报文：AppContext(clientType=null, txnId=1001, imei=1000666, seqNo=null, desKey=null, lon=0.0, lat=0.0, city=null, dataDt=null, time=null, deviceToken=null, endDate=null, endTime=null, userNm=null, requstInfo=null, clientVersion=null, userPlt=null, userId=null, c=null, cityIdCde=null, toClientMsg=null)
+2022-05-09 22:08:36.018  INFO 2137 --- [http-nio-8081-exec-3] c.d.m.b.controller.MyController          : 业务参数:AppContext(clientType=null, txnId=null, imei=null, seqNo=null, desKey=null, lon=0.0, lat=0.0, city=null, dataDt=null, time=null, deviceToken=null, endDate=null, endTime=null, userNm=null, requstInfo=null, clientVersion=null, userPlt=null, userId=null, c=null, cityIdCde=null, toClientMsg=null)
+2022-05-09 22:08:36.021  INFO 2137 --- [http-nio-8081-exec-3] c.d.m.common.interceptor.MyInterceptor   : 拦截器后置动作
+2022-05-09 22:08:36.022 ERROR 2137 --- [http-nio-8081-exec-3] c.d.m.common.autoconfigure.ConfigFilter  : /v1/test耗时12ms

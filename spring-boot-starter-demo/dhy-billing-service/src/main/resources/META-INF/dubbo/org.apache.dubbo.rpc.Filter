@@ -1,0 +1,2 @@
+webapiProvidingFilter=com.ttk.edf.webapi.dubboinvoker.filter.ProvidingFilter
+webapiConsumingFilter=com.ttk.edf.webapi.dubboinvoker.filter.ConsumingFilter
