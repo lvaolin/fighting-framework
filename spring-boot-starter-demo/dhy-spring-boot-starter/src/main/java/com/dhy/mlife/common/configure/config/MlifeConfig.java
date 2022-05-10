@@ -1,4 +1,4 @@
-package com.dhy.mlife.common.autoconfigure.config;
+package com.dhy.mlife.common.configure.config;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

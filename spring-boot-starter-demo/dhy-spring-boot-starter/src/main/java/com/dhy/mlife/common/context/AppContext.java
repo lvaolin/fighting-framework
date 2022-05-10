@@ -4,6 +4,37 @@ import lombok.Data;
 
 @Data
 public class AppContext {
+
+    private String transactionID;
+    private String transactionCode;
+    private String transactionNumber;
+    private String transactionSessionId;
+    private String requestChannelId;
+    private String txnBankCode;
+    private String txnProvinceCode;
+    private String txnUserCode;
+    private String txnBranchCode;
+    private String txnCounterCode;
+    private String txnTerminalCode;
+    private String localBankTxnRequestTime;
+    private String localBankTxnRequestDate;
+    private String txnSerNo;
+    private String globalSerNo;
+    private String parentTxnSerNo;
+    private String formatVer;
+    private String requestTime;
+    private String callCode;
+    private String apiVer;
+    private String entityCode;
+    private String shardingType;
+    private String shardingKey;
+    private String msgLvl;
+    private String msgStatus;
+    private String zipMethod;
+    private String encryptFlag;
+
+
+
     //存放公共报文、token、userId、等请求上下文信息
     private String clientType; // 客户端类型
     private String txnId; // 统计交易号
@@ -74,5 +105,6 @@ public class AppContext {
         clientType = txnId0.substring(0, 1);
 
     }
+
 
 }

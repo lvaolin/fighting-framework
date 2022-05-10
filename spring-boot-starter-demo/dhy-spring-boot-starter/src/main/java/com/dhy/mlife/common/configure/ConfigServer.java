@@ -1,4 +1,4 @@
-package com.dhy.mlife.common.autoconfigure;
+package com.dhy.mlife.common.configure;
 
 import org.apache.catalina.connector.Connector;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;

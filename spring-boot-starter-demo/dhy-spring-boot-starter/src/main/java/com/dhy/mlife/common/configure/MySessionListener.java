@@ -1,4 +1,4 @@
-package com.dhy.mlife.common.autoconfigure;
+package com.dhy.mlife.common.configure;
 
 import javax.servlet.annotation.WebListener;
 import javax.servlet.http.HttpSessionEvent;

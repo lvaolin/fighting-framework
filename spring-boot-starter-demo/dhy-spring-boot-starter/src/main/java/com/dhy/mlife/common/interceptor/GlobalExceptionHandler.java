@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 @Slf4j
 public class GlobalExceptionHandler
 {
-
     /**
      * 系统异常
      */

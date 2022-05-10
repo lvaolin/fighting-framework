@@ -1,5 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.dhy.mlife.common.autoconfigure.ConfigFilter,\
-com.dhy.mlife.common.autoconfigure.ConfigServer,\
-com.dhy.mlife.common.autoconfigure.ConfigWebMvc,\
 com.dhy.mlife.common.autoconfigure.MyAutoConfig
