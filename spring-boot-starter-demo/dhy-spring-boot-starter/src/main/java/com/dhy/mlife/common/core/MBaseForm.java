@@ -8,7 +8,7 @@ import java.io.Serializable;
 public class MBaseForm implements Serializable {
 
     private static final long serialVersionUID = -6796117193988926918L;
-    
+    public String toClientMsg;
     private String clientType; // 客户端类型
     private String txnId; // 统计交易号
     private String imei; // 终端设备号
@@ -27,11 +27,9 @@ public class MBaseForm implements Serializable {
     private String clientVersion; //手机版本号
     private String userPlt;//01：积分365用户,02：新浪微博,03:腾讯微博,04：微信,05：中银易商    默认则没有该字段，即为本平台缤纷生活用户
     private String userId;
-	private String c;//s==>代表测试版本
-	//X83   刘博增加  2018-01-22
-	private String cityIdCde;//城市ID
-	
-	public String toClientMsg;
+    private String c;//s==>代表测试版本
+    //X83   刘博增加  2018-01-22
+    private String cityIdCde;//城市ID
 
 
 }

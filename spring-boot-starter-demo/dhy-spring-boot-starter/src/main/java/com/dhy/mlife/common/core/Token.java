@@ -14,7 +14,8 @@ public class Token implements Serializable {
     private Long appKey;        //应用id
     private String dbKey;       //分库标识
 
-    public Token() { }
+    public Token() {
+    }
 
     public Token(Long userId, Long orgId, Long versionId, Long appId, String dbKey, Long appKey, Long weixinId, String orgType, Long dljgId) {
         this.userId = userId;
@@ -24,11 +25,11 @@ public class Token implements Serializable {
         this.dbKey = dbKey;
     }
 
-    public static String toJson(Token token){
+    public static String toJson(Token token) {
         return null;
     }
 
-    public static Token fromJson(String jsonString){
+    public static Token fromJson(String jsonString) {
         return null;
     }
 }

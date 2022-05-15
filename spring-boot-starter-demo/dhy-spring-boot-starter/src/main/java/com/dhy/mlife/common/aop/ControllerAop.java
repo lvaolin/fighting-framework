@@ -8,16 +8,15 @@ import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.beans.BeanUtils;
-import org.springframework.stereotype.Component;
 
 @Aspect
 @Slf4j
-public class ControllerAop  {
+public class ControllerAop {
 
     @Pointcut(
             "@annotation(org.springframework.web.bind.annotation.RequestMapping) || " +
-            "@annotation(org.springframework.web.bind.annotation.GetMapping) || " +
-            "@annotation(org.springframework.web.bind.annotation.PostMapping)"
+                    "@annotation(org.springframework.web.bind.annotation.GetMapping) || " +
+                    "@annotation(org.springframework.web.bind.annotation.PostMapping)"
     )
     public void controllerPointcut() {
     }

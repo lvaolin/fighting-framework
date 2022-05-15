@@ -14,11 +14,11 @@ import javax.servlet.http.HttpSessionListener;
 public class MySessionListener implements HttpSessionListener {
     @Override
     public void sessionCreated(HttpSessionEvent se) {
-        System.out.println(se.getSession().getId()+"会话创建");
+        System.out.println(se.getSession().getId() + "会话创建");
     }
 
     @Override
     public void sessionDestroyed(HttpSessionEvent se) {
-        System.out.println(se.getSession().getId()+"会话注销");
+        System.out.println(se.getSession().getId() + "会话注销");
     }
 }

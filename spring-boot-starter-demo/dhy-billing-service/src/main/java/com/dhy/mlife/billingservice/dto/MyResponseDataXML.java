@@ -1,28 +1,31 @@
 package com.dhy.mlife.billingservice.dto;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import lombok.Data;
 
 import java.io.Serializable;
 
 @Data
-@JacksonXmlRootElement
 public class MyResponseDataXML<T> implements Serializable {
-    private Head head = new Head("0","success");
+    private Head head = new Head("0", "success");
     private T body;
-    public MyResponseDataXML(T bizData){
+
+    public MyResponseDataXML(T bizData) {
         this.body = bizData;
     }
 
-    public MyResponseDataXML(String code, String msg){
-        this.head = new Head(code,msg);
+    public MyResponseDataXML(String code, String msg) {
+        this.head = new Head(code, msg);
     }
 
-    public static class Head{
-        public Head(String code,String msg){
+    public static class Head {
+        private String code;
+        private String msg;
+
+        public Head(String code, String msg) {
             this.code = code;
             this.msg = msg;
         }
+
         public String getCode() {
             return code;
         }
@@ -38,8 +41,5 @@ public class MyResponseDataXML<T> implements Serializable {
         public void setMsg(String msg) {
             this.msg = msg;
         }
-
-        private String code;
-        private String msg;
     }
 }

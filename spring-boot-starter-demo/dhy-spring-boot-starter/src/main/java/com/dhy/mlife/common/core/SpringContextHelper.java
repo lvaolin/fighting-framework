@@ -3,7 +3,6 @@ package com.dhy.mlife.common.core;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
-import org.springframework.stereotype.Component;
 
 public class SpringContextHelper implements ApplicationContextAware {
 
@@ -19,7 +18,7 @@ public class SpringContextHelper implements ApplicationContextAware {
 
     @Override
     public void setApplicationContext(ApplicationContext context) throws BeansException {
-        this.context = context;
+        SpringContextHelper.context = context;
     }
 
 }

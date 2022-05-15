@@ -9,9 +9,7 @@ import com.dhy.mlife.common.configure.config.MlifeConfig;
 import com.dhy.mlife.common.core.SpringContextHelper;
 import com.dhy.mlife.common.interceptor.GlobalExceptionHandler;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.Import;
 
 /**

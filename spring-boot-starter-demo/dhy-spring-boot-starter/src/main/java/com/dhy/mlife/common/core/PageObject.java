@@ -6,19 +6,29 @@ public class PageObject extends BaseDto {
 
     private static final long serialVersionUID = 855778573334816193L;
 
-    /** 分页大小 */
+    /**
+     * 分页大小
+     */
     private int pageSize = 10;
 
-    /** 当前页 */
+    /**
+     * 当前页
+     */
     private int currentPage = 1;
 
-    /** 总页数 */
+    /**
+     * 总页数
+     */
     private int totalPage = 1;
 
-    /** 数据总数 */
+    /**
+     * 数据总数
+     */
     private int totalCount = 0;
 
-    /** 分页时需要偏移的数据总量(MySQL、PgSQL 等特殊数据库) */
+    /**
+     * 分页时需要偏移的数据总量(MySQL、PgSQL 等特殊数据库)
+     */
     @JsonIgnore
     private int offset = 0;
 
@@ -31,6 +41,7 @@ public class PageObject extends BaseDto {
 
     /**
      * 获取分页大小
+     *
      * @return 分页大小
      */
     public int getPageSize() {
@@ -39,6 +50,7 @@ public class PageObject extends BaseDto {
 
     /**
      * 设置分页大小，当 {@code pageSize} 小于 1 时，设置为 1
+     *
      * @param pageSize 分页大小
      */
     public void setPageSize(int pageSize) {
@@ -52,6 +64,7 @@ public class PageObject extends BaseDto {
     /**
      * 获取当前页
      * <p>当参数 {@link #reasonable} 设置为 {@code true} 时， 如果 {@link #currentPage} > {@link #totalPage} 返回 {@link #totalPage}
+     *
      * @return 当前页
      */
     public int getCurrentPage() {
@@ -67,6 +80,7 @@ public class PageObject extends BaseDto {
 
     /**
      * 设置当前页，当 {@code currentPage} 小于 1 时，设置为 1
+     *
      * @param currentPage 当前页
      */
     public void setCurrentPage(int currentPage) {
@@ -79,6 +93,7 @@ public class PageObject extends BaseDto {
 
     /**
      * 获取总页数
+     *
      * @return 总页数
      */
     public int getTotalPage() {
@@ -88,6 +103,7 @@ public class PageObject extends BaseDto {
     /**
      * 设置总页数
      * <p>总页数在设置 {@link #totalCount} 之后根据 {@link #pageSize} 自动计算
+     *
      * @param totalPage 总页数
      */
     public void setTotalPage(int totalPage) {
@@ -96,6 +112,7 @@ public class PageObject extends BaseDto {
 
     /**
      * 获取数据总数
+     *
      * @return 数据总数
      */
     public int getTotalCount() {
@@ -105,6 +122,7 @@ public class PageObject extends BaseDto {
     /**
      * 设置数据总数，当 {@code totalCount} 小于 0 时，设置为 0
      * <p>设置数据总数之后会根据 {@link #pageSize} 自动计算 {@link #totalPage}
+     *
      * @param totalCount
      */
     public void setTotalCount(int totalCount) {
@@ -124,7 +142,8 @@ public class PageObject extends BaseDto {
 
     /**
      * 获取分页时需要偏移的数据总量(MySQL、PgSQL 等特殊数据库)
-     * @return 分页时需要偏移的数据总量(MySQL、PgSQL 等特殊数据库)
+     *
+     * @return 分页时需要偏移的数据总量(MySQL 、 PgSQL 等特殊数据库)
      */
     public int getOffset() {
         setOffset((getCurrentPage() - 1) * getPageSize());
@@ -133,6 +152,7 @@ public class PageObject extends BaseDto {
 
     /**
      * 设置分页时需要偏移的数据总量(MySQL、PgSQL 等特殊数据库)
+     *
      * @param offset 分页时需要偏移的数据总量(MySQL、PgSQL 等特殊数据库)
      */
     public void setOffset(int offset) {
@@ -142,6 +162,7 @@ public class PageObject extends BaseDto {
     /**
      * 获取分页合理化参数，默认true
      * <p>当该参数设置为 {@code true} 时，方法 {@link #getCurrentPage()} 在 {@link #currentPage} > {@link #totalPage} 返回 {@link #totalPage}
+     *
      * @return reasonable 分页合理化参数
      */
     public Boolean getReasonable() {
@@ -151,6 +172,7 @@ public class PageObject extends BaseDto {
     /**
      * 设置分页合理化参数
      * <p>当该参数设置为 {@code true} 时，方法 {@link #getCurrentPage()} 在 {@link #currentPage} > {@link #totalPage} 返回 {@link #totalPage}
+     *
      * @param reasonable 分页合理化参数
      */
     public void setReasonable(Boolean reasonable) {

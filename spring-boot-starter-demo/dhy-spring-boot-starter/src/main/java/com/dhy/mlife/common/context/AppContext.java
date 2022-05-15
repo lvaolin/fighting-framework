@@ -5,6 +5,7 @@ import lombok.Data;
 @Data
 public class AppContext {
 
+    public String toClientMsg;
     private String transactionID;
     private String transactionCode;
     private String transactionNumber;
@@ -32,9 +33,6 @@ public class AppContext {
     private String msgStatus;
     private String zipMethod;
     private String encryptFlag;
-
-
-
     //存放公共报文、token、userId、等请求上下文信息
     private String clientType; // 客户端类型
     private String txnId; // 统计交易号
@@ -56,10 +54,10 @@ public class AppContext {
     private String userId;
     private String c;//s==>代表测试版本
     private String cityIdCde;//城市ID
-    public String toClientMsg;
 
     /**
      * 判断交易码的正确性，并设置内部交易码及终端类型编码
+     *
      * @param txnId0 客户端上送的交易码
      * @param txnId1 本地常量交易码
      * @throws Exception
@@ -68,34 +66,36 @@ public class AppContext {
         if (null == txnId0 || "".equals(txnId0.trim())) throw new Exception(ExceptionMessage.TXN_ID_1);
         if (10 != txnId0.length()) throw new Exception(ExceptionMessage.TXN_ID_2);
         clientType = txnId0.substring(0, 1);
-        txnId0 = txnId0.substring(1, txnId0.length());
+        txnId0 = txnId0.substring(1);
         if (!txnId1.equals(txnId0)) throw new Exception(ExceptionMessage.TXN_ID_3);
         txnId = txnId0;
     }
 
     /**
      * 判断交易码的正确性，并设置内部交易码及终端类型编码
+     *
      * @param txnId0 客户端上送的交易码
      * @param txnId1 本地常量交易码
      * @throws Exception
      */
-    public void transactTxnId(String txnId0, String...txnIds) throws Exception {
+    public void transactTxnId(String txnId0, String... txnIds) throws Exception {
         if (null == txnId0 || "".equals(txnId0.trim())) throw new Exception(ExceptionMessage.TXN_ID_1);
         if (10 != txnId0.length()) throw new Exception(ExceptionMessage.TXN_ID_2);
         clientType = txnId0.substring(0, 1);
-        txnId0 = txnId0.substring(1, txnId0.length());
+        txnId0 = txnId0.substring(1);
         boolean find = false;
-        for(String txnId1:txnIds){
-            if (txnId1.equals(txnId0)){
+        for (String txnId1 : txnIds) {
+            if (txnId1.equals(txnId0)) {
                 txnId = txnId0;
                 find = true;
                 break;
             }
         }
-        if(!find){
+        if (!find) {
             throw new Exception(ExceptionMessage.TXN_ID_3);
         }
     }
+
     /*
      * 截取机型
      */

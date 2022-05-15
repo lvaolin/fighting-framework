@@ -10,15 +10,19 @@ public class BillInfoFormNew extends AppContext {
 
     private String cardNo;
     private String billDt;//账单日期
+
     public String getCardNo() {
         return cardNo;
     }
+
     public void setCardNo(String cardNo) {
         this.cardNo = cardNo;
     }
+
     public String getBillDt() {
         return billDt;
     }
+
     public void setBillDt(String billDt) {
         this.billDt = billDt;
     }

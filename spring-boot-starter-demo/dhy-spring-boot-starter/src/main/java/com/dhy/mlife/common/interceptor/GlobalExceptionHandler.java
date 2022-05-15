@@ -10,20 +10,18 @@ import javax.servlet.http.HttpServletRequest;
 
 @RestControllerAdvice
 @Slf4j
-public class GlobalExceptionHandler
-{
+public class GlobalExceptionHandler {
     /**
      * 系统异常
      */
     @ExceptionHandler(Exception.class)
-    public MyResponseData handleException(Exception e, HttpServletRequest request)
-    {
+    public MyResponseData handleException(Exception e, HttpServletRequest request) {
         log.error(e.getMessage(), e);
-        if(e instanceof BusinessException){
+        if (e instanceof BusinessException) {
             BusinessException b = (BusinessException) e;
-            return new MyResponseData(b.getCode(),b.getMessage());
+            return new MyResponseData(b.getCode(), b.getMessage());
         }
-        return new MyResponseData("999",e.getMessage());
+        return new MyResponseData("999", e.getMessage());
     }
 
 
