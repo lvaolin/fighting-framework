@@ -11,9 +11,7 @@ import com.dhy.mlife.common.core.MyResponseData;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -76,6 +74,11 @@ public class MyController {
         map.put("logId", UUID.randomUUID().toString());
         map.put("costTime", "100毫秒");
         return new MyResponseDataXML(map);
+    }
+
+    @RequestMapping(value = "/get",  produces = MediaType.APPLICATION_JSON_VALUE)
+    public Object get(@RequestParam long id, HttpServletRequest request, HttpServletResponse response) throws BusinessException {
+        return new MyResponseData(myService.selectByPrimaryKey(id));
     }
 
 

@@ -1,5 +1,7 @@
 package com.dhy.mlife.billingservice.service.itf;
 
+import com.dhy.mlife.billingservice.gateway.db.itf.SeataStoragePo;
+
 /**
  * @Project spring-boot-starter-demo
  * @Description 主要用途描述
@@ -8,4 +10,6 @@ package com.dhy.mlife.billingservice.service.itf;
  */
 public interface MyServiceI {
     void bizMethod();
+
+    SeataStoragePo selectByPrimaryKey(Long id);
 }
