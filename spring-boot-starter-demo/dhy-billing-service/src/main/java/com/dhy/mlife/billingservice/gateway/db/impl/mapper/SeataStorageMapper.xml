@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.dhy.mlife.billingservice.gateway.db.impl.SeataStorageMapper">
+<mapper namespace="com.dhy.mlife.billingservice.gateway.db.impl.mapper.SeataStorageMapper">
     <!--sql就是原生sql，字段名称和po不一致的要进行重命名才能正确给po自动赋值-->
-    <select id="productSelectAllByXml" resultType="com.dhy.mlife.billingservice.gateway.db.itf.SeataStoragePo" >
+    <select id="productSelectAllByXml" resultType="com.dhy.mlife.billingservice.gateway.db.itf.SeataStoragePo">
         select product.*, lastUpdateTime from product
     </select>
 </mapper>

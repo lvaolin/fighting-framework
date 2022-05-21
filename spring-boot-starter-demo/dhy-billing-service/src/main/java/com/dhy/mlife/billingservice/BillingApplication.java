@@ -6,7 +6,7 @@ import tk.mybatis.spring.annotation.MapperScan;
 
 @SpringBootApplication
 @MapperScan(basePackages = {
-        "com.dhy.mlife.billingservice.gateway.db.impl"
+        "com.dhy.mlife.billingservice.gateway.db.impl.mapper"
 })
 public class BillingApplication {
 

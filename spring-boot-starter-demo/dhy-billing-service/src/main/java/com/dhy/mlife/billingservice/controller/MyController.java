@@ -8,6 +8,7 @@ import com.dhy.mlife.common.context.AppContext;
 import com.dhy.mlife.common.context.AppContextHolder;
 import com.dhy.mlife.common.core.BusinessException;
 import com.dhy.mlife.common.core.MyResponseData;
+import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -76,9 +77,26 @@ public class MyController {
         return new MyResponseDataXML(map);
     }
 
-    @RequestMapping(value = "/get",  produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/get", produces = MediaType.APPLICATION_JSON_VALUE)
     public Object get(@RequestParam long id, HttpServletRequest request, HttpServletResponse response) throws BusinessException {
         return new MyResponseData(myService.selectByPrimaryKey(id));
+    }
+
+    @RequestMapping(value = "/getAll", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Object getAll(HttpServletRequest request, HttpServletResponse response) throws BusinessException {
+        return new MyResponseData(myService.selectAll());
+    }
+
+    @RequestMapping(value = "/setCache", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Object setCache(KV kv, HttpServletRequest request, HttpServletResponse response) throws BusinessException {
+        myService.setCache(kv.getKey(), kv.getValue());
+        return new MyResponseData("okl");
+    }
+
+    @Data
+    class KV {
+        private String key;
+        private String value;
     }
 
 

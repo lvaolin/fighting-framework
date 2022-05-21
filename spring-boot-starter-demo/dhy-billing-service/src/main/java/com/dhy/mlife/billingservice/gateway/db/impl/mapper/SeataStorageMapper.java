@@ -1,10 +1,9 @@
-package com.dhy.mlife.billingservice.gateway.db.impl;
+package com.dhy.mlife.billingservice.gateway.db.impl.mapper;
 
 import com.dhy.mlife.billingservice.gateway.db.itf.SeataStoragePo;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
-import org.springframework.stereotype.Component;
 import tk.mybatis.mapper.common.ConditionMapper;
 import tk.mybatis.mapper.common.IdsMapper;
 import tk.mybatis.mapper.common.Mapper;
@@ -16,16 +15,18 @@ import java.util.List;
 /**
  * 使用了tkmybatis 继承 Mapper
  */
-@Component
 public interface SeataStorageMapper extends Mapper<SeataStoragePo>, InsertListMapper<SeataStoragePo>, MySqlMapper<SeataStoragePo>, IdsMapper<SeataStoragePo>, ConditionMapper<SeataStoragePo> {
 
 
     @Select("select count(*) from product")
     public int productCount();
+
     @Insert("insert into product(price,stock) values ( #{price},#{stock} )")
     public int productInsert(SeataStoragePo po);
+
     @Delete("delete from product where id= #{id}")
     public int productDelete(SeataStoragePo po);
+
     @Delete("update  product set price=#{price},stock=#{stock} where id= #{id}")
     public int productUpdate(SeataStoragePo po);
 

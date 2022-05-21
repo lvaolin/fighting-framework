@@ -1,16 +1,18 @@
-{"properties": [
-  {
-    "name": "mlife.serviceName",
-    "type": "java.lang.String",
-    "defaultValue": "mlife",
-    "description": "微服务名称",
-    "sourceType": "com.dhy.mlife.common.configure.config.MlifeConfig"
-  },
-  {
-    "name": "mlife.timeCost",
-    "type": "java.lang.Integer",
-    "defaultValue": 2000,
-    "description": "慢接口告警阈值,单位毫秒",
-    "sourceType": "com.dhy.mlife.common.configure.config.MlifeConfig"
-  }
-]}
+{
+  "properties": [
+    {
+      "name": "mlife.serviceName",
+      "type": "java.lang.String",
+      "defaultValue": "mlife",
+      "description": "微服务名称",
+      "sourceType": "com.dhy.mlife.common.configure.config.MlifeConfig"
+    },
+    {
+      "name": "mlife.timeCost",
+      "type": "java.lang.Integer",
+      "defaultValue": 2000,
+      "description": "慢接口告警阈值,单位毫秒",
+      "sourceType": "com.dhy.mlife.common.configure.config.MlifeConfig"
+    }
+  ]
+}

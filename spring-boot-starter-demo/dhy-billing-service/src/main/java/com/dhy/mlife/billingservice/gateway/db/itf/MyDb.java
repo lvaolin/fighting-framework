@@ -1,5 +1,7 @@
 package com.dhy.mlife.billingservice.gateway.db.itf;
 
+import java.util.List;
+
 /**
  * @Project spring-boot-starter-demo
  * @Description 主要用途描述
@@ -8,6 +10,10 @@ package com.dhy.mlife.billingservice.gateway.db.itf;
  */
 public interface MyDb {
     int insert(SeataStoragePo po);
+
     int deleteByPrimaryKey(Long id);
+
     SeataStoragePo selectByPrimaryKey(Long id);
+
+    List<SeataStoragePo> selectAll();
 }

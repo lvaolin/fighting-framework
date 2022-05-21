@@ -5,9 +5,12 @@ import com.dhy.mlife.billingservice.gateway.config.ConfigI;
 import com.dhy.mlife.billingservice.gateway.db.itf.MyDb;
 import com.dhy.mlife.billingservice.gateway.db.itf.SeataStoragePo;
 import com.dhy.mlife.billingservice.service.itf.MyServiceI;
+import com.dhy.mlife.cache.impl.CacheService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 /**
  * @Project spring-boot-starter-demo
@@ -23,7 +26,8 @@ public class MyServiceImpl implements MyServiceI {
     private ConfigI config;
     @Autowired
     private RedisTemplate redisTemplate;
-
+    @Autowired
+    private CacheService cacheService;
     @Autowired
     private MyDb myDb;
 
@@ -37,10 +41,25 @@ public class MyServiceImpl implements MyServiceI {
         System.out.println(redisTemplate.opsForValue().get("string-sessionid-name"));
         //获取配置文件内容示例
         System.out.println(config.getValue("server.port"));
-        System.out.println(config.getValue("server.port","config/app-dev.properties"));
+        System.out.println(config.getValue("server.port", "config/app-dev.properties"));
     }
+
     @Override
-    public SeataStoragePo selectByPrimaryKey(Long id){
+    public SeataStoragePo selectByPrimaryKey(Long id) {
         return myDb.selectByPrimaryKey(id);
+    }
+
+
+    @Override
+    public void setCache(String key, String value) {
+        if (key == null || value == null) {
+            throw new RuntimeException("key or value need not null");
+        }
+        cacheService.set(key, value);
+    }
+
+    @Override
+    public List<SeataStoragePo> selectAll() {
+        return myDb.selectAll();
     }
 }

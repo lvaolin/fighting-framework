@@ -1,2 +1,3 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.dhy.mlife.common.autoconfigure.MyAutoConfig
+com.dhy.mlife.common.autoconfigure.MyAutoConfig,\
+com.dhy.mlife.cache.autoconfigure.CacheAutoConfig

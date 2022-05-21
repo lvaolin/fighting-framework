@@ -8,5 +8,6 @@ package com.dhy.mlife.billingservice.gateway.config;
  */
 public interface ConfigI {
     String getValue(String key);
+
     String getValue(String key, String configFile);
 }

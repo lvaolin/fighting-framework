@@ -13,24 +13,24 @@ import java.util.Properties;
  * @Date 2022/5/11 下午2:13
  */
 @Component
-public class ConfigImpl implements ConfigI{
-    private  Map<String,Properties> map = new HashMap<>();
+public class ConfigImpl implements ConfigI {
+    private Map<String, Properties> map = new HashMap<>();
 
     @Override
     public String getValue(String key) {
-        return getValue(key,"application.properties");
+        return getValue(key, "application.properties");
     }
 
     @Override
-    public String getValue(String key,String configFile) {
-        if (map.get(configFile)==null) {
-            synchronized (this){
-                if (map.get(configFile)==null){
+    public String getValue(String key, String configFile) {
+        if (map.get(configFile) == null) {
+            synchronized (this) {
+                if (map.get(configFile) == null) {
                     Properties resourceAsProperties = ResourceLoader.getResourceAsProperties(configFile);
-                    if (resourceAsProperties!=null) {
-                        map.put(configFile,resourceAsProperties);
-                    }else{
-                        throw new RuntimeException(configFile+"加载失败");
+                    if (resourceAsProperties != null) {
+                        map.put(configFile, resourceAsProperties);
+                    } else {
+                        throw new RuntimeException(configFile + "加载失败");
                     }
                 }
             }

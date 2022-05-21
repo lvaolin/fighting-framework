@@ -1,7 +1,6 @@
 package com.dhy.mlife.billingservice.gateway.db.itf;
 
 import lombok.Data;
-import org.springframework.data.annotation.Persistent;
 import tk.mybatis.mapper.annotation.Version;
 
 import javax.persistence.Column;
@@ -14,7 +13,7 @@ import java.util.Date;
 public class SeataStoragePo {
 
     @Id
-    private  Integer id;
+    private Integer id;
     @Column(name = "price")
     private Double price;
     private Integer stock;
@@ -23,7 +22,7 @@ public class SeataStoragePo {
 
     //版本号 行并发控制使用，tkmybatis会自动加一
     @Version
-    private  Integer version;
+    private Integer version;
 
 
 }
