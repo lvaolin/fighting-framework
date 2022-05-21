@@ -15,6 +15,7 @@ import java.util.List;
 /**
  * 使用了tkmybatis 继承 Mapper
  */
+
 public interface SeataStorageMapper extends Mapper<SeataStoragePo>, InsertListMapper<SeataStoragePo>, MySqlMapper<SeataStoragePo>, IdsMapper<SeataStoragePo>, ConditionMapper<SeataStoragePo> {
 
 
