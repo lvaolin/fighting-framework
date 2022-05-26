@@ -3,6 +3,7 @@ package com.dhy.mlife.cache.impl;
 import lombok.Data;
 
 import javax.persistence.Table;
+import java.io.Serializable;
 
 /**
  * @Project spring-boot-starter-demo
@@ -12,7 +13,7 @@ import javax.persistence.Table;
  */
 @Table(name = "cache_table")
 @Data
-public class CacheTablePo {
+public class CacheTablePo implements Serializable {
     private String key;
     private String value;
 }
