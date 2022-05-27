@@ -79,7 +79,15 @@ public class MyController {
 
     @RequestMapping(value = "/get", produces = MediaType.APPLICATION_JSON_VALUE)
     public Object get(@RequestParam long id, HttpServletRequest request, HttpServletResponse response) throws BusinessException {
-        return new MyResponseData(myService.selectByPrimaryKey(id));
+
+        //这个测试是想说明， ResponseBody 这个注解会默认将对象序列化成json字符串，
+        // 如果你return的是字符串而不是对象，它就不会做额外处理，直接响应写出即可
+        //而 produces仅仅是声明你响应的字符串的格式，利于客户端的显示处理，但是你响应的真实数据完全可以不是json格式，那就是你误导了客户端而已
+        String jsonstring = "{\"name\":\"aaa\"}";
+
+        return "jsonstring";
+
+        //return new MyResponseData(myService.selectByPrimaryKey(id));
     }
 
     @RequestMapping(value = "/getAll", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -89,8 +97,16 @@ public class MyController {
 
     @RequestMapping(value = "/setCache", produces = MediaType.APPLICATION_JSON_VALUE)
     public Object setCache(KV kv, HttpServletRequest request, HttpServletResponse response) throws BusinessException {
-        myService.setCache(kv.getKey(), kv.getValue());
-        return new MyResponseData("okl");
+//        myService.setCache(kv.getKey(), kv.getValue());
+//        return new MyResponseData("okl");
+
+        try {
+            throw new RuntimeException("异常测试");
+        }catch (Exception e){
+            throw e;
+        }finally {
+            return new MyResponseData("okl");
+        }
     }
 
     @Data
