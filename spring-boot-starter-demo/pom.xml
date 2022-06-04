@@ -8,5 +8,7 @@
     <modules>
         <module>dhy-billing-service</module>
         <module>dhy-spring-boot-starter</module>
+        <module>dhy-spring-boot-liba</module>
+        <module>dhy-spring-boot-libb</module>
     </modules>
 </project>

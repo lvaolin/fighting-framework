@@ -1,5 +1,6 @@
 package com.dhy.mlife.billingservice.controller;
 
+import com.dhy.mlife.Spring;
 import com.dhy.mlife.billingservice.dto.BillInfoFormNew;
 import com.dhy.mlife.billingservice.dto.MyResponseDataXML;
 import com.dhy.mlife.billingservice.service.itf.MyServiceI;
@@ -115,5 +116,10 @@ public class MyController {
         private String value;
     }
 
+
+    @RequestMapping(value = "/classloadertest", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Object classloadertest(HttpServletRequest request, HttpServletResponse response) throws BusinessException {
+        return Spring.classfrom;
+    }
 
 }

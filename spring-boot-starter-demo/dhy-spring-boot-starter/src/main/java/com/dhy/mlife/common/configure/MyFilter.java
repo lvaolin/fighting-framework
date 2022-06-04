@@ -21,7 +21,8 @@ public class MyFilter implements Filter {
         HttpServletResponse  res= (HttpServletResponse)servletResponse;
         String uri = req.getRequestURI();
         log.info(uri);
-        if (true) {
+        if (false) {
+            //测试forward重定向
             req.getRequestDispatcher("/getAll").forward(req,res);
         }else{
             ThreadContext.put(Constants.logId, UUID.randomUUID().toString());

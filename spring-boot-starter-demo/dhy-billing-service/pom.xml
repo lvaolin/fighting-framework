@@ -23,6 +23,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <dependencies>
+
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid-spring-boot-starter</artifactId>
@@ -38,11 +39,7 @@
             <artifactId>mapper-spring-boot-starter</artifactId>
             <version>2.1.5</version>
         </dependency>
-        <dependency>
-            <groupId>com.dhy</groupId>
-            <artifactId>dhy-spring-boot-starter</artifactId>
-            <version>1.0</version>
-        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -65,6 +62,26 @@
             <artifactId>redisson-spring-boot-starter</artifactId>
             <version>3.15.4</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.dhy</groupId>
+            <artifactId>dhy-spring-boot-starter</artifactId>
+            <version>1.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.dhy</groupId>
+            <artifactId>dhy-spring-boot-libb</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.dhy</groupId>
+            <artifactId>dhy-spring-boot-liba</artifactId>
+            <version>1.0</version>
+        </dependency>
+
+
+
     </dependencies>
 
     <build>
