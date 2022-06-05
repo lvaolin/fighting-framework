@@ -12,10 +12,10 @@ import tk.mybatis.spring.annotation.MapperScan;
 })
 public class BillingApplication extends SpringBootServletInitializer {
 
-    @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-        return builder.sources(BillingApplication.class);
-    }
+//    @Override
+//    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+//        return builder.sources(BillingApplication.class);
+//    }
     public static void main(String[] args) {
         SpringApplication.run(BillingApplication.class, args);
     }
