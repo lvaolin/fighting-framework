@@ -101,13 +101,13 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <fork>true</fork>
-                    <addResources>true</addResources>
-                    <jvmArguments>Dfile.encoding=UTF-8</jvmArguments>
-                    <!--配置入口类的标签名-->
-                    <mainClass>com.dhy.mlife.billingservice.BillingApplication</mainClass>
-                </configuration>
+<!--                <configuration>-->
+<!--                    <fork>true</fork>-->
+<!--                    <addResources>true</addResources>-->
+<!--                    <jvmArguments>Dfile.encoding=UTF-8</jvmArguments>-->
+<!--                    &lt;!&ndash;配置入口类的标签名&ndash;&gt;-->
+<!--                    <mainClass>com.dhy.mlife.billingservice.BillingApplication</mainClass>-->
+<!--                </configuration>-->
             </plugin>
             <plugin>
                 <artifactId>maven-resources-plugin</artifactId>
