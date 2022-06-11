@@ -39,10 +39,9 @@ public class HelloFilter extends HttpFilter {
         System.out.println(charSet);
 
         filterChain.doFilter(request,response);
-        System.out.println(getFilterName()+":"+request.getRequestURI()+"耗时"+(System.currentTimeMillis()-startTime)+"ms");
+        System.out.println(request.getRequestURI()+"耗时"+(System.currentTimeMillis()-startTime)+"ms");
     }
 
-    @Override
     public void destroy() {
         System.out.println("HelloFilter destroy");
     }
