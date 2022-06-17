@@ -25,7 +25,7 @@
         <zookeeper.version>3.4.10</zookeeper.version>
         <lombok.version>1.18.12</lombok.version>
         <jedis.version>3.3.0</jedis.version>
-        <fastjson.version>1.2.79</fastjson.version>
+        <fastjson.version>1.2.83</fastjson.version>
         <guava.version>27.1-jre</guava.version>
         <springboot.admin.version>2.2.3</springboot.admin.version>
         <log4j2.version>2.17.0</log4j2.version>
