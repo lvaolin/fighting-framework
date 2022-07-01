@@ -13,8 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.lang.reflect.Field;
 import java.util.Map;
 
-public class MyInterceptor extends HandlerInterceptorAdapter {
-    private final Logger log = LoggerFactory.getLogger(MyInterceptor.class);
+public class MsgHeaderInterceptor extends HandlerInterceptorAdapter {
+    private final Logger log = LoggerFactory.getLogger(MsgHeaderInterceptor.class);
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)

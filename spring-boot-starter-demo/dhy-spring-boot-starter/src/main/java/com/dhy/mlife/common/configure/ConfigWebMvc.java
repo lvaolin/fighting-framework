@@ -1,6 +1,6 @@
 package com.dhy.mlife.common.configure;
 
-import com.dhy.mlife.common.interceptor.MyInterceptor;
+import com.dhy.mlife.common.interceptor.MsgHeaderInterceptor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -23,7 +23,7 @@ public class ConfigWebMvc implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new MyInterceptor())
+        registry.addInterceptor(new MsgHeaderInterceptor())
                 .addPathPatterns("/**")
                 .excludePathPatterns("/")
         ;

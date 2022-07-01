@@ -8,6 +8,7 @@ import com.dhy.mlife.common.configure.MySessionListener;
 import com.dhy.mlife.common.configure.config.MlifeConfig;
 import com.dhy.mlife.common.core.SpringContextHelper;
 import com.dhy.mlife.common.interceptor.GlobalExceptionHandler;
+import com.dhy.mlife.common.interceptor.ResponseBodyHandler;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -22,6 +23,7 @@ import org.springframework.context.annotation.Import;
 @Configuration
 @EnableConfigurationProperties({MlifeConfig.class})
 @Import({
+        ResponseBodyHandler.class,
         GlobalExceptionHandler.class,
         ControllerAop.class,
         SpringContextHelper.class,
