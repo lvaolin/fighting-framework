@@ -1,0 +1,221 @@
+2022-06-05 22:48:11.182  INFO 10170 --- [main] c.d.m.billingservice.BillingApplication  : Starting BillingApplication on makeboluo.local with PID 10170 (/Users/lvaolin/code_github.com/study/fighting-framework/spring-boot-starter-demo/dhy-billing-service/target/classes started by lvaolin in /Users/lvaolin/code_github.com/study/fighting-framework/spring-boot-starter-demo)
+2022-06-05 22:48:11.192  INFO 10170 --- [main] c.d.m.billingservice.BillingApplication  : No active profile set, falling back to default profiles: default
+2022-06-05 22:48:13.564  INFO 10170 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-06-05 22:48:13.568  INFO 10170 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-06-05 22:48:13.623  INFO 10170 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 33ms. Found 0 Redis repository interfaces.
+2022-06-05 22:48:14.581  INFO 10170 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2022-06-05 22:48:14.590  INFO 10170 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-06-05 22:48:14.590  INFO 10170 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2022-06-05 22:48:14.664  INFO 10170 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/v1]     : Initializing Spring embedded WebApplicationContext
+2022-06-05 22:48:14.664  INFO 10170 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3357 ms
+2022-06-05 22:48:15.207  INFO 10170 --- [main] org.redisson.Version                     : Redisson 3.15.4
+2022-06-05 22:48:15.847  INFO 10170 --- [redisson-netty-2-23] o.r.c.pool.MasterPubSubConnectionPool    : 1 connections initialized for /127.0.0.1:6379
+2022-06-05 22:48:15.942  INFO 10170 --- [redisson-netty-2-19] o.r.c.pool.MasterConnectionPool          : 24 connections initialized for /127.0.0.1:6379
+2022-06-05 22:48:16.194  INFO 10170 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2022-06-05 22:48:16.307  INFO 10170 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2022-06-05 22:48:16.954 ERROR 10170 --- [main] c.d.mlife.common.configure.ConfigWebMvc  : org.springframework.http.converter.ByteArrayHttpMessageConverter@32256e68
+2022-06-05 22:48:16.955 ERROR 10170 --- [main] c.d.mlife.common.configure.ConfigWebMvc  : org.springframework.http.converter.StringHttpMessageConverter@61e86192
+2022-06-05 22:48:16.955 ERROR 10170 --- [main] c.d.mlife.common.configure.ConfigWebMvc  : org.springframework.http.converter.StringHttpMessageConverter@5e7abaf7
+2022-06-05 22:48:16.956 ERROR 10170 --- [main] c.d.mlife.common.configure.ConfigWebMvc  : org.springframework.http.converter.ResourceHttpMessageConverter@353f472a
+2022-06-05 22:48:16.956 ERROR 10170 --- [main] c.d.mlife.common.configure.ConfigWebMvc  : org.springframework.http.converter.ResourceRegionHttpMessageConverter@63bfdbcb
+2022-06-05 22:48:16.956 ERROR 10170 --- [main] c.d.mlife.common.configure.ConfigWebMvc  : org.springframework.http.converter.xml.SourceHttpMessageConverter@7af0affa
+2022-06-05 22:48:16.956 ERROR 10170 --- [main] c.d.mlife.common.configure.ConfigWebMvc  : org.springframework.http.converter.support.AllEncompassingFormHttpMessageConverter@71560f51
+2022-06-05 22:48:16.956 ERROR 10170 --- [main] c.d.mlife.common.configure.ConfigWebMvc  : org.springframework.http.converter.json.MappingJackson2HttpMessageConverter@1320e68a
+2022-06-05 22:48:16.957 ERROR 10170 --- [main] c.d.mlife.common.configure.ConfigWebMvc  : org.springframework.http.converter.json.MappingJackson2HttpMessageConverter@3e1f1046
+2022-06-05 22:48:16.957 ERROR 10170 --- [main] c.d.mlife.common.configure.ConfigWebMvc  : org.springframework.http.converter.xml.MappingJackson2XmlHttpMessageConverter@34330f77
+2022-06-05 22:48:16.957 ERROR 10170 --- [main] c.d.mlife.common.configure.ConfigWebMvc  : org.springframework.http.converter.xml.MappingJackson2XmlHttpMessageConverter@23e3f5cd
+2022-06-05 22:48:16.978  INFO 10170 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-06-05 22:48:17.484  INFO 10170 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService
+2022-06-05 22:48:17.793  INFO 10170 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear tk.mybatis.mapper.util.MsUtil CLASS_CACHE cache.
+2022-06-05 22:48:17.794  INFO 10170 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear tk.mybatis.mapper.genid.GenIdUtil CACHE cache.
+2022-06-05 22:48:17.794  INFO 10170 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear tk.mybatis.mapper.version.VersionUtil CACHE cache.
+2022-06-05 22:48:17.795  INFO 10170 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear EntityHelper entityTableMap cache.
+2022-06-05 22:48:17.802  INFO 10170 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
+2022-06-05 22:48:17.896  INFO 10170 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/v1'
+2022-06-05 22:48:17.912  INFO 10170 --- [main] c.d.m.billingservice.BillingApplication  : Started BillingApplication in 7.679 seconds (JVM running for 9.123)
+2022-06-05 22:48:18.055  WARN 10170 --- [registrationTask1] d.c.b.a.c.r.ApplicationRegistrator       : Failed to register application as Application(name=billing-service, managementUrl=http://127.0.0.1:8081/v1/actuator, healthUrl=http://127.0.0.1:8081/v1/actuator/health, serviceUrl=http://127.0.0.1:8081/v1) at spring-boot-admin ([http://localhost:8769/instances]): I/O error on POST request for "http://localhost:8769/instances": Connection refused (Connection refused); nested exception is java.net.ConnectException: Connection refused (Connection refused). Further attempts are logged on DEBUG level
+2022-06-05 22:48:27.446  INFO 10170 --- [SpringContextShutdownHook] com.dhy.mlife.common.configure.MyFilter  : --- FilterResponseTime destroy ---
+2022-06-05 22:48:27.496  INFO 10170 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService
+2022-06-05 22:48:27.497  INFO 10170 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-06-05 22:48:27.498  INFO 10170 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2022-06-05 22:48:27.509  INFO 10170 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2022-06-05 22:55:36.000  INFO 10356 --- [main] c.d.m.billingservice.BillingApplication  : Starting BillingApplication on makeboluo.local with PID 10356 (/Users/lvaolin/code_github.com/study/fighting-framework/spring-boot-starter-demo/dhy-billing-service/target/classes started by lvaolin in /Users/lvaolin/code_github.com/study/fighting-framework/spring-boot-starter-demo)
+2022-06-05 22:55:36.006  INFO 10356 --- [main] c.d.m.billingservice.BillingApplication  : No active profile set, falling back to default profiles: default
+2022-06-05 22:55:38.076  INFO 10356 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-06-05 22:55:38.080  INFO 10356 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-06-05 22:55:38.130  INFO 10356 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 29ms. Found 0 Redis repository interfaces.
+2022-06-05 22:55:38.825  INFO 10356 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2022-06-05 22:55:38.835  INFO 10356 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-06-05 22:55:38.835  INFO 10356 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2022-06-05 22:55:38.929  INFO 10356 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/v1]     : Initializing Spring embedded WebApplicationContext
+2022-06-05 22:55:38.929  INFO 10356 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2762 ms
+2022-06-05 22:55:39.307  INFO 10356 --- [main] org.redisson.Version                     : Redisson 3.15.4
+2022-06-05 22:55:39.730  INFO 10356 --- [redisson-netty-2-15] o.r.c.pool.MasterPubSubConnectionPool    : 1 connections initialized for /127.0.0.1:6379
+2022-06-05 22:55:39.753  INFO 10356 --- [redisson-netty-2-19] o.r.c.pool.MasterConnectionPool          : 24 connections initialized for /127.0.0.1:6379
+2022-06-05 22:55:39.931  INFO 10356 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2022-06-05 22:55:40.052  INFO 10356 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2022-06-05 22:55:40.637 ERROR 10356 --- [main] c.d.mlife.common.configure.ConfigWebMvc  : org.springframework.http.converter.ByteArrayHttpMessageConverter@87d9a01
+2022-06-05 22:55:40.637 ERROR 10356 --- [main] c.d.mlife.common.configure.ConfigWebMvc  : org.springframework.http.converter.StringHttpMessageConverter@364b1061
+2022-06-05 22:55:40.638 ERROR 10356 --- [main] c.d.mlife.common.configure.ConfigWebMvc  : org.springframework.http.converter.StringHttpMessageConverter@7e5b621b
+2022-06-05 22:55:40.638 ERROR 10356 --- [main] c.d.mlife.common.configure.ConfigWebMvc  : org.springframework.http.converter.ResourceHttpMessageConverter@10177794
+2022-06-05 22:55:40.638 ERROR 10356 --- [main] c.d.mlife.common.configure.ConfigWebMvc  : org.springframework.http.converter.ResourceRegionHttpMessageConverter@e5c2463
+2022-06-05 22:55:40.638 ERROR 10356 --- [main] c.d.mlife.common.configure.ConfigWebMvc  : org.springframework.http.converter.xml.SourceHttpMessageConverter@6a950a3b
+2022-06-05 22:55:40.638 ERROR 10356 --- [main] c.d.mlife.common.configure.ConfigWebMvc  : org.springframework.http.converter.support.AllEncompassingFormHttpMessageConverter@4f7be6c8
+2022-06-05 22:55:40.638 ERROR 10356 --- [main] c.d.mlife.common.configure.ConfigWebMvc  : org.springframework.http.converter.json.MappingJackson2HttpMessageConverter@172f4514
+2022-06-05 22:55:40.638 ERROR 10356 --- [main] c.d.mlife.common.configure.ConfigWebMvc  : org.springframework.http.converter.json.MappingJackson2HttpMessageConverter@647b9364
+2022-06-05 22:55:40.639 ERROR 10356 --- [main] c.d.mlife.common.configure.ConfigWebMvc  : org.springframework.http.converter.xml.MappingJackson2XmlHttpMessageConverter@50fdf44f
+2022-06-05 22:55:40.639 ERROR 10356 --- [main] c.d.mlife.common.configure.ConfigWebMvc  : org.springframework.http.converter.xml.MappingJackson2XmlHttpMessageConverter@b6bccb4
+2022-06-05 22:55:40.657  INFO 10356 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-06-05 22:55:41.048  INFO 10356 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService
+2022-06-05 22:55:41.227  INFO 10356 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear tk.mybatis.mapper.util.MsUtil CLASS_CACHE cache.
+2022-06-05 22:55:41.228  INFO 10356 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear tk.mybatis.mapper.genid.GenIdUtil CACHE cache.
+2022-06-05 22:55:41.228  INFO 10356 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear tk.mybatis.mapper.version.VersionUtil CACHE cache.
+2022-06-05 22:55:41.229  INFO 10356 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear EntityHelper entityTableMap cache.
+2022-06-05 22:55:41.234  INFO 10356 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
+2022-06-05 22:55:41.301  INFO 10356 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/v1'
+2022-06-05 22:55:41.321  INFO 10356 --- [main] c.d.m.billingservice.BillingApplication  : Started BillingApplication in 6.082 seconds (JVM running for 8.383)
+2022-06-05 22:55:41.430  WARN 10356 --- [registrationTask1] d.c.b.a.c.r.ApplicationRegistrator       : Failed to register application as Application(name=billing-service, managementUrl=http://127.0.0.1:8081/v1/actuator, healthUrl=http://127.0.0.1:8081/v1/actuator/health, serviceUrl=http://127.0.0.1:8081/v1) at spring-boot-admin ([http://localhost:8769/instances]): I/O error on POST request for "http://localhost:8769/instances": Connection refused (Connection refused); nested exception is java.net.ConnectException: Connection refused (Connection refused). Further attempts are logged on DEBUG level
+2022-06-05 22:55:47.957  INFO 10356 --- [SpringContextShutdownHook] com.dhy.mlife.common.configure.MyFilter  : --- FilterResponseTime destroy ---
+2022-06-05 22:55:48.017  INFO 10356 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService
+2022-06-05 22:55:48.018  INFO 10356 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-06-05 22:55:48.019  INFO 10356 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2022-06-05 22:55:48.036  INFO 10356 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2022-06-05 23:00:38.897  INFO 10548 --- [main] c.d.m.billingservice.BillingApplication  : Starting BillingApplication on makeboluo.local with PID 10548 (/Users/lvaolin/code_github.com/study/fighting-framework/spring-boot-starter-demo/dhy-billing-service/target/classes started by lvaolin in /Users/lvaolin/code_github.com/study/fighting-framework/spring-boot-starter-demo)
+2022-06-05 23:00:38.909  INFO 10548 --- [main] c.d.m.billingservice.BillingApplication  : No active profile set, falling back to default profiles: default
+2022-06-05 23:00:40.652  INFO 10548 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-06-05 23:00:40.655  INFO 10548 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-06-05 23:00:40.730  INFO 10548 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 42ms. Found 0 Redis repository interfaces.
+2022-06-05 23:00:41.532  INFO 10548 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2022-06-05 23:00:41.552  INFO 10548 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-06-05 23:00:41.553  INFO 10548 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2022-06-05 23:00:41.659  INFO 10548 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/v1]     : Initializing Spring embedded WebApplicationContext
+2022-06-05 23:00:41.659  INFO 10548 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2586 ms
+2022-06-05 23:00:42.057  INFO 10548 --- [main] org.redisson.Version                     : Redisson 3.15.4
+2022-06-05 23:00:42.594  INFO 10548 --- [redisson-netty-2-14] o.r.c.pool.MasterPubSubConnectionPool    : 1 connections initialized for /127.0.0.1:6379
+2022-06-05 23:00:42.620  INFO 10548 --- [redisson-netty-2-19] o.r.c.pool.MasterConnectionPool          : 24 connections initialized for /127.0.0.1:6379
+2022-06-05 23:00:42.825  INFO 10548 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2022-06-05 23:00:42.929  INFO 10548 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2022-06-05 23:00:43.528 ERROR 10548 --- [main] c.d.mlife.common.configure.ConfigWebMvc  : org.springframework.http.converter.ByteArrayHttpMessageConverter@87d9a01
+2022-06-05 23:00:43.529 ERROR 10548 --- [main] c.d.mlife.common.configure.ConfigWebMvc  : org.springframework.http.converter.StringHttpMessageConverter@364b1061
+2022-06-05 23:00:43.529 ERROR 10548 --- [main] c.d.mlife.common.configure.ConfigWebMvc  : org.springframework.http.converter.StringHttpMessageConverter@7e5b621b
+2022-06-05 23:00:43.529 ERROR 10548 --- [main] c.d.mlife.common.configure.ConfigWebMvc  : org.springframework.http.converter.ResourceHttpMessageConverter@10177794
+2022-06-05 23:00:43.529 ERROR 10548 --- [main] c.d.mlife.common.configure.ConfigWebMvc  : org.springframework.http.converter.ResourceRegionHttpMessageConverter@e5c2463
+2022-06-05 23:00:43.529 ERROR 10548 --- [main] c.d.mlife.common.configure.ConfigWebMvc  : org.springframework.http.converter.xml.SourceHttpMessageConverter@6a950a3b
+2022-06-05 23:00:43.529 ERROR 10548 --- [main] c.d.mlife.common.configure.ConfigWebMvc  : org.springframework.http.converter.support.AllEncompassingFormHttpMessageConverter@4f7be6c8
+2022-06-05 23:00:43.530 ERROR 10548 --- [main] c.d.mlife.common.configure.ConfigWebMvc  : org.springframework.http.converter.json.MappingJackson2HttpMessageConverter@172f4514
+2022-06-05 23:00:43.530 ERROR 10548 --- [main] c.d.mlife.common.configure.ConfigWebMvc  : org.springframework.http.converter.json.MappingJackson2HttpMessageConverter@647b9364
+2022-06-05 23:00:43.530 ERROR 10548 --- [main] c.d.mlife.common.configure.ConfigWebMvc  : org.springframework.http.converter.xml.MappingJackson2XmlHttpMessageConverter@50fdf44f
+2022-06-05 23:00:43.530 ERROR 10548 --- [main] c.d.mlife.common.configure.ConfigWebMvc  : org.springframework.http.converter.xml.MappingJackson2XmlHttpMessageConverter@b6bccb4
+2022-06-05 23:00:43.547  INFO 10548 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-06-05 23:00:43.920  INFO 10548 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService
+2022-06-05 23:00:44.113  INFO 10548 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear tk.mybatis.mapper.util.MsUtil CLASS_CACHE cache.
+2022-06-05 23:00:44.114  INFO 10548 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear tk.mybatis.mapper.genid.GenIdUtil CACHE cache.
+2022-06-05 23:00:44.114  INFO 10548 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear tk.mybatis.mapper.version.VersionUtil CACHE cache.
+2022-06-05 23:00:44.114  INFO 10548 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear EntityHelper entityTableMap cache.
+2022-06-05 23:00:44.119  INFO 10548 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
+2022-06-05 23:00:44.201  INFO 10548 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/v1'
+2022-06-05 23:00:44.217  INFO 10548 --- [main] c.d.m.billingservice.BillingApplication  : Started BillingApplication in 6.55 seconds (JVM running for 8.364)
+2022-06-05 23:00:44.370  WARN 10548 --- [registrationTask1] d.c.b.a.c.r.ApplicationRegistrator       : Failed to register application as Application(name=billing-service, managementUrl=http://127.0.0.1:8081/v1/actuator, healthUrl=http://127.0.0.1:8081/v1/actuator/health, serviceUrl=http://127.0.0.1:8081/v1) at spring-boot-admin ([http://localhost:8769/instances]): I/O error on POST request for "http://localhost:8769/instances": Connection refused (Connection refused); nested exception is java.net.ConnectException: Connection refused (Connection refused). Further attempts are logged on DEBUG level
+2022-06-05 23:01:20.319  INFO 10548 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/v1]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-06-05 23:01:20.320  INFO 10548 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-06-05 23:01:20.333  INFO 10548 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 13 ms
+2022-06-05 23:01:20.387  INFO 10548 --- [http-nio-8081-exec-1] com.dhy.mlife.common.configure.MyFilter  : /v1/getAll
+2022-06-05 23:01:20.475  INFO 10548 --- [http-nio-8081-exec-1] c.d.m.common.interceptor.MyInterceptor   : 拦截器前置动作
+2022-06-05 23:01:20.503  INFO 10548 --- [http-nio-8081-exec-1] com.dhy.mlife.common.aop.ControllerAop   : ----参数注入-----
+2022-06-05 23:01:20.640  INFO 10548 --- [http-nio-8081-exec-1] c.d.m.common.interceptor.MyInterceptor   : 拦截器后置动作
+2022-06-05 23:01:20.646 ERROR 10548 --- [http-nio-8081-exec-1] com.dhy.mlife.common.configure.MyFilter  : /v1/getAll耗时259ms
+2022-06-05 23:02:25.389  INFO 10548 --- [SpringContextShutdownHook] com.dhy.mlife.common.configure.MyFilter  : --- FilterResponseTime destroy ---
+2022-06-05 23:02:25.441  INFO 10548 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService
+2022-06-05 23:02:25.442  INFO 10548 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-06-05 23:02:25.443  INFO 10548 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2022-06-05 23:02:25.450  INFO 10548 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2022-06-05 23:02:35.144  INFO 10598 --- [main] c.d.m.billingservice.BillingApplication  : Starting BillingApplication on makeboluo.local with PID 10598 (/Users/lvaolin/code_github.com/study/fighting-framework/spring-boot-starter-demo/dhy-billing-service/target/classes started by lvaolin in /Users/lvaolin/code_github.com/study/fighting-framework/spring-boot-starter-demo)
+2022-06-05 23:02:35.157  INFO 10598 --- [main] c.d.m.billingservice.BillingApplication  : No active profile set, falling back to default profiles: default
+2022-06-05 23:02:36.532  INFO 10598 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-06-05 23:02:36.535  INFO 10598 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-06-05 23:02:36.586  INFO 10598 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 30ms. Found 0 Redis repository interfaces.
+2022-06-05 23:02:37.333  INFO 10598 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-06-05 23:02:37.341  INFO 10598 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-06-05 23:02:37.342  INFO 10598 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2022-06-05 23:02:37.431  INFO 10598 --- [main] o.a.c.c.C.[.[.[/billing-serive]          : Initializing Spring embedded WebApplicationContext
+2022-06-05 23:02:37.432  INFO 10598 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2164 ms
+2022-06-05 23:02:37.753  INFO 10598 --- [main] org.redisson.Version                     : Redisson 3.15.4
+2022-06-05 23:02:38.110  INFO 10598 --- [redisson-netty-2-13] o.r.c.pool.MasterPubSubConnectionPool    : 1 connections initialized for /127.0.0.1:6379
+2022-06-05 23:02:38.136  INFO 10598 --- [redisson-netty-2-8] o.r.c.pool.MasterConnectionPool          : 24 connections initialized for /127.0.0.1:6379
+2022-06-05 23:02:38.289  INFO 10598 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2022-06-05 23:02:38.380  INFO 10598 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2022-06-05 23:02:38.893 ERROR 10598 --- [main] c.d.mlife.common.configure.ConfigWebMvc  : org.springframework.http.converter.ByteArrayHttpMessageConverter@4b97b3d2
+2022-06-05 23:02:38.894 ERROR 10598 --- [main] c.d.mlife.common.configure.ConfigWebMvc  : org.springframework.http.converter.StringHttpMessageConverter@76437e9b
+2022-06-05 23:02:38.894 ERROR 10598 --- [main] c.d.mlife.common.configure.ConfigWebMvc  : org.springframework.http.converter.StringHttpMessageConverter@383cb5ce
+2022-06-05 23:02:38.894 ERROR 10598 --- [main] c.d.mlife.common.configure.ConfigWebMvc  : org.springframework.http.converter.ResourceHttpMessageConverter@798deee8
+2022-06-05 23:02:38.894 ERROR 10598 --- [main] c.d.mlife.common.configure.ConfigWebMvc  : org.springframework.http.converter.ResourceRegionHttpMessageConverter@96897c8
+2022-06-05 23:02:38.894 ERROR 10598 --- [main] c.d.mlife.common.configure.ConfigWebMvc  : org.springframework.http.converter.xml.SourceHttpMessageConverter@7f97bc14
+2022-06-05 23:02:38.894 ERROR 10598 --- [main] c.d.mlife.common.configure.ConfigWebMvc  : org.springframework.http.converter.support.AllEncompassingFormHttpMessageConverter@22d8f4ed
+2022-06-05 23:02:38.895 ERROR 10598 --- [main] c.d.mlife.common.configure.ConfigWebMvc  : org.springframework.http.converter.json.MappingJackson2HttpMessageConverter@193eb1ba
+2022-06-05 23:02:38.895 ERROR 10598 --- [main] c.d.mlife.common.configure.ConfigWebMvc  : org.springframework.http.converter.json.MappingJackson2HttpMessageConverter@3434a4f0
+2022-06-05 23:02:38.895 ERROR 10598 --- [main] c.d.mlife.common.configure.ConfigWebMvc  : org.springframework.http.converter.xml.MappingJackson2XmlHttpMessageConverter@236ae13d
+2022-06-05 23:02:38.895 ERROR 10598 --- [main] c.d.mlife.common.configure.ConfigWebMvc  : org.springframework.http.converter.xml.MappingJackson2XmlHttpMessageConverter@79afa369
+2022-06-05 23:02:38.915  INFO 10598 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-06-05 23:02:39.324  INFO 10598 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService
+2022-06-05 23:02:39.517  INFO 10598 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear tk.mybatis.mapper.util.MsUtil CLASS_CACHE cache.
+2022-06-05 23:02:39.518  INFO 10598 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear tk.mybatis.mapper.genid.GenIdUtil CACHE cache.
+2022-06-05 23:02:39.519  INFO 10598 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear tk.mybatis.mapper.version.VersionUtil CACHE cache.
+2022-06-05 23:02:39.519  INFO 10598 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear EntityHelper entityTableMap cache.
+2022-06-05 23:02:39.525  INFO 10598 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
+2022-06-05 23:02:39.619  INFO 10598 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/billing-serive'
+2022-06-05 23:02:39.637  INFO 10598 --- [main] c.d.m.billingservice.BillingApplication  : Started BillingApplication in 5.336 seconds (JVM running for 6.272)
+2022-06-05 23:02:39.767  WARN 10598 --- [registrationTask1] d.c.b.a.c.r.ApplicationRegistrator       : Failed to register application as Application(name=billing-service, managementUrl=http://127.0.0.1:8080/billing-serive/actuator, healthUrl=http://127.0.0.1:8080/billing-serive/actuator/health, serviceUrl=http://127.0.0.1:8080/billing-serive) at spring-boot-admin ([http://localhost:8769/instances]): I/O error on POST request for "http://localhost:8769/instances": Connection refused (Connection refused); nested exception is java.net.ConnectException: Connection refused (Connection refused). Further attempts are logged on DEBUG level
+2022-06-05 23:03:16.620  INFO 10598 --- [SpringContextShutdownHook] com.dhy.mlife.common.configure.MyFilter  : --- FilterResponseTime destroy ---
+2022-06-05 23:03:16.677  INFO 10598 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService
+2022-06-05 23:03:16.678  INFO 10598 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-06-05 23:03:16.678  INFO 10598 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2022-06-05 23:03:16.685  INFO 10598 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2022-06-05 23:03:32.536  INFO 10622 --- [main] c.d.m.billingservice.BillingApplication  : Starting BillingApplication on makeboluo.local with PID 10622 (/Users/lvaolin/code_github.com/study/fighting-framework/spring-boot-starter-demo/dhy-billing-service/target/classes started by lvaolin in /Users/lvaolin/code_github.com/study/fighting-framework/spring-boot-starter-demo)
+2022-06-05 23:03:32.549  INFO 10622 --- [main] c.d.m.billingservice.BillingApplication  : No active profile set, falling back to default profiles: default
+2022-06-05 23:03:33.811  INFO 10622 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-06-05 23:03:33.813  INFO 10622 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-06-05 23:03:33.859  INFO 10622 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 32ms. Found 0 Redis repository interfaces.
+2022-06-05 23:03:34.485  INFO 10622 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-06-05 23:03:34.492  INFO 10622 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-06-05 23:03:34.493  INFO 10622 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2022-06-05 23:03:34.566  INFO 10622 --- [main] o.a.c.c.C.[.[.[/billing-service]         : Initializing Spring embedded WebApplicationContext
+2022-06-05 23:03:34.566  INFO 10622 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1881 ms
+2022-06-05 23:03:34.886  INFO 10622 --- [main] org.redisson.Version                     : Redisson 3.15.4
+2022-06-05 23:03:35.317  INFO 10622 --- [redisson-netty-2-15] o.r.c.pool.MasterPubSubConnectionPool    : 1 connections initialized for /127.0.0.1:6379
+2022-06-05 23:03:35.342  INFO 10622 --- [redisson-netty-2-18] o.r.c.pool.MasterConnectionPool          : 24 connections initialized for /127.0.0.1:6379
+2022-06-05 23:03:35.528  INFO 10622 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2022-06-05 23:03:35.622  INFO 10622 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2022-06-05 23:03:36.143 ERROR 10622 --- [main] c.d.mlife.common.configure.ConfigWebMvc  : org.springframework.http.converter.ByteArrayHttpMessageConverter@67d4c48d
+2022-06-05 23:03:36.144 ERROR 10622 --- [main] c.d.mlife.common.configure.ConfigWebMvc  : org.springframework.http.converter.StringHttpMessageConverter@7fb8bad0
+2022-06-05 23:03:36.144 ERROR 10622 --- [main] c.d.mlife.common.configure.ConfigWebMvc  : org.springframework.http.converter.StringHttpMessageConverter@230a73f2
+2022-06-05 23:03:36.144 ERROR 10622 --- [main] c.d.mlife.common.configure.ConfigWebMvc  : org.springframework.http.converter.ResourceHttpMessageConverter@4b97b3d2
+2022-06-05 23:03:36.144 ERROR 10622 --- [main] c.d.mlife.common.configure.ConfigWebMvc  : org.springframework.http.converter.ResourceRegionHttpMessageConverter@383cb5ce
+2022-06-05 23:03:36.144 ERROR 10622 --- [main] c.d.mlife.common.configure.ConfigWebMvc  : org.springframework.http.converter.xml.SourceHttpMessageConverter@798deee8
+2022-06-05 23:03:36.145 ERROR 10622 --- [main] c.d.mlife.common.configure.ConfigWebMvc  : org.springframework.http.converter.support.AllEncompassingFormHttpMessageConverter@96897c8
+2022-06-05 23:03:36.145 ERROR 10622 --- [main] c.d.mlife.common.configure.ConfigWebMvc  : org.springframework.http.converter.json.MappingJackson2HttpMessageConverter@76437e9b
+2022-06-05 23:03:36.145 ERROR 10622 --- [main] c.d.mlife.common.configure.ConfigWebMvc  : org.springframework.http.converter.json.MappingJackson2HttpMessageConverter@7f97bc14
+2022-06-05 23:03:36.145 ERROR 10622 --- [main] c.d.mlife.common.configure.ConfigWebMvc  : org.springframework.http.converter.xml.MappingJackson2XmlHttpMessageConverter@12d40609
+2022-06-05 23:03:36.145 ERROR 10622 --- [main] c.d.mlife.common.configure.ConfigWebMvc  : org.springframework.http.converter.xml.MappingJackson2XmlHttpMessageConverter@22d8f4ed
+2022-06-05 23:03:36.182  INFO 10622 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-06-05 23:03:36.549  INFO 10622 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService
+2022-06-05 23:03:36.709  INFO 10622 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear tk.mybatis.mapper.util.MsUtil CLASS_CACHE cache.
+2022-06-05 23:03:36.709  INFO 10622 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear tk.mybatis.mapper.genid.GenIdUtil CACHE cache.
+2022-06-05 23:03:36.710  INFO 10622 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear tk.mybatis.mapper.version.VersionUtil CACHE cache.
+2022-06-05 23:03:36.710  INFO 10622 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear EntityHelper entityTableMap cache.
+2022-06-05 23:03:36.715  INFO 10622 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
+2022-06-05 23:03:36.772  INFO 10622 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/billing-service'
+2022-06-05 23:03:36.795  INFO 10622 --- [main] c.d.m.billingservice.BillingApplication  : Started BillingApplication in 5.011 seconds (JVM running for 6.03)
+2022-06-05 23:03:36.893  WARN 10622 --- [registrationTask1] d.c.b.a.c.r.ApplicationRegistrator       : Failed to register application as Application(name=billing-service, managementUrl=http://127.0.0.1:8080/billing-service/actuator, healthUrl=http://127.0.0.1:8080/billing-service/actuator/health, serviceUrl=http://127.0.0.1:8080/billing-service) at spring-boot-admin ([http://localhost:8769/instances]): I/O error on POST request for "http://localhost:8769/instances": Connection refused (Connection refused); nested exception is java.net.ConnectException: Connection refused (Connection refused). Further attempts are logged on DEBUG level
+2022-06-05 23:03:39.902  INFO 10622 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/billing-service]         : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-06-05 23:03:39.902  INFO 10622 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-06-05 23:03:39.912  INFO 10622 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 9 ms
+2022-06-05 23:03:39.920  INFO 10622 --- [http-nio-8080-exec-1] com.dhy.mlife.common.configure.MyFilter  : /billing-service/getAll
+2022-06-05 23:03:39.980  INFO 10622 --- [http-nio-8080-exec-1] c.d.m.common.interceptor.MyInterceptor   : 拦截器前置动作
+2022-06-05 23:03:40.000  INFO 10622 --- [http-nio-8080-exec-1] com.dhy.mlife.common.aop.ControllerAop   : ----参数注入-----
+2022-06-05 23:03:40.082  INFO 10622 --- [http-nio-8080-exec-1] c.d.m.common.interceptor.MyInterceptor   : 拦截器后置动作
+2022-06-05 23:03:40.084 ERROR 10622 --- [http-nio-8080-exec-1] com.dhy.mlife.common.configure.MyFilter  : /billing-service/getAll耗时164ms
+2022-06-05 23:03:46.252  INFO 10622 --- [SpringContextShutdownHook] com.dhy.mlife.common.configure.MyFilter  : --- FilterResponseTime destroy ---
+2022-06-05 23:03:46.307  INFO 10622 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService
+2022-06-05 23:03:46.308  INFO 10622 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-06-05 23:03:46.310  INFO 10622 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2022-06-05 23:03:46.316  INFO 10622 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed

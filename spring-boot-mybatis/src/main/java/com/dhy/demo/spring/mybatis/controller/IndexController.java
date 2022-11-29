@@ -6,6 +6,7 @@ import com.dhy.demo.spring.mybatis.utils.BusinessException;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -28,8 +29,11 @@ public class IndexController {
 
 
     @RequestMapping("/product/all")
-    Object getProduct(){
-        return seataStorageService.selectAll();
+    Object getProduct(@RequestParam String type){
+        if (type==null) {
+            throw new RuntimeException("type参数不能为空");
+        }
+        return seataStorageService.selectAll(type);
     }
 
     @RequestMapping("/product/all-xml")
