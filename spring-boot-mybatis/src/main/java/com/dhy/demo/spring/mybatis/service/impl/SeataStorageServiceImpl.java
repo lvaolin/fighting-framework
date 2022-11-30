@@ -20,7 +20,7 @@ public class SeataStorageServiceImpl implements ISeataStorageService {
     private IDbGateway myDbGateway;
     @Resource(name = "myDbGateway2")
     private IDbGateway myDbGateway2;
-JdbcTemplate
+
     @Override
     public List<SeataStoragePo> selectAll(String type) {
         switch (type){

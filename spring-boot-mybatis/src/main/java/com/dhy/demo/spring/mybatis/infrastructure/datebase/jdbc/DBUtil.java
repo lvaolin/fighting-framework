@@ -6,8 +6,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class DBUtil {
-	public static Map connections = new ConcurrentHashMap();
-	public static Map connectionTime = new ConcurrentHashMap();
+
 
 	public static  Connection getConnection()  {
 		Connection conn = null;
@@ -16,10 +15,7 @@ public class DBUtil {
 		String strPassword = "root";
 
 		try {
-			conn = DriverManager.getConnection(strUrl, strUser, strPassword);
-			connections.put(conn, new Exception());
-			connectionTime.put(conn, new java.util.Date());
-			System.out.println("****************DataSource Connection  get  size = " + connections.size());
+			conn = DriverManagerProxy.getConnection(strUrl, strUser, strPassword);
 
 		}
 		catch (SQLException e) {
@@ -31,12 +27,10 @@ public class DBUtil {
 	public static void close(Connection connection){
 		if (connection!=null) {
 			try {
-				connection.close();
-				connections.remove(connection);
-				connectionTime.remove(connection);
-				System.out.println("****************DataSource Connection close size = " + connections.size());
+				//connection.close();
+				DriverManagerProxy.close(connection);
 
-			} catch (SQLException throwables) {
+			} catch (Exception throwables) {
 				throwables.printStackTrace();
 			}
 		}
