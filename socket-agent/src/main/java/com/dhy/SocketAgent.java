@@ -9,32 +9,31 @@ public class SocketAgent {
     public static void premain(String agentArgs, Instrumentation inst) {
 
         inst.addTransformer((loader, className, classBeingRedefined, protectionDomain, classfileBuffer) -> {
-            if(className.equals("java/net/Socket")){
-                ClassPool aDefault = ClassPool.getDefault();
-
-                CtClass ctClass = null;
+            if (className.equals("java/net/Socket")) {
+                System.out.println("----开始植入----");
+                ClassPool classPool = ClassPool.getDefault();
                 try {
-                    ctClass = aDefault.get("java.net.Socket");
-                    CtClass param1 = aDefault.get("java.net.SocketAddress");
-                    CtClass concurrentHashMapClass=aDefault.get("java.util.concurrent.ConcurrentHashMap");
+                    CtClass socketClass = classPool.get("java.net.Socket");
+                    CtClass socketAddressClass = classPool.get("java.net.SocketAddress");
+                    CtClass concurrentHashMapClass = classPool.get("java.util.concurrent.ConcurrentHashMap");
 
-                    CtClass mapClass=aDefault.get("java.util.Map");
-                    CtField monitor = new CtField(mapClass, "socketMap", ctClass);
-                    monitor.setModifiers(Modifier.STATIC|Modifier.PUBLIC);
+                    CtClass mapClass = classPool.get("java.util.Map");
+                    CtField socketMapField = new CtField(mapClass, "socketMap", socketClass);
+                    socketMapField.setModifiers(Modifier.STATIC | Modifier.PUBLIC);
                     CtField.Initializer initializer = CtField.Initializer.byNew(concurrentHashMapClass);
-                    ctClass.addField(monitor,initializer);
+                    socketClass.addField(socketMapField, initializer);
 
-                    CtMethod connect = ctClass.getDeclaredMethod("connect", new CtClass[]{param1, CtClass.intType});
-                    connect.insertAfter("" +
+                    CtMethod connectMethod = socketClass.getDeclaredMethod("connect", new CtClass[]{socketAddressClass, CtClass.intType});
+                    connectMethod.insertAfter("" +
                             "java.text.SimpleDateFormat simpleDateFormat = new java.text.SimpleDateFormat(\"yyyy-MM-dd HH:mm:ss\");\n" +
-                            "java.util.Date date=new java.util.Date();"+
+                            "java.util.Date date=new java.util.Date();" +
                             "java.lang.String createTime=simpleDateFormat.format(date);" +
                             "socketMap.put(this,new java.lang.Exception(createTime));");
 
-                    CtMethod close = ctClass.getDeclaredMethod("close");
-                    close.insertAfter("socketMap.remove(this);");
+                    CtMethod closeMethod = socketClass.getDeclaredMethod("close");
+                    closeMethod.insertAfter("socketMap.remove(this);");
                     System.out.println("----植入成功----");
-                    return ctClass.toBytecode();
+                    return socketClass.toBytecode();
                 } catch (NotFoundException | CannotCompileException | IOException e) {
                     e.printStackTrace();
                 }
