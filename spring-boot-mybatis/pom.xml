@@ -35,12 +35,16 @@
             <version>2.1.2</version>
         </dependency>
 
+        <!--        <dependency>-->
+        <!--            <groupId>mysql</groupId>-->
+        <!--            <artifactId>mysql-connector-java</artifactId>-->
+        <!--            <scope>runtime</scope>-->
+        <!--        </dependency>-->
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <scope>runtime</scope>
+            <groupId>com.oracle.jdbc</groupId>
+            <artifactId>ojdbc8</artifactId>
+            <version>18.3.0.0</version>
         </dependency>
-
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>

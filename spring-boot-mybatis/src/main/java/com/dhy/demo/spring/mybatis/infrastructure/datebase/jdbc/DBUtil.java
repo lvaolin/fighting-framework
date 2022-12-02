@@ -10,15 +10,18 @@ public class DBUtil {
 
 	public static  Connection getConnection()  {
 		Connection conn = null;
-		String strUrl = "jdbc:mysql://localhost:3306/seata_storage?characterEncoding=utf8&serverTimezone=UTC";
-		String strUser = "root";
-		String strPassword = "root";
+//		String strUrl = "jdbc:mysql://localhost:3306/seata_storage?characterEncoding=utf8&serverTimezone=UTC";
+//		String strUser = "root";
+//		String strPassword = "root";
+
+		String strUrl = "jdbc:oracle:thin:@192.168.1.11:1521:orcl";
+		String strUser = "scott";
+		String strPassword = "tiger";
 
 		try {
 			conn = DriverManagerProxy.getConnection(strUrl, strUser, strPassword);
 
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return conn;

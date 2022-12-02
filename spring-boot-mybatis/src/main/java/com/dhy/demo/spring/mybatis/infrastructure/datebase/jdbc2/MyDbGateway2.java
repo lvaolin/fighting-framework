@@ -28,7 +28,7 @@ public class MyDbGateway2 implements IDbGateway {
         ResultSet rs = null;
         try {
             st = conn.createStatement();
-            rs = st.executeQuery("select * from product");
+            rs = st.executeQuery("select * from emp");
             while (rs.next()) {
                 int id = rs.getInt(1);
                 System.out.println(id);
