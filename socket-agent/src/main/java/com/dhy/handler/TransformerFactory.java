@@ -1,9 +1,4 @@
-package com.dhy;
-
-import com.dhy.handler.ITransformer;
-import com.dhy.handler.OracleTcpNTAdapterTransformer;
-import com.dhy.handler.SocketAdaptorTransformer;
-import com.dhy.handler.SocketTransformer;
+package com.dhy.handler;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -17,14 +12,17 @@ import java.util.concurrent.ConcurrentHashMap;
 public class TransformerFactory {
     private static Map<String, ITransformer> map = new ConcurrentHashMap<>();
     static {
-        map.put("java/net/Socket",new SocketTransformer());
+        map.put("java/net/Socket",new com.dhy.handler.SocketTransformer());
         //map.put("sun/nio/ch/SocketAdaptor",new SocketAdaptorTransformer());
-        map.put("oracle/net/nt/TcpNTAdapter",new OracleTcpNTAdapterTransformer());
+        map.put("oracle/net/nt/TcpNTAdapter",new com.dhy.handler.OracleTcpNTAdapterTransformer());
     }
     public static byte[] getBytecode(String className){
         if (map.get(className)!=null) {
             return map.get(className).transform();
         }
         return null;
+    }
+    public static boolean isNeedTransformer(String className){
+        return map.containsKey(className);
     }
 }
