@@ -14,15 +14,34 @@ import java.util.concurrent.TimeUnit;
  */
 public class AttachMain {
     public static void main(String[] args) throws Exception {
+        if (args==null||args.length==0) {
+            System.out.println("需要参数指定agent jar 位置");
+            return;
+        }
+
         List<VirtualMachineDescriptor> list = VirtualMachine.list();
-        VirtualMachine vm = null;
         for (VirtualMachineDescriptor v : list) {
-            if (v.toString().contains("com.dhy.demo.spring.mybatis.MybatisApplication")) {
-                vm = VirtualMachine.attach(v);
-                vm.loadAgent("/Users/lvaolin/code_github.com/study/fighting-framework/socket-agent/target/socket-agent-jar-with-dependencies.jar");
+            System.out.println(v.id()+"   "+v.toString());
+        }
+        byte[] idbyte = new byte[128];
+        System.in.read(idbyte);
+        String id = new String(idbyte);
+        id = id.trim();
+        boolean flag = false;
+        for (VirtualMachineDescriptor v : list) {
+            if (v.id().endsWith(id)) {
+                flag = true;
                 break;
             }
         }
+
+        if (flag) {
+            VirtualMachine vm = VirtualMachine.attach(id);
+            //"/Users/lvaolin/code_github.com/study/fighting-framework/socket-agent/target/socket-agent-jar-with-dependencies.jar"
+            System.out.println("loading..."+args[0]);
+            vm.loadAgent(args[0]);
+        }
+
         //vm.detach();
         while (true){
             TimeUnit.SECONDS.sleep(3);
