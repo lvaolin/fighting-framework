@@ -1,0 +1,7 @@
+--------------lvaolin---------------
+Index: src/main/java/com/dhy/patch/test/Patch.java
+Index: src/main/java/com/dhy/patch/test/Test.java
+Index: src/main/java/com/dhy/patch/test/mymapper.xml
+Index: src/main/resources/application.properties
+Index: src/main/resources/mapper/SeataStorageMapper.xml
+Index: WEB-INF/lib/classmate-1.5.1.jar
