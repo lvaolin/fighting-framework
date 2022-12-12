@@ -29,6 +29,9 @@ public class OracleTcpNTAdapterTransformer implements ITransformer,IMonitor {
 
         System.out.println("----开始OracleTcpNTAdapter字节码增强----");
         ClassPool classPool = ClassPool.getDefault();
+        classPool.appendClassPath(new LoaderClassPath(Thread.currentThread().getContextClassLoader()));
+        classPool.appendClassPath(new ClassClassPath(this.getClass()));
+
         try {
             CtClass socketClass = classPool.get("oracle.net.nt.TcpNTAdapter");
             //CtClass socketAddressClass = classPool.get("java.net.SocketAddress");
@@ -41,20 +44,33 @@ public class OracleTcpNTAdapterTransformer implements ITransformer,IMonitor {
             //socketClass.addField(myMap, initializer);
 
             CtMethod connectMethod = socketClass.getDeclaredMethod("connect");
-            connectMethod.insertBefore("" +
-                    "java.lang.System.out.println(\"----connect----\");"+
+
+            String myMap = "" +
                     "java.lang.String createTime=java.time.LocalDateTime.now().toString();" +
-                    "com.dhy.handler.OracleTcpNTAdapterTransformer.myMap.put(this,new java.lang.Exception(createTime));"
+                    "java.lang.ClassLoader myClassLoader = java.lang.Thread.currentThread().getContextClassLoader();" +//解决父类加载器加载子类问题
+                    "java.lang.Class aClass = myClassLoader.loadClass(\"com.dhy.handler.OracleTcpNTAdapterTransformer\");" +
+                    "java.lang.reflect.Field myMapField = aClass.getDeclaredField(\"myMap\");" +
+                    "java.util.Map myMap = (java.util.Map)myMapField.get(null);";
+
+            connectMethod.insertBefore("" +
+                    "java.lang.System.out.println(\"----OracleTcpNTAdapter connect----\");"+
+                    myMap +
+                    "myMap.put(this,new java.lang.Exception(createTime));"
             );
 
             CtClass exception = classPool.get("java.lang.Exception");
-            connectMethod.addCatch("com.dhy.handler.OracleTcpNTAdapterTransformer.myMap.remove(this);" +
-                            "java.lang.System.out.println(\"----exception----\");"+
-                    "throw $e;",exception);
+            connectMethod.addCatch("" +
+                    myMap+
+                    "myMap.remove(this);" +
+                    "java.lang.System.out.println(\"----OracleTcpNTAdapter exception----\");"+
+                    "throw $e;"
+                    ,exception);
 
             CtMethod closeMethod = socketClass.getDeclaredMethod("disconnect");
-            closeMethod.insertBefore("com.dhy.handler.OracleTcpNTAdapterTransformer.myMap.remove(this);"+
-                    "java.lang.System.out.println(\"----disconnect----\");"
+            closeMethod.insertBefore("" +
+                    myMap+
+                    "myMap.remove(this);"+
+                    "java.lang.System.out.println(\"----OracleTcpNTAdapter disconnect----\");"
             );
             System.out.println("----OracleTcpNTAdapter字节码增强成功----");
 
@@ -72,7 +88,7 @@ public class OracleTcpNTAdapterTransformer implements ITransformer,IMonitor {
         new Thread(() -> {
             while (true) {
                 try {
-                    TimeUnit.SECONDS.sleep(10);
+                    TimeUnit.SECONDS.sleep(300);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
